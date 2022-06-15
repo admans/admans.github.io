@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
+hexo-theme-material-indigo
+================
 
-You can use the [editor on GitHub](https://github.com/admans/admans.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+[![Join the chat at https://gitter.im/hexo-theme-indigo/Lobby](https://badges.gitter.im/hexo-theme-indigo/Lobby.svg)](https://gitter.im/hexo-theme-indigo/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。 [Preview](http://imys.net/)
 
-### Markdown
+> 现有两个主题分支，我的博客中使用的是 card 分支卡片风格主题，master 分支是旧版平铺式风格主题。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Feature
 
-```markdown
-Syntax highlighted code block
+1. 仅支持 IE10+ 等现代浏览器。
+2. 去 jQuery，更轻。相信现代浏览器的原生兼容性。
+3. 使用 Less 作为 css 预处理器，需要安装 `hexo-renderer-less`。
+4. 添加了英文字体支持 Roboto。
+5. 添加了一些波纹效果。By [Waves](https://github.com/fians/Waves)
+6. 无前端依赖的分享实现。
+7. 基于静态数据的站内搜索，无第三方侵入。
+8. 支持文章打赏。
 
-# Header 1
-## Header 2
-### Header 3
+## Useage
 
-- Bulleted
-- List
+[文档 | Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
 
-1. Numbered
-2. List
+## ChangeLog
 
-**Bold** and _Italic_ and `Code` text
+升级前请仔细查看更改内容，如非必要可不升级。
 
-[Link](url) and ![Image](src)
-```
+[ChangeLog](https://github.com/yscoder/hexo-theme-indigo/releases)
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## OtherVersion
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/admans/admans.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+* [vuepress-theme-indigo](https://github.com/yscoder/vuepress-theme-indigo)
