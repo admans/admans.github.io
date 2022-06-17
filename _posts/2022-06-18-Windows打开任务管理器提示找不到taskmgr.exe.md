@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: Windows 打开任务管理器提示找不到 taskmgr.exe
+title: Windows打开任务管理器提示找不到taskmgr.exe
 categories: [任务管理器, Win11]
 ---
 
