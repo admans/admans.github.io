@@ -1,5 +1,16 @@
 {%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
 <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPDFVT9FRS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BPDFVT9FRS');
+  </script>
+  
   <title>{{ page.title }}-{{ site.title }}</title>
   <meta charset="utf-8" />
   <meta http-equiv="content-language" content="zh-CN" />
@@ -54,13 +65,5 @@
         sessionStorage.removeItem('darkTheme');
       });
     }
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPDFVT9FRS"></script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-BPDFVT9FRS');
   </script>
-
 </head>
