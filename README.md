@@ -56,7 +56,7 @@ rougify style github > highlighting.css
 
 4. 修改`_config.yml`文件，具体作用请参考注释
 
-5. 清空`post _posts`目录下所有文件，注意是清空，不是删除这两个目录
+5. 清空`posts _posts`目录下所有文件，注意是清空，不是删除这两个目录
 
 6. 网站的 logo 和 favicon 放在了`static/img/`下，替换即可，大小无所谓，图片比例最好是 1:1
 
@@ -70,7 +70,7 @@ rougify style github > highlighting.css
 ---
 layout: mypost
 title: 标题
-categories: [分类1, 分类2]
+categories: [分类1,分类2]
 ---
 文章内容，Markdown格式
 ```
