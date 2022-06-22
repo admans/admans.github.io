@@ -38,6 +38,8 @@ menu:
     url: /pages/chat.html
   - title: 关于
     url: /pages/about.html
+   - title: 导航
+    url: /pages/navi.html
 
 # 点击页面文字冒出特效,不需要请设置为false
 extClickEffect: false
