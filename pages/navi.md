@@ -1,5 +1,5 @@
 ---
-layout:mypost
+layout: mypost
 title: 导航
 ---
 
