@@ -4,10 +4,11 @@ title: 导航
 ---
 
 ## 社区
-[百度网盘](https://pan.baidu.com/ "百度网盘") [微博](https://weibo.com/ "微博") [Facebook](https://www.facebook.com/ "Facebook") [twitter](https://twitter.com/ "twitter") [豆瓣](https://www.douban.com/ "豆瓣") [微信公众平台](https://https://mp.weixin.qq.com/ "微信公众平台") [吾爱破解](https://www.52pojie.cn/ "吾爱破解") [V2EX](https://v2ex.com/ "V2EX") [汽车之家](https://www.autohome.com.cn/ "汽车之家") [itzmx](http://bbs.itzmx.com/ "itzmx") [NGA](https://bbs.nga.cn/ "NGA") [老司机](https://www.laosiji.com/ "老司机") [鱼塘热榜](https://mo.fish/ "鱼塘热榜") [solidot](https://www.solidot.org/ "solidot")
+[百度网盘](https://pan.baidu.com/ "百度网盘") [微博](https://weibo.com/ "微博") [Facebook](https://www.facebook.com/ "Facebook") [twitter](https://twitter.com/ "twitter") [豆瓣](https://www.douban.com/ "豆瓣") [微信公众平台](https://https://mp.weixin.qq.com/ "微信公众平台") [吾爱破解](https://www.52pojie.cn/ "吾爱破解") [V2EX](https://v2ex.com/ "V2EX") [汽车之家](https://www.autohome.com.cn/ "汽车之家") [itzmx](http://bbs.itzmx.com/ "itzmx") [NGA](https://bbs.nga.cn/ "NGA")
+[老司机](https://www.laosiji.com/ "老司机") [鱼塘热榜](https://mo.fish/ "鱼塘热榜") [solidot](https://www.solidot.org/ "solidot")
 
 ## 购物
-[淘宝](https://taobao.com/ "淘宝") [小米](https://mi.com/ "小米") [京东](https://jd.com/ "京东")[亚马逊](https://z.cn/ "亚马逊") [12306](https://12306.cn/ "12306")[小米有品](https://www.xiaomiyoupin.com/ "小米有品")
+[淘宝](https://taobao.com/ "淘宝") [小米](https://mi.com/ "小米") [京东](https://jd.com/ "京东")[亚马逊](https://z.cn/ "亚马逊") [12306](https://12306.cn/ "12306") [小米有品](https://www.xiaomiyoupin.com/ "小米有品")
 
 ## 手机
 [米柚](https://miui.com/ "米柚") [右手网](http://www.uso.cn "右手网") [酷安](https://www.coolapk.com/ "酷安") [APKMirror](http://www.apkmirror.com/ "APKMirror") [apkpure](https://apkpure.com/ "apkpure") [少数派](https://sspai.com/ "少数派")
