@@ -29,3 +29,11 @@ title: 导航
 
 ## 其他
 [韩国漫画](http://www.hmfby.com/ "韩国漫画") [VirSCAN](http://www.virscan.org/ "VirSCAN") [证件照排版](http://www.sandcomp.com/blog/sandphoto/ "证件照排版") [DeepL](https://www.deepl.com/translator "DeepL") [和谐之源](https://hunter.gitlab.io/tools/harmonious/ "和谐之源") [doyoudo](http://www.doyoudo.com/ "doyoudo") [oeasy教程](http://oeasy.org/ "oeasy教程")
+
+<ul>
+  {%- for link in site.links %}
+  <li>
+    <p><a href="{{ link.url }}" title="{{ link.desc }}" target="_blank" >{{ link.title }}</a></p>
+  </li>
+  {%- endfor %}
+</ul>
