@@ -19,7 +19,7 @@ title: 导航
 [QQ音乐](https://y.qq.com/ "QQ音乐") [网易云音乐](https://music.163.com/ "网易云音乐") [耳机大家坛](http://www.erji.net/ "耳机大家坛") [享乐音乐论坛](https://www.xlebbs.com/ "享乐音乐论坛") [机核](https://www.gcores.com/ "机核") [津津乐道](https://dao.fm/ "津津乐道") [Audio Library](https://www.audiolibrary.com.co/ "Audio Library")
 
 ## 图片
-[pixabay](https://pixabay.com/ "pixabay") [wallhaven](https://wallhaven.cc/ "wallhaven") [hayato](https://photo.axis-studio.org/home "hayato")
+[pixabay](https://pixabay.com/ "pixabay") [wallhaven](https://wallhaven.cc/ "wallhaven") [hayato](https://photo.axis-studio.org/ "hayato")
 
 ## 影视
 [YouTube](https://www.youtube.com/ "YouTube") [腾讯视频](https://v.qq.com/ "腾讯视频") [爱奇艺](https://www.iqiyi.com/ "爱奇艺") [优酷](https://www.youku.com/ "优酷") [哔哩哔哩](https://www.bilibili.com/ "哔哩哔哩") [斗鱼](https://www.douyu.com/ "斗鱼") [虎牙](https://www.huya.com/ "虎牙") [时光网](http://www.mtime.com/ "时光网") [NO视频](https://www.novipnoad.com/ "NO视频") [老豆瓣](https://www.laodouban.com/ "老豆瓣") [直播吧](http://www.zhibo8.cc/ "直播吧") [CNTV-5](http://tv.cntv.cn/live/cctv5/?pt=HD "CNTV-5") [人人电影网](https://www.rrdynb.com/index.html "人人电影网") [青苹果影院](http://qpgyy.vip/ "青苹果影院")
