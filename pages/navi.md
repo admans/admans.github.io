@@ -17,7 +17,7 @@ title: 导航
 
 ## 游戏
 
-[游民星空](http://www.gamersky.com/ "游民星空") [3DMGAME](http://www.3dmgame.com/ "3DMGAME") [游侠网](https://www.ali213.net/ "游侠网") [悪魔的小站](http://www.mubolin.cn:99/ "悪魔的小站")
+[游民星空](http://www.gamersky.com/ "游民星空") [3DMGAME](http://www.3dmgame.com/ "3DMGAME") [游侠网](https://www.ali213.net/ "游侠网") [悪魔的小站](http://www.mubolin.cn:99/ "悪魔的小站") [Switch520](https://fourpetal.com/ "Switch520")
 
 ## 音乐
 
@@ -41,7 +41,7 @@ title: 导航
 
 ## H
 
-[紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [韩国漫画](http://www.hmfby.com/ "韩国漫画") [南+](https://south-plus.net/ "南+") [榕树下](https://dizhi.github.io/ "榕树下")
+[紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [韩国漫画](http://www.hmfby.com/ "韩国漫画") [南+](https://south-plus.net/ "南+")
 
 <ul>
   {%- for link in site.links %}
