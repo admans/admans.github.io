@@ -5,7 +5,7 @@ title: 导航
 
 ## 社区
 
-[百度网盘](https://pan.baidu.com/ "百度网盘") [微博](https://weibo.com/ "微博") [Facebook](https://www.facebook.com/ "Facebook") [twitter](https://twitter.com/ "twitter") [豆瓣](https://www.douban.com/ "豆瓣") [微信公众平台](https://https://mp.weixin.qq.com/ "微信公众平台") [吾爱破解](https://www.52pojie.cn/ "吾爱破解") [V2EX](https://v2ex.com/ "V2EX") [汽车之家](https://www.autohome.com.cn/ "汽车之家") [itzmx](http://bbs.itzmx.com/ "itzmx") [NGA](https://bbs.nga.cn/ "NGA") [老司机](https://www.laosiji.com/ "老司机") [鱼塘热榜](https://mo.fish/ "鱼塘热榜") [solidot](https://www.solidot.org/ "solidot") [Mrxn's Blog](https://mrxn.net/ "Mrxn's Blog") [GitHub](https://github.com/ "GitHub")
+[![百度网盘](https://raw.githubusercontent.com/admans/admans.github.io/main/logo/%E5%AF%BC%E8%88%AAList_%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98.png)](https://pan.baidu.com/ "百度网盘") [微博](https://weibo.com/ "微博") [Facebook](https://www.facebook.com/ "Facebook") [twitter](https://twitter.com/ "twitter") [豆瓣](https://www.douban.com/ "豆瓣") [微信公众平台](https://https://mp.weixin.qq.com/ "微信公众平台") [吾爱破解](https://www.52pojie.cn/ "吾爱破解") [V2EX](https://v2ex.com/ "V2EX") [汽车之家](https://www.autohome.com.cn/ "汽车之家") [itzmx](http://bbs.itzmx.com/ "itzmx") [NGA](https://bbs.nga.cn/ "NGA") [老司机](https://www.laosiji.com/ "老司机") [鱼塘热榜](https://mo.fish/ "鱼塘热榜") [solidot](https://www.solidot.org/ "solidot") [Mrxn's Blog](https://mrxn.net/ "Mrxn's Blog") [GitHub](https://github.com/ "GitHub")
 
 ## 购物
 
