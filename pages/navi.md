@@ -33,7 +33,7 @@ title: 导航
 
 ## 下载站
 
-[BT之家](http://btbtt11.com/ "BT之家") [乐赏](https://www.gscq.me/ "乐赏") [飘域家园](http://bbs.homefei.me/ "飘域家园") [天使动漫](https://www.tsdm39.net/ "天使动漫") [懒得勤快](https://masuit.com/ "懒得勤快") [果核剥壳](https://www.ghxi.com/ "果核剥壳") [4K世界](https://www.4ksj.com/ "4K世界") [影视森林](http://549.tv/ "影视森林") [超能搜](https://www.chaonengsou.com/ "超能搜") [精品下载](http://www.j9p.com/ "精品下载") [ACG盒子](https://www.acgbox.link/ "ACG盒子") [PPTSTORE](https://www.pptstore.net/ "PPTSTORE")
+[BT之家](http://btbtt11.com/ "BT之家") [乐赏](https://www.gbtgame.me/ "乐赏") [飘域家园](http://bbs.homefei.me/ "飘域家园") [天使动漫](https://www.tsdm39.net/ "天使动漫") [懒得勤快](https://masuit.com/ "懒得勤快") [果核剥壳](https://www.ghxi.com/ "果核剥壳") [4K世界](https://www.4ksj.com/ "4K世界") [影视森林](http://549.tv/ "影视森林") [超能搜](https://www.chaonengsou.com/ "超能搜") [精品下载](http://www.j9p.com/ "精品下载") [ACG盒子](https://www.acgbox.link/ "ACG盒子") [PPTSTORE](https://www.pptstore.net/ "PPTSTORE")
 
 ## 其他
 
