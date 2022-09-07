@@ -41,7 +41,7 @@ title: 导航
 
 ## H
 
-[紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [韩国漫画](http://www.hmfby.com/ "韩国漫画") [南+](https://south-plus.net/ "南+")
+[紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [南+](https://south-plus.net/ "南+")
 
 <ul>
   {%- for link in site.links %}
