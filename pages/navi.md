@@ -37,7 +37,7 @@ title: 导航
 
 ## 其他
 
-[VirSCAN](http://www.virscan.org/ "VirSCAN") [证件照排版](http://www.sandcomp.com/blog/sandphoto/ "证件照排版") [DeepL](https://www.deepl.com/translator "DeepL") [和谐之源](https://hunter.gitlab.io/tools/harmonious/ "和谐之源") [doyoudo](http://www.doyoudo.com/ "doyoudo") [oeasy教程](http://oeasy.org/ "oeasy教程")
+[VirSCAN](http://www.virscan.org/ "VirSCAN") [证件照排版](http://www.sandcomp.com/blog/sandphoto/ "证件照排版") [DeepL](https://www.deepl.com/translator "DeepL") [和谐之源](https://hunter.gitlab.io/tools/harmonious/ "和谐之源") [doyoudo](http://www.doyoudo.com/ "doyoudo") [oeasy教程](http://oeasy.org/ "oeasy教程") [稿定在线PS](https://ps.gaoding.com/#/ "稿定在线PS") [LKs Site](http://lkssite.vip/ "LKs Site")
 
 ## H
 
