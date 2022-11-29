@@ -17,7 +17,7 @@ title: 导航
 
 ## 游戏
 
-[游民星空](http://www.gamersky.com/ "游民星空") [3DMGAME](http://www.3dmgame.com/ "3DMGAME") [游侠网](https://www.ali213.net/ "游侠网") [悪魔的小站](http://www.mubolin.cn:99/ "悪魔的小站") [Switch520](https://fourpetal.com/ "Switch520")
+[游民星空](http://www.gamersky.com/ "游民星空") [3DMGAME](http://www.3dmgame.com/ "3DMGAME") [游侠网](https://www.ali213.net/ "游侠网") [悪魔的小站](http://www.mubolin.cn:99/ "悪魔的小站") [Switch520](https://xxxxx520.com "Switch520")
 
 ## 音乐
 
@@ -33,7 +33,7 @@ title: 导航
 
 ## 下载站
 
-[BT之家](http://btbtt11.com/ "BT之家") [乐赏](http://gbtgame.me/ "乐赏") [飘域家园](http://bbs.homefei.me/ "飘域家园") [天使动漫](https://www.tsdm39.net/ "天使动漫") [懒得勤快](https://masuit.com/ "懒得勤快") [果核剥壳](https://www.ghxi.com/ "果核剥壳") [4K世界](https://www.4ksj.com/ "4K世界") [影视森林](http://549.tv/ "影视森林") [超能搜](https://www.chaonengsou.com/ "超能搜") [精品下载](http://www.j9p.com/ "精品下载") [ACG盒子](https://www.acgbox.link/ "ACG盒子") [PPTSTORE](https://www.pptstore.net/ "PPTSTORE") [云盘资源网](https://www.yunpanziyuan.com/forum-7.htm "云盘资源网") 
+[BT之家](http://btbtt11.com/ "BT之家") [乐赏](http://gbtgame.me/ "乐赏") [飘域家园](http://bbs.homefei.me/ "飘域家园") [天使动漫](https://www.tsdm39.net/ "天使动漫") [懒得勤快](https://masuit.com/ "懒得勤快") [果核剥壳](https://www.ghxi.com/ "果核剥壳") [4K世界](https://www.4ksj.com/ "4K世界") [影视森林](http://549.tv/ "影视森林") [超能搜](https://www.chaonengsou.com/ "超能搜") [精品下载](http://www.j9p.com/ "精品下载") [ACG盒子](https://www.acgbox.link/ "ACG盒子") [PPTSTORE](https://www.pptstore.net/ "PPTSTORE") [云盘资源网](https://www.yunpanziyuan.com/forum-7.htm "云盘资源网") [RuTracker.org](https://rutracker.net/forum/index.php "RuTracker.org")
 
 ## 其他
 
