@@ -13,7 +13,7 @@ title: 导航
 
 ## 手机
 
-[米柚](https://miui.com/ "米柚") [右手网](http://www.uso.cn "右手网") [酷安](https://www.coolapk.com/ "酷安") [APKMirror](http://www.apkmirror.com/ "APKMirror") [apkpure](https://apkpure.com/ "apkpure") [少数派](https://sspai.com/ "少数派")
+[米柚](https://miui.com/ "米柚") [酷安](https://www.coolapk.com/ "酷安") [APKMirror](http://www.apkmirror.com/ "APKMirror") [apkpure](https://apkpure.com/ "apkpure") [少数派](https://sspai.com/ "少数派")
 
 ## 游戏
 
