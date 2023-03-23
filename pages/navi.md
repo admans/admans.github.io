@@ -42,3 +42,7 @@ title: 导航
 ## H
 
 [紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [南+](https://south-plus.net/ "南+") [草榴社區](https://t66y.com/ "草榴社區") [红领巾瓜报](https://hlj.fun/ "红领巾瓜报")
+
+## AI 绘图
+
+[CIVITAI](https://civitai.com/ "CIVITAI") [手抄本-法术](https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/htmlview# "手抄本-法术")
