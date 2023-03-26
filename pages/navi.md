@@ -49,4 +49,4 @@ title: 导航
 
 ## 类 ChatGPT
 
-[ChatGPT](chat.openai.com "ChatGPT") [ChatGPT 提示语](https://prompts.fresns.cn/ "ChatGPT 提示语") [ChatGPT 指令大全](https://docs.qq.com/pdf/DYnZWTE9Rc0tVS09w? "ChatGPT 指令大全") [ChatGPT 国内镜像站](https://blog.forwardminded.xyz/ "ChatGPT 国内镜像站")
+[ChatGPT](https://chat.openai.com/ "ChatGPT") [ChatGPT 提示语](https://prompts.fresns.cn/ "ChatGPT 提示语") [ChatGPT 指令大全](https://docs.qq.com/pdf/DYnZWTE9Rc0tVS09w? "ChatGPT 指令大全") [ChatGPT 国内镜像站](https://blog.forwardminded.xyz/ "ChatGPT 国内镜像站")
