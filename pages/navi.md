@@ -46,3 +46,7 @@ title: 导航
 ## AI 绘图
 
 [CIVITAI](https://civitai.com/ "CIVITAI") [手抄本-法术](https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/htmlview# "手抄本-法术")
+
+## 类 ChatGPT
+
+[ChatGPT](chat.openai.com "ChatGPT") [ChatGPT 提示语](https://prompts.fresns.cn/ "ChatGPT 提示语") [ChatGPT 指令大全](https://docs.qq.com/pdf/DYnZWTE9Rc0tVS09w? "ChatGPT 指令大全") [ChatGPT 国内镜像站](https://blog.forwardminded.xyz/ "ChatGPT 国内镜像站")
