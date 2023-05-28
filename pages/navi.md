@@ -45,7 +45,7 @@ title: 导航
 
 ## AI 绘图
 
-[CIVITAI](https://civitai.com/ "CIVITAI") [手抄本-法术](https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/htmlview# "手抄本-法术")
+[CIVITAI](https://civitai.com/ "CIVITAI") [手抄本-法术](https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/htmlview# "手抄本-法术") [CIVITAI法典](https://docs.google.com/document/d/1xFGVMr_ELDDW9WkKw27wjsWqSDNYlLWtsY93Ost-0QE/edit "CIVITAI法典")
 
 ## 类 ChatGPT
 
