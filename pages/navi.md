@@ -17,7 +17,7 @@ title: 导航
 
 ## 游戏
 
-[游民星空](http://www.gamersky.com/ "游民星空") [3DMGAME](http://www.3dmgame.com/ "3DMGAME") [游侠网](https://www.ali213.net/ "游侠网") [悪魔的小站](http://www.mubolin.cn:99/ "悪魔的小站") [Switch520](https://xxxxx525.com/ "Switch520")
+[游民星空](http://www.gamersky.com/ "游民星空") [3DMGAME](http://www.3dmgame.com/ "3DMGAME") [游侠网](https://www.ali213.net/ "游侠网") [悪魔的小站](http://www.mubolin.cn:99/ "悪魔的小站") [Switch520](https://xxxxx525.com/ "Switch520") [Git游戏](https://gityx.com/ "Git游戏")
 
 ## 音乐
 
