@@ -49,4 +49,4 @@ title: 导航
 
 ## 类 ChatGPT
 
-[ChatGPT](https://chat.openai.com/ "ChatGPT") [ChatGPT 提示语](https://prompts.fresns.cn/ "ChatGPT 提示语") [Gpt公益站](https://nav.chatkey.top/ "Gpt公益站") [LLaMa Chat](https://llama.perplexity.ai/ "LLaMa Chat")
+[ChatGPT](https://chat.openai.com/ "ChatGPT") [ChatGPT 提示语](https://prompts.fresns.cn/ "ChatGPT 提示语") [Gpt公益站](https://nav.chatkey.top/ "Gpt公益站") [LLaMa Chat](https://llama.perplexity.ai/ "LLaMa Chat") [MyShell](https://app.myshell.ai/zh/chat "MyShell")
