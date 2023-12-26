@@ -33,7 +33,7 @@ title: 导航
 
 ## 下载站
 
-[BT之家](http://btbtt11.com/ "BT之家") [乐赏](http://gbtgame.me/ "乐赏") [天使动漫](https://www.tsdm39.com/ "天使动漫") [懒得勤快](https://masuit.com/ "懒得勤快") [果核剥壳](https://www.ghxi.com/ "果核剥壳") [4K世界](https://www.4ksj.com/ "4K世界") [影视森林](http://549.tv/ "影视森林") [超能搜](https://www.chaonengsou.com/ "超能搜") [精品下载](http://www.j9p.com/ "精品下载") [ACG盒子](https://www.acgbox.link/ "ACG盒子") [PPTSTORE](https://www.pptstore.net/ "PPTSTORE") [云盘资源网](https://www.yunpanziyuan.top/ "云盘资源网") [RuTracker.org](https://rutracker.net/forum/index.php "RuTracker.org") [易搜](http://yiso.eu.org/ "易搜") [Office Tool Plus](https://otp.landian.vip/zh-cn/ "Office Tool Plus")
+[BT之家](http://btbtt11.com/ "BT之家") [乐赏](http://gbtgame.me/ "乐赏") [天使动漫](https://www.tsdm39.com/ "天使动漫") [懒得勤快](https://masuit.com/ "懒得勤快") [果核剥壳](https://www.ghxi.com/ "果核剥壳") [4K世界](https://www.4ksj.com/ "4K世界") [影视森林](http://549.tv/ "影视森林") [超能搜](https://www.chaonengsou.com/ "超能搜") [精品下载](http://www.j9p.com/ "精品下载") [ACG盒子](https://www.acgbox.link/ "ACG盒子") [PPTSTORE](https://www.pptstore.net/ "PPTSTORE") [云盘资源网](https://www.yunpanziyuan.top/ "云盘资源网") [RuTracker.org](https://rutracker.net/forum/index.php "RuTracker.org") [易搜](http://yiso.eu.org/ "易搜") [Office Tool Plus](https://otp.landian.vip/zh-cn/ "Office Tool Plus") [BT之家](https://www.1lou.me/ "BT之家")
 
 ## 其他
 
