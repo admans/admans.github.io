@@ -29,7 +29,7 @@ title: 导航
 
 ## 影视
 
-[YouTube](https://www.youtube.com/ "YouTube") [腾讯视频](https://v.qq.com/ "腾讯视频") [爱奇艺](https://www.iqiyi.com/ "爱奇艺") [优酷](https://www.youku.com/ "优酷") [哔哩哔哩](https://www.bilibili.com/ "哔哩哔哩") [斗鱼](https://www.douyu.com/ "斗鱼") [虎牙](https://www.huya.com/ "虎牙") [时光网](http://www.mtime.com/ "时光网") [NO视频](https://www.novipnoad.com/ "NO视频") [直播吧](http://www.zhibo8.cc/ "直播吧") [CNTV-5](http://tv.cntv.cn/live/cctv5/?pt=HD "CNTV-5") [人人电影网](https://www.rrdynb.com/index.html "人人电影网") [蜜柑计划](https://mikanani.me/ "蜜柑计划") [杜比高清影视](https://dubi.tk/ "杜比高清影视")
+[YouTube](https://www.youtube.com/ "YouTube") [腾讯视频](https://v.qq.com/ "腾讯视频") [爱奇艺](https://www.iqiyi.com/ "爱奇艺") [优酷](https://www.youku.com/ "优酷") [哔哩哔哩](https://www.bilibili.com/ "哔哩哔哩") [斗鱼](https://www.douyu.com/ "斗鱼") [虎牙](https://www.huya.com/ "虎牙") [时光网](http://www.mtime.com/ "时光网") [NO视频](https://www.novipnoad.com/ "NO视频") [直播吧](http://www.zhibo8.cc/ "直播吧") [CNTV-5](http://tv.cntv.cn/live/cctv5/?pt=HD "CNTV-5") [人人电影网](https://www.rrdynb.com/index.html "人人电影网") [蜜柑计划](https://mikanani.me/ "蜜柑计划") [杜比高清影视](https://dubi.tk/ "杜比高清影视") [影视仓库](http://www.wmdz.com/index.html "影视仓库")
 
 ## 下载站
 
@@ -41,7 +41,7 @@ title: 导航
 
 ## NSFW
 
-[紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [南+](https://south-plus.net/ "南+") [草榴社區](https://t66y.com/ "草榴社區") [红领巾瓜报](https://hlj.fun/ "红领巾瓜报") [Coomer(OnlyFans公共存档器)](https://coomer.su/ "Coomer(OnlyFans公共存档器)")
+[紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [南+](https://south-plus.net/ "南+") [草榴社區](https://t66y.com/ "草榴社區") [红领巾瓜报](https://hlj.fun/ "红领巾瓜报") [Coomer](https://coomer.su/ "Coomer")
 
 ## AI 绘图
 
