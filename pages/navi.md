@@ -25,11 +25,11 @@ title: 导航
 
 ## 图片
 
-[pixabay](https://pixabay.com/ "pixabay") [wallhaven](https://wallhaven.cc/ "wallhaven") [hayato](https://photo.axis-studio.org/ "hayato")
+[pixabay](https://pixabay.com/ "pixabay") [wallhaven](https://wallhaven.cc/ "wallhaven") [hayato](https://photo.axis-studio.org/ "hayato") [OSS King](https://www.ossking.com/ "OSS King")
 
 ## 影视
 
-[YouTube](https://www.youtube.com/ "YouTube") [腾讯视频](https://v.qq.com/ "腾讯视频") [爱奇艺](https://www.iqiyi.com/ "爱奇艺") [优酷](https://www.youku.com/ "优酷") [哔哩哔哩](https://www.bilibili.com/ "哔哩哔哩") [斗鱼](https://www.douyu.com/ "斗鱼") [虎牙](https://www.huya.com/ "虎牙") [时光网](http://www.mtime.com/ "时光网") [NO视频](https://www.novipnoad.com/ "NO视频") [直播吧](http://www.zhibo8.cc/ "直播吧") [CNTV-5](http://tv.cntv.cn/live/cctv5/?pt=HD "CNTV-5") [人人电影网](https://www.rrdynb.com/index.html "人人电影网") [蜜柑计划](https://mikanani.me/ "蜜柑计划") [杜比高清影视](https://dubi.tk/ "杜比高清影视") [影视仓库](http://www.wmdz.com/index.html "影视仓库") [VIDHUB视频库](https://vidhub.link/ "VIDHUB视频库")
+[YouTube](https://www.youtube.com/ "YouTube") [腾讯视频](https://v.qq.com/ "腾讯视频") [爱奇艺](https://www.iqiyi.com/ "爱奇艺") [优酷](https://www.youku.com/ "优酷") [哔哩哔哩](https://www.bilibili.com/ "哔哩哔哩") [斗鱼](https://www.douyu.com/ "斗鱼") [虎牙](https://www.huya.com/ "虎牙") [时光网](http://www.mtime.com/ "时光网") [NO视频](https://www.novipnoad.com/ "NO视频") [直播吧](http://www.zhibo8.cc/ "直播吧") [CNTV-5](http://tv.cntv.cn/live/cctv5/?pt=HD "CNTV-5") [人人电影网](https://www.rrdynb.com/index.html "人人电影网") [蜜柑计划](https://mikanani.me/ "蜜柑计划") [杜比高清影视](https://dubi.tk/ "杜比高清影视") [影视仓库](http://www.wmdz.com/index.html "影视仓库") [VIDHUB视频库](https://vidhub.link/ "VIDHUB视频库") [Twitch](https://www.twitch.tv/ "Twitch")
 
 ## 下载站
 
@@ -41,12 +41,12 @@ title: 导航
 
 ## NSFW
 
-[紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [南+](https://south-plus.net/ "南+") [草榴社區](https://t66y.com/ "草榴社區") [红领巾瓜报](https://hlj.fun/ "红领巾瓜报") [Coomer](https://coomer.su/ "Coomer")
+[紳士漫畫](https://www.wnacg.com/ "紳士漫畫") [哥特动漫王国](https://www.gtloli.gay/ "哥特动漫王国") [南+](https://south-plus.net/ "南+") [草榴社區](https://t66y.com/ "草榴社區") [红领巾瓜报](https://hlj.fun/ "红领巾瓜报") [Coomer](https://coomer.su/ "Coomer") [MissAV](https://missav.com/ "MissAV")
 
 ## AI 绘图
 
-[CIVITAI](https://civitai.com/ "CIVITAI") [手抄本-法术](https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/htmlview# "手抄本-法术") [錾制法典](https://docs.google.com/document/d/1NAVTmZXq7xRXKnFMyiAeJ2IyYN5QsgbSEaL7knv_xbs/edit "錾制法典")
+[CIVITAI](https://civitai.com/ "CIVITAI") [SD提示词万用表](https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/htmlview# "SD提示词万用表") [錾制法典](https://docs.google.com/document/d/1NAVTmZXq7xRXKnFMyiAeJ2IyYN5QsgbSEaL7knv_xbs/edit "錾制法典")
 
 ## 类 ChatGPT
 
-[ChatGPT](https://chat.openai.com/ "ChatGPT") [ChatGPT 提示语](https://prompts.fresns.cn/ "ChatGPT 提示语") [LLaMa Chat](https://llama.perplexity.ai/ "LLaMa Chat") [MyShell](https://app.myshell.ai/zh/chat "MyShell") [木瓜GPT](https://www.papayagpt.com/ "木瓜GPT") [Free2gpt](https://chato.free2gpt.xyz/ "Free2gpt") [Free ChatGPT Site List](https://github.com/xx025/carrot "Free ChatGPT Site List")
+[ChatGPT](https://chat.openai.com/ "ChatGPT") [ChatGPT 引导语](https://prompts.fresns.cn/ "ChatGPT 引导语") [LLaMa Chat](https://llama.perplexity.ai/ "LLaMa Chat") [MyShell](https://app.myshell.ai/zh/chat "MyShell") [木瓜GPT](https://www.papayagpt.com/ "木瓜GPT") [Free2gpt](https://chato.free2gpt.xyz/ "Free2gpt") [Free ChatGPT Site List](https://github.com/xx025/carrot "Free ChatGPT Site List") [NextChat](https://app.nextchat.dev/#/ "NextChat")
