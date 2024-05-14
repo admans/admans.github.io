@@ -49,4 +49,4 @@ title: 导航
 
 ## 类 ChatGPT
 
-[ChatGPT](https://chat.openai.com/ "ChatGPT") [ChatGPT 引导语](https://prompts.fresns.cn/ "ChatGPT 引导语") [LLaMa Chat](https://llama.perplexity.ai/ "LLaMa Chat") [MyShell](https://app.myshell.ai/zh/chat "MyShell") [木瓜GPT](https://www.papayagpt.com/ "木瓜GPT") [Free2gpt](https://chato.free2gpt.xyz/ "Free2gpt") [Free ChatGPT Site List](https://github.com/xx025/carrot "Free ChatGPT Site List") [NextChat](https://app.nextchat.dev/#/ "NextChat")
+[ChatGPT](https://chat.openai.com/ "ChatGPT") [Poe](https://poe.com/ "Poe") [ChatGPT 引导语](https://prompts.fresns.cn/ "ChatGPT 引导语") [LLaMa Chat](https://llama.perplexity.ai/ "LLaMa Chat") [MyShell](https://app.myshell.ai/zh/chat "MyShell") [木瓜GPT](https://www.papayagpt.com/ "木瓜GPT") [Free2gpt](https://chato.free2gpt.xyz/ "Free2gpt") [Free ChatGPT Site List](https://github.com/xx025/carrot "Free ChatGPT Site List") [NextChat](https://app.nextchat.dev/#/ "NextChat")
