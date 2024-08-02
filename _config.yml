@@ -42,11 +42,14 @@ menu:
     url: /pages/navi.html
 
 # 点击页面文字冒出特效,不需要请设置为false
-extClickEffect: false
+extClickEffect: true
 
 # Google Adsense,不需要请设置为false
 # _includes/ext-adsense.html 里面修改为自己的配置
-extAdsense: false
+extAdsense: true
 
 # 数学公式支持，比较影响加载速度,不需要请设置为false
 extMath: false
+
+# 显示访问量统计，由不蒜子提供服务
+extCount: true
