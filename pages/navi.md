@@ -37,7 +37,7 @@ title: 导航
 
 ## 其他
 
-[VirSCAN](http://www.virscan.org/ "VirSCAN") [证件照排版](http://www.sandcomp.com/blog/sandphoto/ "证件照排版") [DeepL](https://www.deepl.com/translator "DeepL") [和谐之源](https://hunter.gitlab.io/tools/harmonious/ "和谐之源") [doyoudo](http://www.doyoudo.com/ "doyoudo") [oeasy教程](http://oeasy.org/ "oeasy教程")  [LKs Site](http://lkssite.vip/ "LKs Site") [Privacy](https://privacy.aiuys.com/ "Privacy") [南京大学测速站](https://test.nju.edu.cn/ "南京大学测速站") [geospy](https://geospy.ai/ "geospy")
+[VirSCAN](http://www.virscan.org/ "VirSCAN") [证件照排版](http://www.sandcomp.com/blog/sandphoto/ "证件照排版") [DeepL](https://www.deepl.com/translator "DeepL") [和谐之源](https://hunter.gitlab.io/tools/harmonious/ "和谐之源") [doyoudo](http://www.doyoudo.com/ "doyoudo") [oeasy教程](http://oeasy.org/ "oeasy教程")  [LKs Site](http://lkssite.vip/ "LKs Site") [Privacy](https://privacy.aiuys.com/ "Privacy") [南京大学测速站](https://test.nju.edu.cn/ "南京大学测速站") [geospy](https://geospy.ai/ "geospy") [海阔天空](https://www.ahzll.top/ "海阔天空")
 
 ## NSFW
 
