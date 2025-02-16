@@ -52,4 +52,4 @@ extAdsense: true
 extMath: false
 
 # 显示访问量统计，由不蒜子提供服务
-extCount: true
+extCount: false
