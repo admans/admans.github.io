@@ -25,7 +25,7 @@ title: 导航
 
 ## 图片
 
-[pixabay](https://pixabay.com/ "pixabay") [wallhaven](https://wallhaven.cc/ "wallhaven") [hayato](https://photo.axis-studio.org/ "hayato") [OSS King](https://www.ossking.com/ "OSS King")
+[pixabay](https://pixabay.com/ "pixabay") [wallhaven](https://wallhaven.cc/ "wallhaven") [AXIS-Studio](https://photo.axis-studio.org/ "AXIS-Studio") [OSS King](https://www.ossking.com/ "OSS King")
 
 ## 影视
 
@@ -33,7 +33,7 @@ title: 导航
 
 ## 下载站
 
-[乐赏](http://gbtgame.me/ "乐赏") [天使动漫](https://www.tsdm39.com/ "天使动漫") [懒得勤快](https://masuit.com/ "懒得勤快") [果核剥壳](https://www.ghxi.com/ "果核剥壳") [4K世界](https://www.4ksj.com/ "4K世界") [影视森林](http://549.tv/ "影视森林") [超能搜](https://www.chaonengsou.com/ "超能搜") [精品下载](http://www.j9p.com/ "精品下载") [ACG盒子](https://www.acgbox.link/ "ACG盒子") [PPTSTORE](https://www.pptstore.net/ "PPTSTORE") [云盘资源网](https://www.yunpanziyuan.top/ "云盘资源网") [RuTracker.org](https://rutracker.net/forum/index.php "RuTracker.org") [易搜](http://yiso.eu.org/ "易搜") [Office Tool Plus](https://otp.landian.vip/zh-cn/ "Office Tool Plus") [BT之家1LOU站](https://www.1lou.cc/ "BT之家1LOU站") [阿里云盘资源共享站](https://pan666.net/ "阿里云盘资源共享站") [高清剧集网](https://www.BTHDTV.com "高清剧集网") [ahhhhfs](https://www.ahhhhfs.com/ "ahhhhfs") [智享阁](https://www.esnpc.com/ "智享阁") [動漫花園資源網](https://share.dmhy.org/ "動漫花園資源網") [爱恋动漫BT下载](https://kisssub.org/ "爱恋动漫BT下载") [资料吧](https://ziliaoba.github.io/ "资料吧") [磁力熊](https://www.cilixiong.org/ "磁力熊")
+[乐赏](http://gbtgame.me/ "乐赏") [天使动漫](https://www.tsdm39.com/ "天使动漫") [懒得勤快](https://ldqk.gitbook.io/ "懒得勤快") [果核剥壳](https://www.ghxi.com/ "果核剥壳") [4K世界](https://www.4ksj.com/ "4K世界") [影视森林](http://549.tv/ "影视森林") [超能搜](https://www.chaonengsou.com/ "超能搜") [精品下载](http://www.j9p.com/ "精品下载") [ACG盒子](https://www.acgbox.link/ "ACG盒子") [PPTSTORE](https://www.pptstore.net/ "PPTSTORE") [云盘资源网](https://www.yunpanziyuan.top/ "云盘资源网") [RuTracker.org](https://rutracker.net/forum/index.php "RuTracker.org") [易搜](http://yiso.eu.org/ "易搜") [Office Tool Plus](https://otp.landian.vip/zh-cn/ "Office Tool Plus") [BT之家1LOU站](https://www.1lou.cc/ "BT之家1LOU站") [阿里云盘资源共享站](https://pan666.net/ "阿里云盘资源共享站") [高清剧集网](https://www.BTHDTV.com "高清剧集网") [ahhhhfs](https://www.ahhhhfs.com/ "ahhhhfs") [智享阁](https://www.esnpc.com/ "智享阁") [動漫花園資源網](https://share.dmhy.org/ "動漫花園資源網") [爱恋动漫BT下载](https://kisssub.org/ "爱恋动漫BT下载") [资料吧](https://ziliaoba.github.io/ "资料吧") [磁力熊](https://www.cilixiong.org/ "磁力熊")
 
 ## 其他
 
