@@ -49,4 +49,4 @@ title: 导航
 
 ## 类 ChatGPT
 
-[ChatGPT](https://chat.openai.com/ "ChatGPT") [Poe](https://poe.com/ "Poe") [ChatGPT 引导语](https://prompts.fresns.cn/ "ChatGPT 引导语") [MyShell](https://app.myshell.ai/zh/chat "MyShell") [木瓜GPT](https://www.papayagpt.com/ "木瓜GPT") [Free2gpt](https://chato.free2gpt.xyz/ "Free2gpt") [Free ChatGPT Site List](https://github.com/xx025/carrot "Free ChatGPT Site List") [COZE](https://www.coze.com/ "COZE") [Grok](https://grok.com/ "Grok") [DeepSeek](https://chat.deepseek.com/ "DeepSeek") [Manus](https://manus.im/ "Manus") [Gemini](https://gemini.google.com/ "Gemini")
+[ChatGPT](https://chat.openai.com/ "ChatGPT") [Poe](https://poe.com/ "Poe") [ChatGPT 引导语](https://prompts.fresns.cn/ "ChatGPT 引导语") [木瓜GPT](https://www.papayagpt.com/ "木瓜GPT") [Free2gpt](https://chato.free2gpt.xyz/ "Free2gpt") [Free ChatGPT Site List](https://github.com/xx025/carrot "Free ChatGPT Site List") [COZE](https://www.coze.com/ "COZE") [Grok](https://grok.com/ "Grok") [DeepSeek](https://chat.deepseek.com/ "DeepSeek") [Manus](https://manus.im/ "Manus") [Gemini](https://gemini.google.com/ "Gemini")
