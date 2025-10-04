@@ -16,32 +16,32 @@ title: 导航
             padding: 0;
             box-sizing: border-box;
         }
-        
+    
         body {
             font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
             color: #000;
         }
-        
+    
         /* 提升 header 的语义 */
         .page-header {
             text-align: center;
             margin-bottom: 30px;
             padding: 10px 0;
         }
-        
+    
         h1 {
             font-weight: 400;
             font-size: 2.2rem;
             color: #222;
             margin-bottom: 5px;
         }
-        
+    
         .subtitle {
             color: #000;
             font-size: 0.9rem;
         }
-        
+    
         .controls {
             display: flex;
             justify-content: center;
@@ -50,7 +50,7 @@ title: 导航
             flex-wrap: wrap;
             position: relative;
         }
-        
+    
         #search-input {
             padding: 10px 36px 10px 12px;
             border: 1px solid #e0e0e0;
@@ -61,20 +61,20 @@ title: 导航
             background-color: transparent;
             box-sizing: border-box;
         }
-        
+    
         #search-input:focus {
             outline: none;
             border-color: #c0c0c0;
             background-color: transparent;
         }
-        
+    
         .search-wrapper {
             position: relative;
             display: inline-block;
             width: 360px;
             max-width: 100%;
         }
-        
+    
         .clear-btn {
             position: absolute;
             right: 8px;
@@ -91,18 +91,18 @@ title: 导航
             padding: 0;
             z-index: 2;
         }
-        
+    
         .clear-btn svg {
             width: 18px;
             height: 18px;
             fill: #bbb;
             transition: fill 0.2s;
         }
-        
+    
         .clear-btn:hover svg {
             fill: #888;
         }
-        
+    
         .category-filter {
             padding: 10px 12px;
             border: 1px solid #e0e0e0;
@@ -125,24 +125,24 @@ title: 导航
             background-position: right 10px center;
             background-size: 18px 18px;
         }
-        
+    
         .category-section {
             margin-bottom: 40px;
         }
-        
+    
         .category-title {
             font-size: 1.2rem;
             font-weight: 500;
             color: #000;
             margin-bottom: 15px;
         }
-        
+    
         .nav-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 0px;
         }
-        
+    
         /* 更改 link-item 为 a 标签样式 */
         .link-item {
             background: transparent;
@@ -155,12 +155,32 @@ title: 导航
             min-height: 70px;
             transition: background-color 0.15s ease;
             color: inherit; /* 继承颜色 */
+            position: relative; /* 【新增/修改】设置定位上下文，以便伪元素定位 */
         }
 
         .link-item:hover {
             background: #f5f5f5;
         }
-        
+
+        /* 【新增】实现鼠标悬停下划线效果 (基于 common.css 的逻辑) */
+        .link-item:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0; /* 【关键】下划线位于单元格的底部 */
+            left: 0;
+            background-color: #333333;
+            visibility: hidden;
+            transform: scaleX(0); /* 初始状态：宽度为0，不可见 */
+            transition: transform 200ms ease-in-out; /* 定义过渡效果 */
+        }
+
+        .link-item:hover:after {
+            visibility: visible;
+            transform: scaleX(1); /* 鼠标悬停时：宽度变为100%，可见 */
+        }
+    
         .link-name {
             font-size: 0.85rem;
             color: #000;
@@ -168,14 +188,14 @@ title: 导航
             word-break: break-word;
             padding: 15px 10px;
         }
-        
+    
         footer {
             text-align: center;
             margin-top: 40px;
             padding: 20px 0;
             color: #000;
         }
-        
+    
         .no-results {
             text-align: center;
             padding: 30px;
@@ -188,63 +208,26 @@ title: 导航
             .nav-grid {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             }
-            
+        
             h1 {
                 font-size: 1.8rem;
             }
         }
-        
+    
         @media (max-width: 480px) {
-            .nav-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            
-            .controls {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            #search-input {
-                width: 100%;
-            }
+        .nav-grid {
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         }
-
-        /* ... 导航页原有样式 ... */
         
-        /* 将 link-name 设为相对定位的锚点，并使其宽度适应内容 */
-          .link-name {
-            font-size: 0.85rem;
-            color: #000;
-            font-weight: 400;
-            word-break: break-word;
-            padding: 15px 10px;
+        .controls {
+            flex-direction: column;
+            align-items: center;
+        }
         
-            /* 启用定位锚点和宽度适应内容 */
-            position: relative; 
-            display: inline-block; 
+        #search-input {
+            width: 100%;
         }
-    
-        /* 悬停下划线的伪元素样式 (初始状态：隐藏且宽度为零) */
-        .link-name:after {
-            content: '';
-            position: absolute;
-            width: 100%; /* 100% of the .link-name text block width */
-            height: 1px;
-            bottom: 13px; /* 根据 .link-name 的底部内边距 15px 调整到文本下方 */
-            left: 0;
-            background-color: #000; /* 使用页面主色调 */
-            visibility: hidden;
-            transform: scaleX(0); /* 宽度为 0 */
-            transition: transform 200ms ease-in-out;
-        }
-    
-        /* 鼠标悬停在 .link-item 上时，显示下划线并使其宽度展开 */
-        .link-item:hover .link-name:after {
-            visibility: visible;
-            transform: scaleX(1); /* 宽度变为 100% */
-        }
-
-        /* ... 导航页原有样式 ... */
+    }
     </style>
 </head>
 <body>
