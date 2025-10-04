@@ -155,12 +155,16 @@ title: 导航
             min-height: 70px;
             transition: background-color 0.15s ease;
             color: inherit; /* 继承颜色 */
-            position: relative; /* 【新增/修改】设置定位上下文，以便伪元素定位 */
+            position: relative; /* 设置定位上下文，以便伪元素定位 */
+        
+            /* 【关键修改】移除单元格（.link-item）自身的边框 */
+            border: none; 
         }
 
         .link-item:hover {
             background: #f5f5f5;
         }
+        /* ... 后面的 :after 悬停下划线逻辑保持不变 ... */
 
         /* 【新增】实现鼠标悬停下划线效果 (基于 common.css 的逻辑) */
         .link-item:after {
