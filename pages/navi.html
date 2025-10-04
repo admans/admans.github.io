@@ -185,6 +185,22 @@ title: 导航
             font-size: 1rem;
             grid-column: 1 / -1;
         }
+
+    /* 适配黑暗模式字体颜色 */
+    @media (prefers-color-scheme: dark) {
+        body,
+        .subtitle,
+        .category-title,
+        .link-name,
+        footer,
+        .no-results {
+            color: #fff !important;
+        }
+        h1 {
+            color: #fff !important;
+        }
+    }
+        }
         
         @media (max-width: 768px) {
             .nav-grid {
