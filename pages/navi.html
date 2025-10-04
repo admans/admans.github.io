@@ -9,6 +9,7 @@ title: 导航
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>导航</title>
+    <script src="https://unpkg.com/pinyin-pro"></script>
     <style>
         * {
             margin: 0;
@@ -200,7 +201,7 @@ title: 导航
 <body>
     <div class="controls">
         <span class="search-wrapper">
-            <input type="text" id="search-input" placeholder="搜索网站...">
+            <input type="text" id="search-input" placeholder="搜索网站 (名称、拼音、网址)...">
             <button class="clear-btn" id="clear-search" title="清除" style="display:none;" tabindex="-1">
                 <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#fff"/><path d="M13.5 7.5l-7 7m0-7l7 7" stroke="#bbb" stroke-width="2" stroke-linecap="round"/></svg>
             </button>
@@ -219,7 +220,6 @@ title: 导航
     </div>
     
     <main id="nav-container">
-        <!-- 社交社区 -->
         <section class="category-section" data-category="social">
             <h2 class="category-title">社交社区</h2>
             <div class="nav-grid">
@@ -268,7 +268,6 @@ title: 导航
             </div>
         </section>
         
-        <!-- 购物生活 -->
         <section class="category-section" data-category="shopping">
             <h2 class="category-title">购物生活</h2>
             <div class="nav-grid">
@@ -305,7 +304,6 @@ title: 导航
             </div>
         </section>
         
-        <!-- 影音娱乐 -->
         <section class="category-section" data-category="entertainment">
             <h2 class="category-title">影音娱乐</h2>
             <div class="nav-grid">
@@ -369,6 +367,9 @@ title: 导航
                 <div class="link-item" data-search="FLiNG Trainer">
                     <div class="link-name">FLiNG Trainer</div>
                 </div>
+                <div class="link-item" data-search="悪魔的小站">
+                    <div class="link-name">悪魔的小站</div>
+                </div>
                 <div class="link-item" data-search="IGAME游戏基地">
                     <div class="link-name">IGAME游戏基地</div>
                 </div>
@@ -399,7 +400,6 @@ title: 导航
             </div>
         </section>
         
-        <!-- 资源下载 -->
         <section class="category-section" data-category="resource">
             <h2 class="category-title">资源下载</h2>
             <div class="nav-grid">
@@ -508,7 +508,6 @@ title: 导航
             </div>
         </section>
         
-        <!-- 技术开发 -->
         <section class="category-section" data-category="tech">
             <h2 class="category-title">技术开发</h2>
             <div class="nav-grid">
@@ -533,9 +532,6 @@ title: 导航
                 <div class="link-item" data-search="恩山无线论坛">
                     <div class="link-name">恩山无线论坛</div>
                 </div>
-                <div class="link-item" data-search="悪魔的小站">
-                    <div class="link-name">悪魔的小站</div>
-                </div>
                 <div class="link-item" data-search="LKs Site">
                     <div class="link-name">LKs Site</div>
                 </div>
@@ -548,7 +544,6 @@ title: 导航
             </div>
         </section>
         
-        <!-- 实用工具 -->
         <section class="category-section" data-category="tools">
             <h2 class="category-title">实用工具</h2>
             <div class="nav-grid">
@@ -576,7 +571,6 @@ title: 导航
             </div>
         </section>
         
-        <!-- AI工具 -->
         <section class="category-section" data-category="ai">
             <h2 class="category-title">AI工具</h2>
             <div class="nav-grid">
@@ -625,7 +619,6 @@ title: 导航
             </div>
         </section>
         
-        <!-- NSFW -->
         <section class="category-section" data-category="nsfw">
             <h2 class="category-title">NSFW</h2>
             <div class="nav-grid">
@@ -717,7 +710,7 @@ title: 导航
     
     <script>
         // 网站链接映射
-        const siteLinks = {
+        const rawSiteLinks = {
             "百度网盘": "https://pan.baidu.com/",
             "微博": "https://weibo.com/",
             "Facebook": "https://www.facebook.com/",
@@ -869,6 +862,51 @@ title: 导航
             "Gemini": "https://gemini.google.com/"
         };
         
+        // 用于存储增强后的链接数据（包含拼音、首字母、网址）
+        const siteLinks = {};
+        
+        /**
+         * 初始化数据，为每个链接添加拼音和首字母属性。
+         * 依赖全局的 pinyinPro.pinyin 函数。
+         */
+        function initializeSiteData() {
+            if (typeof pinyinPro === 'undefined' || typeof pinyinPro.pinyin === 'undefined') {
+                console.error("pinyin-pro 库未加载，拼音搜索功能将禁用。");
+                // 如果库未加载，则使用原始数据，不增强
+                Object.assign(siteLinks, rawSiteLinks);
+                return;
+            }
+
+            for (const name in rawSiteLinks) {
+                const url = rawSiteLinks[name];
+                
+                // 1. 获取完整拼音 (无声调，空格分隔)
+                // pinyin-pro 的 pinyin 函数默认输出带声调的拼音，需要配置
+                const fullPinyin = pinyinPro.pinyin(name, {
+                    toneType: 'none', // 无声调
+                    separator: ' ', // 使用空格分隔，以便进行模糊搜索
+                }).toLowerCase().replace(/\s+/g, ''); // 移除空格和声调数字
+
+                // 2. 获取拼音首字母 (无声调，连续)
+                const firstLetters = pinyinPro.pinyin(name, {
+                    pattern: 'first', // 仅获取首字母
+                    toneType: 'none', // 无声调
+                }).toLowerCase().replace(/\s+/g, ''); // 移除空格和声调数字
+                
+                siteLinks[name] = {
+                    url: url,
+                    pinyin: fullPinyin,
+                    initials: firstLetters
+                };
+            }
+            
+            console.log("站点数据初始化完成，支持拼音搜索。");
+        }
+        
+        // 在 DOM 加载后立即初始化数据
+        document.addEventListener('DOMContentLoaded', initializeSiteData);
+
+
         // 为每个链接项添加点击事件（支持左键和中键）
         document.querySelectorAll('.link-item').forEach(item => {
             const siteName = item.querySelector('.link-name').textContent;
@@ -877,7 +915,10 @@ title: 导航
             item.addEventListener('click', (event) => {
                 // 只有左键点击才处理
                 if (event.button === 0) {
-                    window.open(siteLinks[siteName], '_blank');
+                    const linkData = siteLinks[siteName] || { url: rawSiteLinks[siteName] };
+                    if (linkData.url) {
+                        window.open(linkData.url, '_blank');
+                    }
                 }
             });
             
@@ -885,7 +926,10 @@ title: 导航
             item.addEventListener('auxclick', (event) => {
                 // 中键点击（button === 1）
                 if (event.button === 1) {
-                    window.open(siteLinks[siteName], '_blank');
+                    const linkData = siteLinks[siteName] || { url: rawSiteLinks[siteName] };
+                    if (linkData.url) {
+                        window.open(linkData.url, '_blank');
+                    }
                     // 阻止默认行为，避免浏览器同时打开上下文菜单
                     event.preventDefault();
                 }
@@ -941,10 +985,24 @@ title: 导航
                 let sectionHasVisibleItems = false;
                 
                 items.forEach(item => {
-                    const itemSearchText = item.getAttribute('data-search').toLowerCase();
-                    const itemName = item.querySelector('.link-name').textContent.toLowerCase();
+                    const itemName = item.querySelector('.link-name').textContent; // 原始名称
+                    const itemSearchText = item.getAttribute('data-search').toLowerCase(); // 原始data-search内容
                     
-                    const matchesSearch = itemSearchText.includes(searchTerm) || itemName.includes(searchTerm);
+                    const linkData = siteLinks[itemName] || { url: rawSiteLinks[itemName], pinyin: '', initials: '' };
+                    const itemUrl = linkData.url ? linkData.url.toLowerCase() : '';
+                    const itemPinyin = linkData.pinyin;
+                    const itemInitials = linkData.initials;
+                    
+                    // 1. 匹配原始名称或 data-search
+                    const matchesName = itemSearchText.includes(searchTerm);
+                    
+                    // 2. 匹配拼音或拼音首字母
+                    const matchesPinyin = itemPinyin.includes(searchTerm) || itemInitials.includes(searchTerm);
+                    
+                    // 3. 匹配网址
+                    const matchesUrl = itemUrl.includes(searchTerm);
+
+                    const matchesSearch = matchesName || matchesPinyin || matchesUrl;
                     const matchesCategory = category === 'all' || sectionCategory === category;
                     
                     if (matchesSearch && matchesCategory) {
@@ -957,7 +1015,13 @@ title: 导航
                 });
                 
                 // 显示或隐藏整个分类区域
-                if (sectionHasVisibleItems || (searchTerm === '' && (category === 'all' || sectionCategory === category))) {
+                // 仅在搜索项为空时，或者该分类下有可见项时，才显示分类标题
+                const isFilteredBySearchOrCategory = searchTerm !== '' || category !== 'all';
+                
+                if (sectionHasVisibleItems) {
+                    section.style.display = 'block';
+                } else if (!isFilteredBySearchOrCategory) {
+                    // 没有搜索且没有分类筛选时，所有分类都应该显示
                     section.style.display = 'block';
                 } else {
                     section.style.display = 'none';
@@ -972,6 +1036,8 @@ title: 导航
                     noResults.className = 'no-results';
                     noResults.textContent = `没有找到与"${searchTerm}"相关的结果`;
                     document.getElementById('nav-container').appendChild(noResults);
+                } else {
+                    noResultsElement.textContent = `没有找到与"${searchTerm}"相关的结果`;
                 }
             } else if (noResultsElement) {
                 noResultsElement.remove();
