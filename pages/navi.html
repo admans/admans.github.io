@@ -208,6 +208,43 @@ title: 导航
                 width: 100%;
             }
         }
+
+        /* ... 导航页原有样式 ... */
+        
+        /* 将 link-name 设为相对定位的锚点，并使其宽度适应内容 */
+          .link-name {
+            font-size: 0.85rem;
+            color: #000;
+            font-weight: 400;
+            word-break: break-word;
+            padding: 15px 10px;
+        
+            /* 启用定位锚点和宽度适应内容 */
+            position: relative; 
+            display: inline-block; 
+        }
+    
+        /* 悬停下划线的伪元素样式 (初始状态：隐藏且宽度为零) */
+        .link-name:after {
+            content: '';
+            position: absolute;
+            width: 100%; /* 100% of the .link-name text block width */
+            height: 1px;
+            bottom: 13px; /* 根据 .link-name 的底部内边距 15px 调整到文本下方 */
+            left: 0;
+            background-color: #000; /* 使用页面主色调 */
+            visibility: hidden;
+            transform: scaleX(0); /* 宽度为 0 */
+            transition: transform 200ms ease-in-out;
+        }
+    
+        /* 鼠标悬停在 .link-item 上时，显示下划线并使其宽度展开 */
+        .link-item:hover .link-name:after {
+            visibility: visible;
+            transform: scaleX(1); /* 宽度变为 100% */
+        }
+
+        /* ... 导航页原有样式 ... */
     </style>
 </head>
 <body>
