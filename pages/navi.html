@@ -882,18 +882,7 @@ title: 导航
         // 为每个链接项添加点击事件（支持左键和中键）
         document.querySelectorAll('.link-item').forEach(item => {
             const siteName = item.querySelector('.link-name').textContent;
-
-            // 鼠标悬停时显示网址到左下角状态栏
-            item.addEventListener('mouseenter', () => {
-                const url = siteLinks[siteName];
-                if (url) {
-                    window.status = url;
-                }
-            });
-            item.addEventListener('mouseleave', () => {
-                window.status = '';
-            });
-
+            
             // 处理左键点击
             item.addEventListener('click', (event) => {
                 // 只有左键点击才处理
@@ -901,7 +890,7 @@ title: 导航
                     window.open(siteLinks[siteName], '_blank');
                 }
             });
-
+            
             // 处理中键点击
             item.addEventListener('auxclick', (event) => {
                 // 中键点击（button === 1）
@@ -911,7 +900,7 @@ title: 导航
                     event.preventDefault();
                 }
             });
-
+            
             // 阻止中键点击的默认行为（防止在某些浏览器中出现滚动问题）
             item.addEventListener('mousedown', (event) => {
                 if (event.button === 1) {
@@ -955,31 +944,19 @@ title: 导航
             const category = document.getElementById('category-filter').value;
             const sections = document.querySelectorAll('.category-section');
             let hasVisibleResults = false;
-
+            
             sections.forEach(section => {
                 const sectionCategory = section.getAttribute('data-category');
                 const items = section.querySelectorAll('.link-item');
                 let sectionHasVisibleItems = false;
-
+                
                 items.forEach(item => {
                     const itemSearchText = item.getAttribute('data-search').toLowerCase();
                     const itemName = item.querySelector('.link-name').textContent.toLowerCase();
-                    // 新增：获取网址
-                    let url = '';
-                    if (window.siteLinks && window.siteLinks[itemName] !== undefined) {
-                        url = window.siteLinks[itemName].toLowerCase();
-                    } else {
-                        // 兼容大小写不一致
-                        for (const key in window.siteLinks) {
-                            if (key.toLowerCase() === itemName) {
-                                url = window.siteLinks[key].toLowerCase();
-                                break;
-                            }
-                        }
-                    }
-                    const matchesSearch = itemSearchText.includes(searchTerm) || itemName.includes(searchTerm) || url.includes(searchTerm);
+                    
+                    const matchesSearch = itemSearchText.includes(searchTerm) || itemName.includes(searchTerm);
                     const matchesCategory = category === 'all' || sectionCategory === category;
-
+                    
                     if (matchesSearch && matchesCategory) {
                         item.style.display = 'flex';
                         sectionHasVisibleItems = true;
@@ -988,7 +965,7 @@ title: 导航
                         item.style.display = 'none';
                     }
                 });
-
+                
                 // 显示或隐藏整个分类区域
                 if (sectionHasVisibleItems || (searchTerm === '' && (category === 'all' || sectionCategory === category))) {
                     section.style.display = 'block';
@@ -996,7 +973,7 @@ title: 导航
                     section.style.display = 'none';
                 }
             });
-
+            
             // 如果没有搜索结果，显示提示
             const noResultsElement = document.querySelector('.no-results');
             if (!hasVisibleResults && searchTerm !== '') {
