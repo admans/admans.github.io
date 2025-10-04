@@ -153,12 +153,13 @@ title: 导航
             justify-content: center;
             min-height: 70px;
             transition: background-color 0.15s ease;
-            text-decoration: none; /* 移除链接下划线 */
+            text-decoration: none !important; /* 强制移除链接下划线 */
             color: inherit; /* 继承颜色 */
         }
-        
+
         .link-item:hover {
             background: #f5f5f5;
+            text-decoration: none !important; /* 确保鼠标悬停时也无下划线 */
         }
         
         .link-name {
