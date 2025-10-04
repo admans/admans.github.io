@@ -50,31 +50,79 @@ title: 导航
             gap: 10px;
             margin-bottom: 30px;
             flex-wrap: wrap;
+            position: relative;
         }
         
         #search-input {
-            padding: 10px 12px;
+            padding: 10px 36px 10px 12px;
             border: 1px solid #e0e0e0;
-            border-radius: 4px;
+            border-radius: 0;
             font-size: 0.9rem;
-            width: 300px;
+            width: 360px;
             max-width: 100%;
-            background-color: #fafafa;
+            background-color: transparent;
+            box-sizing: border-box;
         }
         
         #search-input:focus {
             outline: none;
             border-color: #c0c0c0;
-            background-color: #ffffff;
+            background-color: transparent;
+        }
+        .search-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 360px;
+            max-width: 100%;
+        }
+        .clear-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            z-index: 2;
+        }
+        .clear-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: #bbb;
+            transition: fill 0.2s;
+        }
+        .clear-btn:hover svg {
+            fill: #888;
         }
         
         .category-filter {
             padding: 10px 12px;
             border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            background-color: #fafafa;
+            border-radius: 0;
+            font-size: 1rem;
+            background-color: transparent;
             cursor: pointer;
+            height: 38px;
+            min-width: 120px;
+            color: #333;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            box-shadow: none;
+            outline: none;
+            transition: border-color 0.15s;
+    /* 自定义下拉箭头 */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px 18px;
+    /* 保持与搜索框一致，不单独设置 border-color */
         }
         
         .category-section {
@@ -161,7 +209,12 @@ title: 导航
 </head>
 <body>
     <div class="controls">
-        <input type="text" id="search-input" placeholder="搜索网站...">
+        <span class="search-wrapper">
+            <input type="text" id="search-input" placeholder="搜索网站...">
+            <button class="clear-btn" id="clear-search" title="清除" style="display:none;" tabindex="-1">
+                <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#fff"/><path d="M13.5 7.5l-7 7m0-7l7 7" stroke="#bbb" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+        </span>
         <select class="category-filter" id="category-filter">
             <option value="all">所有分类</option>
             <option value="social">社交社区</option>
@@ -221,24 +274,6 @@ title: 导航
                 </div>
                 <div class="link-item" data-search="机核">
                     <div class="link-name">机核</div>
-                </div>
-                <div class="link-item" data-search="津津乐道">
-                    <div class="link-name">津津乐道</div>
-                </div>
-                <div class="link-item" data-search="海角社区">
-                    <div class="link-name">海角社区</div>
-                </div>
-                <div class="link-item" data-search="司机社">
-                    <div class="link-name">司机社</div>
-                </div>
-                <div class="link-item" data-search="老王论坛">
-                    <div class="link-name">老王论坛</div>
-                </div>
-                <div class="link-item" data-search="南+">
-                    <div class="link-name">南+</div>
-                </div>
-                <div class="link-item" data-search="草榴社區">
-                    <div class="link-name">草榴社區</div>
                 </div>
             </div>
         </section>
@@ -367,6 +402,9 @@ title: 导航
                 </div>
                 <div class="link-item" data-search="PandaTV">
                     <div class="link-name">PandaTV</div>
+                </div>
+                <div class="link-item" data-search="津津乐道">
+                    <div class="link-name">津津乐道</div>
                 </div>
             </div>
         </section>
@@ -508,7 +546,6 @@ title: 导航
                 <div class="link-item" data-search="悪魔的小站">
                     <div class="link-name">悪魔的小站</div>
                 </div>
-                <!-- 梓澪の妙妙屋已移至NSFW -->
                 <div class="link-item" data-search="LKs Site">
                     <div class="link-name">LKs Site</div>
                 </div>
@@ -528,7 +565,6 @@ title: 导航
                 <div class="link-item" data-search="VirSCAN">
                     <div class="link-name">VirSCAN</div>
                 </div>
-                <!-- 海角社区、司机社、老王论坛、南+、草榴社區已移至NSFW -->
                 <div class="link-item" data-search="Privacy">
                     <div class="link-name">Privacy</div>
                 </div>
@@ -843,13 +879,66 @@ title: 导航
             "Gemini": "https://gemini.google.com/"
         };
         
-        // 为每个链接项添加点击事件
+        // 为每个链接项添加点击事件（支持左键和中键）
         document.querySelectorAll('.link-item').forEach(item => {
             const siteName = item.querySelector('.link-name').textContent;
-            item.addEventListener('click', () => {
-                window.open(siteLinks[siteName], '_blank');
+
+            // 鼠标悬停时显示网址到左下角状态栏
+            item.addEventListener('mouseenter', () => {
+                const url = siteLinks[siteName];
+                if (url) {
+                    window.status = url;
+                }
+            });
+            item.addEventListener('mouseleave', () => {
+                window.status = '';
+            });
+
+            // 处理左键点击
+            item.addEventListener('click', (event) => {
+                // 只有左键点击才处理
+                if (event.button === 0) {
+                    window.open(siteLinks[siteName], '_blank');
+                }
+            });
+
+            // 处理中键点击
+            item.addEventListener('auxclick', (event) => {
+                // 中键点击（button === 1）
+                if (event.button === 1) {
+                    window.open(siteLinks[siteName], '_blank');
+                    // 阻止默认行为，避免浏览器同时打开上下文菜单
+                    event.preventDefault();
+                }
+            });
+
+            // 阻止中键点击的默认行为（防止在某些浏览器中出现滚动问题）
+            item.addEventListener('mousedown', (event) => {
+                if (event.button === 1) {
+                    event.preventDefault();
+                }
             });
         });
+
+        // 搜索框清除按钮逻辑
+        const searchInput = document.getElementById('search-input');
+        const clearBtn = document.getElementById('clear-search');
+        function toggleClearBtn() {
+            if (searchInput.value) {
+                clearBtn.style.display = 'flex';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+        }
+        searchInput.addEventListener('input', toggleClearBtn);
+        clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            toggleClearBtn();
+            filterCards();
+            searchInput.focus();
+        });
+        // 初始化按钮状态
+        toggleClearBtn();
         
         // 搜索功能
         document.getElementById('search-input').addEventListener('input', function(e) {
@@ -866,19 +955,31 @@ title: 导航
             const category = document.getElementById('category-filter').value;
             const sections = document.querySelectorAll('.category-section');
             let hasVisibleResults = false;
-            
+
             sections.forEach(section => {
                 const sectionCategory = section.getAttribute('data-category');
                 const items = section.querySelectorAll('.link-item');
                 let sectionHasVisibleItems = false;
-                
+
                 items.forEach(item => {
                     const itemSearchText = item.getAttribute('data-search').toLowerCase();
                     const itemName = item.querySelector('.link-name').textContent.toLowerCase();
-                    
-                    const matchesSearch = itemSearchText.includes(searchTerm) || itemName.includes(searchTerm);
+                    // 新增：获取网址
+                    let url = '';
+                    if (window.siteLinks && window.siteLinks[itemName] !== undefined) {
+                        url = window.siteLinks[itemName].toLowerCase();
+                    } else {
+                        // 兼容大小写不一致
+                        for (const key in window.siteLinks) {
+                            if (key.toLowerCase() === itemName) {
+                                url = window.siteLinks[key].toLowerCase();
+                                break;
+                            }
+                        }
+                    }
+                    const matchesSearch = itemSearchText.includes(searchTerm) || itemName.includes(searchTerm) || url.includes(searchTerm);
                     const matchesCategory = category === 'all' || sectionCategory === category;
-                    
+
                     if (matchesSearch && matchesCategory) {
                         item.style.display = 'flex';
                         sectionHasVisibleItems = true;
@@ -887,7 +988,7 @@ title: 导航
                         item.style.display = 'none';
                     }
                 });
-                
+
                 // 显示或隐藏整个分类区域
                 if (sectionHasVisibleItems || (searchTerm === '' && (category === 'all' || sectionCategory === category))) {
                     section.style.display = 'block';
@@ -895,7 +996,7 @@ title: 导航
                     section.style.display = 'none';
                 }
             });
-            
+
             // 如果没有搜索结果，显示提示
             const noResultsElement = document.querySelector('.no-results');
             if (!hasVisibleResults && searchTerm !== '') {
