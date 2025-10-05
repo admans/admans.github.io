@@ -3,929 +3,921 @@ layout: mypost
 title: 导航
 ---
 
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>导航</title>
-    <script src="https://unpkg.com/pinyin-pro"></script>
-    <style>
-        /* 仅保留结构、布局和字体大小等基础样式，移除所有颜色配置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        /* 提升 header 的语义 */
-        .page-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 10px 0;
-        }
+<script src="https://unpkg.com/pinyin-pro"></script>
+<style>
+    /* 仅保留结构、布局和字体大小等基础样式，移除所有颜色配置 */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    /* 提升 header 的语义 */
+    .page-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 10px 0;
+    }
 
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            position: relative;
-        }
-        
-        #search-input {
-            padding: 10px 36px 10px 12px;
-            border: 1px solid; /* 保持边框结构，移除颜色 */
-            border-radius: 0;
-            font-size: 0.9rem;
-            width: 360px;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        
-        #search-input:focus {
-            outline: none;
-        }
-        
-        .search-wrapper {
-            position: relative;
-            display: inline-block;
-            width: 360px;
-            max-width: 100%;
-        }
-        
-        .clear-btn {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 22px;
-            height: 22px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            z-index: 2;
-        }
-        
-        .clear-btn svg {
-            width: 18px;
-            height: 18px;
-            transition: 0.2s;
-        }
-        
-        .category-section {
-            margin-bottom: 40px;
-        }
-        
-        .category-title {
-            margin-bottom: 15px;
-        }
-        
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 0px;
-        }
-        
-        /* 更改 link-item 为 a 标签样式 */
-        .link-item {
-            padding: 0;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 70px;
-            transition: 0.15s ease;
-        }
+    .controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    
+    #search-input {
+        padding: 10px 36px 10px 12px;
+        border: 1px solid; /* 保持边框结构，移除颜色 */
+        border-radius: 0;
+        font-size: 0.9rem;
+        width: 360px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    #search-input:focus {
+        outline: none;
+    }
+    
+    .search-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 360px;
+        max-width: 100%;
+    }
+    
+    .clear-btn {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 22px;
+        height: 22px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        z-index: 2;
+    }
+    
+    .clear-btn svg {
+        width: 18px;
+        height: 18px;
+        transition: 0.2s;
+    }
+    
+    .category-section {
+        margin-bottom: 40px;
+    }
+    
+    .category-title {
+        margin-bottom: 15px;
+    }
+    
+    .nav-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 0px;
+    }
+    
+    /* 更改 link-item 为 a 标签样式 */
+    .link-item {
+        padding: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 70px;
+        transition: 0.15s ease;
+    }
 
-        .link-name {
-            word-break: break-word;
-            padding: 15px 10px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px 0;
-        }
-        
-        .no-results {
-            text-align: center;
-            padding: 30px;
-            font-size: 1rem;
-            grid-column: 1 / -1;
-        }
-    </style>
+    .link-name {
+        word-break: break-word;
+        padding: 15px 10px;
+    }
+    
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px 0;
+    }
+    
+    .no-results {
+        text-align: center;
+        padding: 30px;
+        font-size: 1rem;
+        grid-column: 1 / -1;
+    }
+</style>
 </head>
 <body>
-    <div class="controls" role="search">
-        <span class="search-wrapper">
-            <input type="text" id="search-input" placeholder="搜索网站 (名称、拼音、网址)..." aria-label="搜索网站">
-            <button class="clear-btn" id="clear-search" title="清除" style="display:none;" tabindex="-1" aria-label="清除搜索">
-                <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="9"/><path d="M13.5 7.5l-7 7m0-7l7 7" stroke-width="2" stroke-linecap="round"/></svg>
-            </button>
-        </span>
-    </div>
-    
-    <main id="nav-container" role="region" aria-live="polite">
-        <section class="category-section" data-category="social">
-            <h2 class="category-title">社交社区</h2>
-            <div class="nav-grid">
-                <a class="link-item" data-search="微博" href="#" target="_blank">
-                    <div class="link-name">微博</div>
-                </a>
-                <a class="link-item" data-search="Facebook" href="#" target="_blank">
-                    <div class="link-name">Facebook</div>
-                </a>
-                <a class="link-item" data-search="X" href="#" target="_blank">
-                    <div class="link-name">X</div>
-                </a>
-                <a class="link-item" data-search="豆瓣" href="#" target="_blank">
-                    <div class="link-name">豆瓣</div>
-                </a>
-                <a class="link-item" data-search="微信公众平台" href="#" target="_blank">
-                    <div class="link-name">微信公众平台</div>
-                </a>
-                <a class="link-item" data-search="V2EX" href="#" target="_blank">
-                    <div class="link-name">V2EX</div>
-                </a>
-                <a class="link-item" data-search="NGA" href="#" target="_blank">
-                    <div class="link-name">NGA</div>
-                </a>
-                <a class="link-item" data-search="奇客资讯网" href="#" target="_blank">
-                    <div class="link-name">奇客资讯网</div>
-                </a>
-                <a class="link-item" data-search="LINUX DO" href="#" target="_blank">
-                    <div class="link-name">LINUX DO</div>
-                </a>
-                <a class="link-item" data-search="武林外传olWIKI" href="#" target="_blank">
-                    <div class="link-name">武林外传olWIKI</div>
-                </a>
-                <a class="link-item" data-search="小米社区" href="#" target="_blank">
-                    <div class="link-name">小米社区</div>
-                </a>
-                <a class="link-item" data-search="耳机大家坛" href="#" target="_blank">
-                    <div class="link-name">耳机大家坛</div>
-                </a>
-                <a class="link-item" data-search="享乐音乐论坛" href="#" target="_blank">
-                    <div class="link-name">享乐音乐论坛</div>
-                </a>
-                <a class="link-item" data-search="机核" href="#" target="_blank">
-                    <div class="link-name">机核</div>
-                </a>
-            </div>
-        </section>
-        
-        <section class="category-section" data-category="shopping">
-            <h2 class="category-title">购物生活</h2>
-            <div class="nav-grid">
-                <a class="link-item" data-search="淘宝" href="#" target="_blank">
-                    <div class="link-name">淘宝</div>
-                </a>
-                <a class="link-item" data-search="小米" href="#" target="_blank">
-                    <div class="link-name">小米</div>
-                </a>
-                <a class="link-item" data-search="京东" href="#" target="_blank">
-                    <div class="link-name">京东</div>
-                </a>
-                <a class="link-item" data-search="亚马逊" href="#" target="_blank">
-                    <div class="link-name">亚马逊</div>
-                </a>
-                <a class="link-item" data-search="小米有品" href="#" target="_blank">
-                    <div class="link-name">小米有品</div>
-                </a>
-                <a class="link-item" data-search="12306" href="#" target="_blank">
-                    <div class="link-name">12306</div>
-                </a>
-                <a class="link-item" data-search="懂车帝" href="#" target="_blank">
-                    <div class="link-name">懂车帝</div>
-                </a>
-                <a class="link-item" data-search="易车" href="#" target="_blank">
-                    <div class="link-name">易车</div>
-                </a>
-                <a class="link-item" data-search="汽车之家" href="#" target="_blank">
-                    <div class="link-name">汽车之家</div>
-                </a>
-                <a class="link-item" data-search="Buyer's Guide" href="#" target="_blank">
-                    <div class="link-name">Buyer's Guide</div>
-                </a>
-            </div>
-        </section>
-        
-        <section class="category-section" data-category="entertainment">
-            <h2 class="category-title">影音娱乐</h2>
-            <div class="nav-grid">
-                <a class="link-item" data-search="YouTube" href="#" target="_blank">
-                    <div class="link-name">YouTube</div>
-                </a>
-                <a class="link-item" data-search="腾讯视频" href="#" target="_blank">
-                    <div class="link-name">腾讯视频</div>
-                </a>
-                <a class="link-item" data-search="爱奇艺" href="#" target="_blank">
-                    <div class="link-name">爱奇艺</div>
-                </a>
-                <a class="link-item" data-search="优酷" href="#" target="_blank">
-                    <div class="link-name">优酷</div>
-                </a>
-                <a class="link-item" data-search="哔哩哔哩" href="#" target="_blank">
-                    <div class="link-name">哔哩哔哩</div>
-                </a>
-                <a class="link-item" data-search="斗鱼" href="#" target="_blank">
-                    <div class="link-name">斗鱼</div>
-                </a>
-                <a class="link-item" data-search="虎牙" href="#" target="_blank">
-                    <div class="link-name">虎牙</div>
-                </a>
-                <a class="link-item" data-search="Twitch" href="#" target="_blank">
-                    <div class="link-name">Twitch</div>
-                </a>
-                <a class="link-item" data-search="QQ音乐" href="#" target="_blank">
-                    <div class="link-name">QQ音乐</div>
-                </a>
-                <a class="link-item" data-search="网易云音乐" href="#" target="_blank">
-                    <div class="link-name">网易云音乐</div>
-                </a>
-                <a class="link-item" data-search="Spotify" href="#" target="_blank">
-                    <div class="link-name">Spotify</div>
-                </a>
-                <a class="link-item" data-search="Audio Library" href="#" target="_blank">
-                    <div class="link-name">Audio Library</div>
-                </a>
-                <a class="link-item" data-search="Suno" href="#" target="_blank">
-                    <div class="link-name">Suno</div>
-                </a>
-                <a class="link-item" data-search="Udio" href="#" target="_blank">
-                    <div class="link-name">Udio</div>
-                </a>
-                <a class="link-item" data-search="游民星空" href="#" target="_blank">
-                    <div class="link-name">游民星空</div>
-                </a>
-                <a class="link-item" data-search="3DMGAME" href="#" target="_blank">
-                    <div class="link-name">3DMGAME</div>
-                </a>
-                <a class="link-item" data-search="游侠网" href="#" target="_blank">
-                    <div class="link-name">游侠网</div>
-                </a>
-                <a class="link-item" data-search="Switch520" href="#" target="_blank">
-                    <div class="link-name">Switch520</div>
-                </a>
-                <a class="link-item" data-search="Git游戏" href="#" target="_blank">
-                    <div class="link-name">Git游戏</div>
-                </a>
-                <a class="link-item" data-search="FLiNG Trainer" href="#" target="_blank">
-                    <div class="link-name">FLiNG Trainer</div>
-                </a>
-                <a class="link-item" data-search="悪魔的小站" href="#" target="_blank">
-                    <div class="link-name">悪魔的小站</div>
-                </a>
-                <a class="link-item" data-search="IGAME游戏基地" href="#" target="_blank">
-                    <div class="link-name">IGAME游戏基地</div>
-                </a>
-                <a class="link-item" data-search="时光网" href="#" target="_blank">
-                    <div class="link-name">时光网</div>
-                </a>
-                <a class="link-item" data-search="直播吧" href="#" target="_blank">
-                    <div class="link-name">直播吧</div>
-                </a>
-                <a class="link-item" data-search="CNTV-5" href="#" target="_blank">
-                    <div class="link-name">CNTV-5</div>
-                </a>
-                <a class="link-item" data-search="SOOP" href="#" target="_blank">
-                    <div class="link-name">SOOP</div>
-                </a>
-                <a class="link-item" data-search="FLEXTV" href="#" target="_blank">
-                    <div class="link-name">FLEXTV</div>
-                </a>
-                <a class="link-item" data-search="CHZZK" href="#" target="_blank">
-                    <div class="link-name">CHZZK</div>
-                </a>
-                <a class="link-item" data-search="PandaTV" href="#" target="_blank">
-                    <div class="link-name">PandaTV</div>
-                </a>
-                <a class="link-item" data-search="津津乐道" href="#" target="_blank">
-                    <div class="link-name">津津乐道</div>
-                </a>
-            </div>
-        </section>
-        
-        <section class="category-section" data-category="resource">
-            <h2 class="category-title">资源下载</h2>
-            <div class="nav-grid">
-                <a class="link-item" data-search="百度网盘" href="#" target="_blank">
-                    <div class="link-name">百度网盘</div>
-                </a>
-                <a class="link-item" data-search="APKMirror" href="#" target="_blank">
-                    <div class="link-name">APKMirror</div>
-                </a>
-                <a class="link-item" data-search="APKPure" href="#" target="_blank">
-                    <div class="link-name">APKPure</div>
-                </a>
-                <a class="link-item" data-search="乐赏" href="#" target="_blank">
-                    <div class="link-name">乐赏</div>
-                </a>
-                <a class="link-item" data-search="天使动漫" href="#" target="_blank">
-                    <div class="link-name">天使动漫</div>
-                </a>
-                <a class="link-item" data-search="懒得勤快" href="#" target="_blank">
-                    <div class="link-name">懒得勤快</div>
-                </a>
-                <a class="link-item" data-search="果核剥壳" href="#" target="_blank">
-                    <div class="link-name">果核剥壳</div>
-                </a>
-                <a class="link-item" data-search="影视森林" href="#" target="_blank">
-                    <div class="link-name">影视森林</div>
-                </a>
-                <a class="link-item" data-search="超能搜" href="#" target="_blank">
-                    <div class="link-name">超能搜</div>
-                </a>
-                <a class="link-item" data-search="精品下载" href="#" target="_blank">
-                    <div class="link-name">精品下载</div>
-                </a>
-                <a class="link-item" data-search="ACG盒子" href="#" target="_blank">
-                    <div class="link-name">ACG盒子</div>
-                </a>
-                <a class="link-item" data-search="云盘资源网" href="#" target="_blank">
-                    <div class="link-name">云盘资源网</div>
-                </a>
-                <a class="link-item" data-search="RuTracker.org" href="#" target="_blank">
-                    <div class="link-name">RuTracker.org</div>
-                </a>
-                <a class="link-item" data-search="易搜" href="#" target="_blank">
-                    <div class="link-name">易搜</div>
-                </a>
-                <a class="link-item" data-search="Office Tool Plus" href="#" target="_blank">
-                    <div class="link-name">Office Tool Plus</div>
-                </a>
-                <a class="link-item" data-search="BT之家1LOU站" href="#" target="_blank">
-                    <div class="link-name">BT之家1LOU站</div>
-                </a>
-                <a class="link-item" data-search="阿里云盘资源共享站" href="#" target="_blank">
-                    <div class="link-name">阿里云盘资源共享站</div>
-                </a>
-                <a class="link-item" data-search="高清剧集网" href="#" target="_blank">
-                    <div class="link-name">高清剧集网</div>
-                </a>
-                <a class="link-item" data-search="ahhhhfs" href="#" target="_blank">
-                    <div class="link-name">ahhhhfs</div>
-                </a>
-                <a class="link-item" data-search="智享阁" href="#" target="_blank">
-                    <div class="link-name">智享阁</div>
-                </a>
-                <a class="link-item" data-search="動漫花園資源網" href="#" target="_blank">
-                    <div class="link-name">動漫花園資源網</div>
-                </a>
-                <a class="link-item" data-search="爱恋动漫BT下载" href="#" target="_blank">
-                    <div class="link-name">爱恋动漫BT下载</div>
-                </a>
-                <a class="link-item" data-search="资料吧" href="#" target="_blank">
-                    <div class="link-name">资料吧</div>
-                </a>
-                <a class="link-item" data-search="磁力熊" href="#" target="_blank">
-                    <div class="link-name">磁力熊</div>
-                </a>
-                <a class="link-item" data-search="蜜柑计划" href="#" target="_blank">
-                    <div class="link-name">蜜柑计划</div>
-                </a>
-                <a class="link-item" data-search="VIDHUB视频库" href="#" target="_blank">
-                    <div class="link-name">VIDHUB视频库</div>
-                </a>
-                <a class="link-item" data-search="StreamRecorder" href="#" target="_blank">
-                    <div class="link-name">StreamRecorder</div>
-                </a>
-                <a class="link-item" data-search="人人电影网" href="#" target="_blank">
-                    <div class="link-name">人人电影网</div>
-                </a>
-                <a class="link-item" data-search="影视仓库" href="#" target="_blank">
-                    <div class="link-name">影视仓库</div>
-                </a>
-                <a class="link-item" data-search="NO视频" href="#" target="_blank">
-                    <div class="link-name">NO视频</div>
-                </a>
-                <a class="link-item" data-search="可可影视" href="#" target="_blank">
-                    <div class="link-name">可可影视</div>
-                </a>
-                <a class="link-item" data-search="低端影视" href="#" target="_blank">
-                    <div class="link-name">低端影视</div>
-                </a>
-                <a class="link-item" data-search="音范丝" href="#" target="_blank">
-                    <div class="link-name">音范丝</div>
-                </a>
-                <a class="link-item" data-search="短剧库" href="#" target="_blank">
-                    <div class="link-name">短剧库</div>
-                </a>
-            </div>
-        </section>
-        
-        <section class="category-section" data-category="tech">
-            <h2 class="category-title">技术开发</h2>
-            <div class="nav-grid">
-                <a class="link-item" data-search="GitHub" href="#" target="_blank">
-                    <div class="link-name">GitHub</div>
-                </a>
-                <a class="link-item" data-search="吾爱破解" href="#" target="_blank">
-                    <div class="link-name">吾爱破解</div>
-                </a>
-                <a class="link-item" data-search="itzmx" href="#" target="_blank">
-                    <div class="link-name">itzmx</div>
-                </a>
-                <a class="link-item" data-search="Mrxn's Blog" href="#" target="_blank">
-                    <div class="link-name">Mrxn's Blog</div>
-                </a>
-                <a class="link-item" data-search="酱紫表" href="#" target="_blank">
-                    <div class="link-name">酱紫表</div>
-                </a>
-                <a class="link-item" data-search="智能电视选购网" href="#" target="_blank">
-                    <div class="link-name">智能电视选购网</div>
-                </a>
-                <a class="link-item" data-search="恩山无线论坛" href="#" target="_blank">
-                    <div class="link-name">恩山无线论坛</div>
-                </a>
-                <a class="link-item" data-search="LKs Site" href="#" target="_blank">
-                    <div class="link-name">LKs Site</div>
-                </a>
-                <a class="link-item" data-search="南京大学测速站" href="#" target="_blank">
-                    <div class="link-name">南京大学测速站</div>
-                </a>
-                <a class="link-item" data-search="海阔天空" href="#" target="_blank">
-                    <div class="link-name">海阔天空</div>
-                </a>
-            </div>
-        </section>
-        
-        <section class="category-section" data-category="tools">
-            <h2 class="category-title">实用工具</h2>
-            <div class="nav-grid">
-                <a class="link-item" data-search="VirSCAN" href="#" target="_blank">
-                    <div class="link-name">VirSCAN</div>
-                </a>
-                <a class="link-item" data-search="Privacy" href="#" target="_blank">
-                    <div class="link-name">Privacy</div>
-                </a>
-                <a class="link-item" data-search="GeoSpy" href="#" target="_blank">
-                    <div class="link-name">GeoSpy</div>
-                </a>
-                <a class="link-item" data-search="pixabay" href="#" target="_blank">
-                    <div class="link-name">pixabay</div>
-                </a>
-                <a class="link-item" data-search="wallhaven" href="#" target="_blank">
-                    <div class="link-name">wallhaven</div>
-                </a>
-                <a class="link-item" data-search="AXIS-Studio" href="#" target="_blank">
-                    <div class="link-name">AXIS-Studio</div>
-                </a>
-                <a class="link-item" data-search="OSS King" href="#" target="_blank">
-                    <div class="link-name">OSS King</div>
-                </a>
-            </div>
-        </section>
-        
-        <section class="category-section" data-category="ai">
-            <h2 class="category-title">AI工具</h2>
-            <div class="nav-grid">
-                <a class="link-item" data-search="CIVITAI" href="#" target="_blank">
-                    <div class="link-name">CIVITAI</div>
-                </a>
-                <a class="link-item" data-search="SD提示词万用表" href="#" target="_blank">
-                    <div class="link-name">SD提示词万用表</div>
-                </a>
-                <a class="link-item" data-search="錾制法典" href="#" target="_blank">
-                    <div class="link-name">錾制法典</div>
-                </a>
-                <a class="link-item" data-search="ChatGPT" href="#" target="_blank">
-                    <div class="link-name">ChatGPT</div>
-                </a>
-                <a class="link-item" data-search="Poe" href="#" target="_blank">
-                    <div class="link-name">Poe</div>
-                </a>
-                <a class="link-item" data-search="ChatGPT 引导语" href="#" target="_blank">
-                    <div class="link-name">ChatGPT 引导语</div>
-                </a>
-                <a class="link-item" data-search="木瓜GPT" href="#" target="_blank">
-                    <div class="link-name">木瓜GPT</div>
-                </a>
-                <a class="link-item" data-search="Free2gpt" href="#" target="_blank">
-                    <div class="link-name">Free2gpt</div>
-                </a>
-                <a class="link-item" data-search="Free ChatGPT Site List" href="#" target="_blank">
-                    <div class="link-name">Free ChatGPT Site List</div>
-                </a>
-                <a class="link-item" data-search="COZE" href="#" target="_blank">
-                    <div class="link-name">COZE</div>
-                </a>
-                <a class="link-item" data-search="Grok" href="#" target="_blank">
-                    <div class="link-name">Grok</div>
-                </a>
-                <a class="link-item" data-search="DeepSeek" href="#" target="_blank">
-                    <div class="link-name">DeepSeek</div>
-                </a>
-                <a class="link-item" data-search="Manus" href="#" target="_blank">
-                    <div class="link-name">Manus</div>
-                </a>
-                <a class="link-item" data-search="Gemini" href="#" target="_blank">
-                    <div class="link-name">Gemini</div>
-                </a>
-            </div>
-        </section>
-        
-        <section class="category-section" data-category="nsfw">
-            <h2 class="category-title">NSFW</h2>
-            <div class="nav-grid">
-                <a class="link-item" data-search="紳士漫畫" href="#" target="_blank">
-                    <div class="link-name">紳士漫畫</div>
-                </a>
-                <a class="link-item" data-search="哥特动漫王国" href="#" target="_blank">
-                    <div class="link-name">哥特动漫王国</div>
-                </a>
-                <a class="link-item" data-search="红领巾瓜报" href="#" target="_blank">
-                    <div class="link-name">红领巾瓜报</div>
-                </a>
-                <a class="link-item" data-search="Coomer" href="#" target="_blank">
-                    <div class="link-name">Coomer</div>
-                </a>
-                <a class="link-item" data-search="MissAV" href="#" target="_blank">
-                    <div class="link-name">MissAV</div>
-                </a>
-                <a class="link-item" data-search="海角社区" href="#" target="_blank">
-                    <div class="link-name">海角社区</div>
-                </a>
-                <a class="link-item" data-search="司机社" href="#" target="_blank">
-                    <div class="link-name">司机社</div>
-                </a>
-                <a class="link-item" data-search="司机社备用" href="#" target="_blank">
-                    <div class="link-name">司机社备用</div>
-                </a>
-                <a class="link-item" data-search="老王论坛" href="#" target="_blank">
-                    <div class="link-name">老王论坛</div>
-                </a>
-                <a class="link-item" data-search="ThisAV" href="#" target="_blank">
-                    <div class="link-name">ThisAV</div>
-                </a>
-                <a class="link-item" data-search="JavDB" href="#" target="_blank">
-                    <div class="link-name">JavDB</div>
-                </a>
-                <a class="link-item" data-search="JavBus" href="#" target="_blank">
-                    <div class="link-name">JavBus</div>
-                </a>
-                <a class="link-item" data-search="Sleazy Fork" href="#" target="_blank">
-                    <div class="link-name">Sleazy Fork</div>
-                </a>
-                <a class="link-item" data-search="Sukebei" href="#" target="_blank">
-                    <div class="link-name">Sukebei</div>
-                </a>
-                <a class="link-item" data-search="ASMR Online" href="#" target="_blank">
-                    <div class="link-name">ASMR Online</div>
-                </a>
-                <a class="link-item" data-search="ASMR基佬中心" href="#" target="_blank">
-                    <div class="link-name">ASMR基佬中心</div>
-                </a>
-                <a class="link-item" data-search="M3U8在线播放器" href="#" target="_blank">
-                    <div class="link-name">M3U8在线播放器</div>
-                </a>
-                <a class="link-item" data-search="STRIPCHAT" href="#" target="_blank">
-                    <div class="link-name">STRIPCHAT</div>
-                </a>
-                <a class="link-item" data-search="稻荷GAL" href="#" target="_blank">
-                    <div class="link-name">稻荷GAL</div>
-                </a>
-                <a class="link-item" data-search="网址导航" href="#" target="_blank">
-                    <div class="link-name">网址导航</div>
-                </a>
-                <a class="link-item" data-search="123AV" href="#" target="_blank">
-                    <div class="link-name">123AV</div>
-                </a>
-                <a class="link-item" data-search="黄色仓库" href="#" target="_blank">
-                    <div class="link-name">黄色仓库</div>
-                </a>
-                <a class="link-item" data-search="禁漫天堂" href="#" target="_blank">
-                    <div class="link-name">禁漫天堂</div>
-                </a>
-                <a class="link-item" data-search="海角社区" href="#" target="_blank">
-                    <div class="link-name">海角社区</div>
-                </a>
-                <a class="link-item" data-search="老王论坛" href="#" target="_blank">
-                    <div class="link-name">老王论坛</div>
-                </a>
-                <a class="link-item" data-search="南+" href="#" target="_blank">
-                    <div class="link-name">南+</div>
-                </a>
-                <a class="link-item" data-search="草榴社區" href="#" target="_blank">
-                    <div class="link-name">草榴社區</div>
-                </a>
-                <a class="link-item" data-search="梓澪の妙妙屋" href="#" target="_blank">
-                    <div class="link-name">梓澪の妙妙屋</div>
-                </a>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p>本页由AI生成</p>
-    </footer>
-    
-    <script>
-        // 网站链接映射 - 重复链接已恢复
-        const rawSiteLinks = {
-            "百度网盘": "https://pan.baidu.com/",
-            "微博": "https://weibo.com/",
-            "Facebook": "https://www.facebook.com/",
-            "X": "https://x.com/",
-            "豆瓣": "https://www.douban.com/",
-            "微信公众平台": "https://mp.weixin.qq.com/",
-            "吾爱破解": "https://www.52pojie.cn/",
-            "V2EX": "https://v2ex.com/",
-            "懂车帝": "https://www.dongchedi.com/",
-            "itzmx": "http://bbs.itzmx.com/",
-            "NGA": "https://bbs.nga.cn/",
-            "奇客资讯网": "https://www.solidot.org/",
-            "Mrxn's Blog": "https://mrxn.net/",
-            "GitHub": "https://github.com/",
-            "酱紫表": "https://blog.qust.me/",
-            "智能电视选购网": "https://tvlabs.cn/",
-            "易车": "https://www.yiche.com/",
-            "恩山无线论坛": "https://www.right.com.cn/forum/index.php",
-            "汽车之家": "https://www.autohome.com.cn/",
-            "LINUX DO": "https://linux.do/",
-            "武林外传olWIKI": "https://wiki.biligame.com/wulinonline/%E9%A6%96%E9%A1%B5",
-            "淘宝": "https://taobao.com/",
-            "小米": "https://mi.com/",
-            "京东": "https://jd.com/",
-            "亚马逊": "https://z.cn/",
-            "12306": "https://12306.cn/",
-            "小米有品": "https://www.xiaomiyoupin.com/",
-            "小米社区": "https://www.xiaomi.cn/",
-            "APKMirror": "http://www.apkmirror.com/",
-            "APKPure": "https://apkpure.com/",
-            "游民星空": "http://www.gamersky.com/",
-            "3DMGAME": "http://www.3dmgame.com/",
-            "游侠网": "https://www.ali213.net/",
-            "悪魔的小站": "http://www.mubolin.cn:99/",
-            "Switch520": "https://laoquzhang.com",
-            "Git游戏": "https://gityx.com/",
-            "梓澪の妙妙屋": "https://zi0.cc/",
-            "FLiNG Trainer": "https://flingtrainer.com/",
-            "IGAME游戏基地": "https://sway.cloud.microsoft/Ov6azG0G1MJlFUeU",
-            "QQ音乐": "https://y.qq.com/",
-            "网易云音乐": "https://music.163.com/",
-            "耳机大家坛": "http://www.erji.net/",
-            "享乐音乐论坛": "https://www.xlebbs.com/",
-            "机核": "https://www.gcores.com/",
-            "津津乐道": "https://dao.fm/",
-            "Audio Library": "https://www.audiolibrary.com.co/",
-            "Suno": "https://app.suno.ai/",
-            "Udio": "https://www.udio.com/",
-            "pixabay": "https://pixabay.com/",
-            "wallhaven": "https://wallhaven.cc/",
-            "AXIS-Studio": "https://photo.axis-studio.org/",
-            "OSS King": "https://www.ossking.com/",
-            "YouTube": "https://www.youtube.com/",
-            "腾讯视频": "https://v.qq.com/",
-            "爱奇艺": "https://www.iqiyi.com/",
-            "优酷": "https://www.youku.com/",
-            "哔哩哔哩": "https://www.bilibili.com/",
-            "斗鱼": "https://www.douyu.com/",
-            "虎牙": "https://www.huya.com/",
-            "时光网": "http://www.mtime.com/",
-            "NO视频": "https://findno.tv/",
-            "直播吧": "http://www.zhibo8.cc/",
-            "CNTV-5": "http://tv.cntv.cn/live/cctv5/?pt=HD",
-            "人人电影网": "https://www.rrdynb.com/index.html",
-            "蜜柑计划": "https://mikanani.me/",
-            "影视仓库": "http://www.wmdz.com/index.html",
-            "VIDHUB视频库": "https://vidhub.link/",
-            "Twitch": "https://www.twitch.tv/",
-            "SOOP": "https://www.sooplive.co.kr/",
-            "FLEXTV": "https://www.flextv.co.kr/",
-            "StreamRecorder": "https://streamrecorder.io/",
-            "CHZZK": "https://chzzk.naver.com/",
-            "PandaTV": "https://www.pandalive.co.kr/",
-            "短剧库": "https://kdocs.cn/l/cntsb8OUEpHV",
-            "可可影视": "https://www.keke13.com/",
-            "低端影视": "https://ddys.info/",
-            "音范丝": "https://www.yinfans.net/",
-            "乐赏": "http://gbtgame.me/",
-            "天使动漫": "https://www.tsdm39.com/",
-            "懒得勤快": "https://ldqk.gitbook.io/",
-            "果核剥壳": "https://www.ghxi.com/",
-            "影视森林": "http://549.tv/",
-            "超能搜": "https://www.chaonengsou.com/",
-            "精品下载": "http://www.j9p.com/",
-            "ACG盒子": "https://www.acgbox.link/",
-            "云盘资源网": "https://www.yunpanziyuan.top/",
-            "RuTracker.org": "https://rutracker.net/forum/index.php",
-            "易搜": "http://yiso.eu.org/",
-            "Office Tool Plus": "https://otp.landian.vip/zh-cn/",
-            "BT之家1LOU站": "https://www.1lou.cc/",
-            "阿里云盘资源共享站": "https://pan666.net/",
-            "高清剧集网": "https://www.BTHDTV.com",
-            "ahhhhfs": "https://www.ahhhhfs.com/",
-            "智享阁": "https://www.esnpc.com/",
-            "動漫花園資源網": "https://share.dmhy.org/",
-            "爱恋动漫BT下载": "https://kisssub.org/",
-            "资料吧": "https://ziliaoba.github.io/",
-            "磁力熊": "https://www.cilixiong.org/",
-            "VirSCAN": "http://www.virscan.org/",
-            "证件照排版": "http://www.sandcomp.com/blog/sandphoto/",
-            "DeepL": "https://www.deepl.com/translator",
-            "和谐之源": "https://hunter.gitlab.io/tools/harmonious/",
-            "doyoudo": "http://www.doyoudo.com/",
-            "oeasy教程": "http://oeasy.org/",
-            "LKs Site": "http://lkssite.vip/",
-            "Privacy": "https://privacy.aiuys.com/",
-            "南京大学测速站": "https://test.nju.edu.cn/",
-            "GeoSpy": "https://geospy.ai/",
-            "海阔天空": "https://www.ahzll.top/",
-            "Buyer's Guide": "https://buyersguide.macrumors.com/",
-            "紳士漫畫": "https://www.wnacg.com/",
-            "哥特动漫王国": "https://www.gtloli.gay/",
-            "红领巾瓜报": "https://hlj.fun/",
-            "Coomer": "https://coomer.su/",
-            "MissAV": "https://missav.ai/",
-            "海角社区": "https://haijiao.com/",
-            "司机社": "https://bitbucket.org/xsijishe/yjdz/src/main/",
-            "司机社备用": "https://47447.net/",
-            "老王论坛": "https://laowang.vip",
-            "ThisAV": "https://thisav.me/",
-            "JavDB": "https://javdb.com/",
-            "JavBus": "https://www.javbus.com/",
-            "Sleazy Fork": "https://sleazyfork.org/zh-CN",
-            "Sukebei": "https://sukebei.nyaa.si/",
-            "ASMR Online": "https://www.asmr.one/works",
-            "ASMR基佬中心": "https://asmrgay.org/",
-            "M3U8在线播放器": "https://5721004.xyz/",
-            "STRIPCHAT": "https://zh.stripchat.com/",
-            "稻荷GAL": "https://inarigal.com/",
-            "网址导航": "https://southpl.us/",
-            "123AV": "https://123av.com/",
-            "黄色仓库": "https://www.hsck.la/",
-            "禁漫天堂": "https://jmcomicqa.cc/",
-            // 恢复被移除的重复链接
-            "海角社区": "https://haijiao.com/",
-            "老王论坛": "https://laowang.vip",
-            "南+": "https://south-plus.net/",
-            "草榴社區": "https://t66y.com/",
-            "梓澪の妙妙屋": "https://zi0.cc/",
-            // AI工具链接
-            "CIVITAI": "https://civitai.com/",
-            "SD提示词万用表": "https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/htmlview#",
-            "錾制法典": "https://docs.google.com/document/d/1NAVTmZXq7xRXKnFMyiAeJ2IyYN5QsgbSEaL7knv_xbs/edit",
-            "ChatGPT": "https://chat.openai.com/",
-            "Poe": "https://poe.com/",
-            "ChatGPT 引导语": "https://prompts.fresns.cn/",
-            "木瓜GPT": "https://www.papayagpt.com/",
-            "Free2gpt": "https://chato.free2gpt.xyz/",
-            "Free ChatGPT Site List": "https://github.com/xx025/carrot",
-            "COZE": "https://www.coze.com/",
-            "Grok": "https://grok.com/",
-            "DeepSeek": "https://chat.deepseek.com/",
-            "Manus": "https://manus.im/",
-            "Gemini": "https://gemini.google.com/"
-        };
-        
-        // 用于存储增强后的链接数据（包含拼音、首字母、网址）
-        const siteLinks = {};
-        
-        /**
-         * 初始化数据，为每个链接添加拼音和首字母属性，并设置 a 标签的 href。
-         */
-        function initializeSiteData() {
-            // 1. 初始化站点数据（拼音、首字母）
-            const pinyinProLoaded = typeof pinyinPro !== 'undefined' && typeof pinyinPro.pinyin !== 'undefined';
-            if (!pinyinProLoaded) {
-                console.warn("pinyin-pro 库未加载，拼音搜索功能将禁用。");
-            }
+<div class="controls" role="search">
+    <span class="search-wrapper">
+        <input type="text" id="search-input" placeholder="搜索网站 (名称、拼音、网址)..." aria-label="搜索网站">
+        <button class="clear-btn" id="clear-search" title="清除" style="display:none;" tabindex="-1" aria-label="清除搜索">
+            <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="9"/><path d="M13.5 7.5l-7 7m0-7l7 7" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+    </span>
+</div>
 
-            for (const name in rawSiteLinks) {
-                const url = rawSiteLinks[name];
-                
-                let fullPinyin = '';
-                let firstLetters = '';
+<main id="nav-container" role="region" aria-live="polite">
+    <section class="category-section" data-category="social">
+        <h2 class="category-title">社交社区</h2>
+        <div class="nav-grid">
+            <a class="link-item" data-search="微博" href="#" target="_blank">
+                <div class="link-name">微博</div>
+            </a>
+            <a class="link-item" data-search="Facebook" href="#" target="_blank">
+                <div class="link-name">Facebook</div>
+            </a>
+            <a class="link-item" data-search="X" href="#" target="_blank">
+                <div class="link-name">X</div>
+            </a>
+            <a class="link-item" data-search="豆瓣" href="#" target="_blank">
+                <div class="link-name">豆瓣</div>
+            </a>
+            <a class="link-item" data-search="微信公众平台" href="#" target="_blank">
+                <div class="link-name">微信公众平台</div>
+            </a>
+            <a class="link-item" data-search="V2EX" href="#" target="_blank">
+                <div class="link-name">V2EX</div>
+            </a>
+            <a class="link-item" data-search="NGA" href="#" target="_blank">
+                <div class="link-name">NGA</div>
+            </a>
+            <a class="link-item" data-search="奇客资讯网" href="#" target="_blank">
+                <div class="link-name">奇客资讯网</div>
+            </a>
+            <a class="link-item" data-search="LINUX DO" href="#" target="_blank">
+                <div class="link-name">LINUX DO</div>
+            </a>
+            <a class="link-item" data-search="武林外传olWIKI" href="#" target="_blank">
+                <div class="link-name">武林外传olWIKI</div>
+            </a>
+            <a class="link-item" data-search="小米社区" href="#" target="_blank">
+                <div class="link-name">小米社区</div>
+            </a>
+            <a class="link-item" data-search="耳机大家坛" href="#" target="_blank">
+                <div class="link-name">耳机大家坛</div>
+            </a>
+            <a class="link-item" data-search="享乐音乐论坛" href="#" target="_blank">
+                <div class="link-name">享乐音乐论坛</div>
+            </a>
+            <a class="link-item" data-search="机核" href="#" target="_blank">
+                <div class="link-name">机核</div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="category-section" data-category="shopping">
+        <h2 class="category-title">购物生活</h2>
+        <div class="nav-grid">
+            <a class="link-item" data-search="淘宝" href="#" target="_blank">
+                <div class="link-name">淘宝</div>
+            </a>
+            <a class="link-item" data-search="小米" href="#" target="_blank">
+                <div class="link-name">小米</div>
+            </a>
+            <a class="link-item" data-search="京东" href="#" target="_blank">
+                <div class="link-name">京东</div>
+            </a>
+            <a class="link-item" data-search="亚马逊" href="#" target="_blank">
+                <div class="link-name">亚马逊</div>
+            </a>
+            <a class="link-item" data-search="小米有品" href="#" target="_blank">
+                <div class="link-name">小米有品</div>
+            </a>
+            <a class="link-item" data-search="12306" href="#" target="_blank">
+                <div class="link-name">12306</div>
+            </a>
+            <a class="link-item" data-search="懂车帝" href="#" target="_blank">
+                <div class="link-name">懂车帝</div>
+            </a>
+            <a class="link-item" data-search="易车" href="#" target="_blank">
+                <div class="link-name">易车</div>
+            </a>
+            <a class="link-item" data-search="汽车之家" href="#" target="_blank">
+                <div class="link-name">汽车之家</div>
+            </a>
+            <a class="link-item" data-search="Buyer's Guide" href="#" target="_blank">
+                <div class="link-name">Buyer's Guide</div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="category-section" data-category="entertainment">
+        <h2 class="category-title">影音娱乐</h2>
+        <div class="nav-grid">
+            <a class="link-item" data-search="YouTube" href="#" target="_blank">
+                <div class="link-name">YouTube</div>
+            </a>
+            <a class="link-item" data-search="腾讯视频" href="#" target="_blank">
+                <div class="link-name">腾讯视频</div>
+            </a>
+            <a class="link-item" data-search="爱奇艺" href="#" target="_blank">
+                <div class="link-name">爱奇艺</div>
+            </a>
+            <a class="link-item" data-search="优酷" href="#" target="_blank">
+                <div class="link-name">优酷</div>
+            </a>
+            <a class="link-item" data-search="哔哩哔哩" href="#" target="_blank">
+                <div class="link-name">哔哩哔哩</div>
+            </a>
+            <a class="link-item" data-search="斗鱼" href="#" target="_blank">
+                <div class="link-name">斗鱼</div>
+            </a>
+            <a class="link-item" data-search="虎牙" href="#" target="_blank">
+                <div class="link-name">虎牙</div>
+            </a>
+            <a class="link-item" data-search="Twitch" href="#" target="_blank">
+                <div class="link-name">Twitch</div>
+            </a>
+            <a class="link-item" data-search="QQ音乐" href="#" target="_blank">
+                <div class="link-name">QQ音乐</div>
+            </a>
+            <a class="link-item" data-search="网易云音乐" href="#" target="_blank">
+                <div class="link-name">网易云音乐</div>
+            </a>
+            <a class="link-item" data-search="Spotify" href="#" target="_blank">
+                <div class="link-name">Spotify</div>
+            </a>
+            <a class="link-item" data-search="Audio Library" href="#" target="_blank">
+                <div class="link-name">Audio Library</div>
+            </a>
+            <a class="link-item" data-search="Suno" href="#" target="_blank">
+                <div class="link-name">Suno</div>
+            </a>
+            <a class="link-item" data-search="Udio" href="#" target="_blank">
+                <div class="link-name">Udio</div>
+            </a>
+            <a class="link-item" data-search="游民星空" href="#" target="_blank">
+                <div class="link-name">游民星空</div>
+            </a>
+            <a class="link-item" data-search="3DMGAME" href="#" target="_blank">
+                <div class="link-name">3DMGAME</div>
+            </a>
+            <a class="link-item" data-search="游侠网" href="#" target="_blank">
+                <div class="link-name">游侠网</div>
+            </a>
+            <a class="link-item" data-search="Switch520" href="#" target="_blank">
+                <div class="link-name">Switch520</div>
+            </a>
+            <a class="link-item" data-search="Git游戏" href="#" target="_blank">
+                <div class="link-name">Git游戏</div>
+            </a>
+            <a class="link-item" data-search="FLiNG Trainer" href="#" target="_blank">
+                <div class="link-name">FLiNG Trainer</div>
+            </a>
+            <a class="link-item" data-search="悪魔的小站" href="#" target="_blank">
+                <div class="link-name">悪魔的小站</div>
+            </a>
+            <a class="link-item" data-search="IGAME游戏基地" href="#" target="_blank">
+                <div class="link-name">IGAME游戏基地</div>
+            </a>
+            <a class="link-item" data-search="时光网" href="#" target="_blank">
+                <div class="link-name">时光网</div>
+            </a>
+            <a class="link-item" data-search="直播吧" href="#" target="_blank">
+                <div class="link-name">直播吧</div>
+            </a>
+            <a class="link-item" data-search="CNTV-5" href="#" target="_blank">
+                <div class="link-name">CNTV-5</div>
+            </a>
+            <a class="link-item" data-search="SOOP" href="#" target="_blank">
+                <div class="link-name">SOOP</div>
+            </a>
+            <a class="link-item" data-search="FLEXTV" href="#" target="_blank">
+                <div class="link-name">FLEXTV</div>
+            </a>
+            <a class="link-item" data-search="CHZZK" href="#" target="_blank">
+                <div class="link-name">CHZZK</div>
+            </a>
+            <a class="link-item" data-search="PandaTV" href="#" target="_blank">
+                <div class="link-name">PandaTV</div>
+            </a>
+            <a class="link-item" data-search="津津乐道" href="#" target="_blank">
+                <div class="link-name">津津乐道</div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="category-section" data-category="resource">
+        <h2 class="category-title">资源下载</h2>
+        <div class="nav-grid">
+            <a class="link-item" data-search="百度网盘" href="#" target="_blank">
+                <div class="link-name">百度网盘</div>
+            </a>
+            <a class="link-item" data-search="APKMirror" href="#" target="_blank">
+                <div class="link-name">APKMirror</div>
+            </a>
+            <a class="link-item" data-search="APKPure" href="#" target="_blank">
+                <div class="link-name">APKPure</div>
+            </a>
+            <a class="link-item" data-search="乐赏" href="#" target="_blank">
+                <div class="link-name">乐赏</div>
+            </a>
+            <a class="link-item" data-search="天使动漫" href="#" target="_blank">
+                <div class="link-name">天使动漫</div>
+            </a>
+            <a class="link-item" data-search="懒得勤快" href="#" target="_blank">
+                <div class="link-name">懒得勤快</div>
+            </a>
+            <a class="link-item" data-search="果核剥壳" href="#" target="_blank">
+                <div class="link-name">果核剥壳</div>
+            </a>
+            <a class="link-item" data-search="影视森林" href="#" target="_blank">
+                <div class="link-name">影视森林</div>
+            </a>
+            <a class="link-item" data-search="超能搜" href="#" target="_blank">
+                <div class="link-name">超能搜</div>
+            </a>
+            <a class="link-item" data-search="精品下载" href="#" target="_blank">
+                <div class="link-name">精品下载</div>
+            </a>
+            <a class="link-item" data-search="ACG盒子" href="#" target="_blank">
+                <div class="link-name">ACG盒子</div>
+            </a>
+            <a class="link-item" data-search="云盘资源网" href="#" target="_blank">
+                <div class="link-name">云盘资源网</div>
+            </a>
+            <a class="link-item" data-search="RuTracker.org" href="#" target="_blank">
+                <div class="link-name">RuTracker.org</div>
+            </a>
+            <a class="link-item" data-search="易搜" href="#" target="_blank">
+                <div class="link-name">易搜</div>
+            </a>
+            <a class="link-item" data-search="Office Tool Plus" href="#" target="_blank">
+                <div class="link-name">Office Tool Plus</div>
+            </a>
+            <a class="link-item" data-search="BT之家1LOU站" href="#" target="_blank">
+                <div class="link-name">BT之家1LOU站</div>
+            </a>
+            <a class="link-item" data-search="阿里云盘资源共享站" href="#" target="_blank">
+                <div class="link-name">阿里云盘资源共享站</div>
+            </a>
+            <a class="link-item" data-search="高清剧集网" href="#" target="_blank">
+                <div class="link-name">高清剧集网</div>
+            </a>
+            <a class="link-item" data-search="ahhhhfs" href="#" target="_blank">
+                <div class="link-name">ahhhhfs</div>
+            </a>
+            <a class="link-item" data-search="智享阁" href="#" target="_blank">
+                <div class="link-name">智享阁</div>
+            </a>
+            <a class="link-item" data-search="動漫花園資源網" href="#" target="_blank">
+                <div class="link-name">動漫花園資源網</div>
+            </a>
+            <a class="link-item" data-search="爱恋动漫BT下载" href="#" target="_blank">
+                <div class="link-name">爱恋动漫BT下载</div>
+            </a>
+            <a class="link-item" data-search="资料吧" href="#" target="_blank">
+                <div class="link-name">资料吧</div>
+            </a>
+            <a class="link-item" data-search="磁力熊" href="#" target="_blank">
+                <div class="link-name">磁力熊</div>
+            </a>
+            <a class="link-item" data-search="蜜柑计划" href="#" target="_blank">
+                <div class="link-name">蜜柑计划</div>
+            </a>
+            <a class="link-item" data-search="VIDHUB视频库" href="#" target="_blank">
+                <div class="link-name">VIDHUB视频库</div>
+            </a>
+            <a class="link-item" data-search="StreamRecorder" href="#" target="_blank">
+                <div class="link-name">StreamRecorder</div>
+            </a>
+            <a class="link-item" data-search="人人电影网" href="#" target="_blank">
+                <div class="link-name">人人电影网</div>
+            </a>
+            <a class="link-item" data-search="影视仓库" href="#" target="_blank">
+                <div class="link-name">影视仓库</div>
+            </a>
+            <a class="link-item" data-search="NO视频" href="#" target="_blank">
+                <div class="link-name">NO视频</div>
+            </a>
+            <a class="link-item" data-search="可可影视" href="#" target="_blank">
+                <div class="link-name">可可影视</div>
+            </a>
+            <a class="link-item" data-search="低端影视" href="#" target="_blank">
+                <div class="link-name">低端影视</div>
+            </a>
+            <a class="link-item" data-search="音范丝" href="#" target="_blank">
+                <div class="link-name">音范丝</div>
+            </a>
+            <a class="link-item" data-search="短剧库" href="#" target="_blank">
+                <div class="link-name">短剧库</div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="category-section" data-category="tech">
+        <h2 class="category-title">技术开发</h2>
+        <div class="nav-grid">
+            <a class="link-item" data-search="GitHub" href="#" target="_blank">
+                <div class="link-name">GitHub</div>
+            </a>
+            <a class="link-item" data-search="吾爱破解" href="#" target="_blank">
+                <div class="link-name">吾爱破解</div>
+            </a>
+            <a class="link-item" data-search="itzmx" href="#" target="_blank">
+                <div class="link-name">itzmx</div>
+            </a>
+            <a class="link-item" data-search="Mrxn's Blog" href="#" target="_blank">
+                <div class="link-name">Mrxn's Blog</div>
+            </a>
+            <a class="link-item" data-search="酱紫表" href="#" target="_blank">
+                <div class="link-name">酱紫表</div>
+            </a>
+            <a class="link-item" data-search="智能电视选购网" href="#" target="_blank">
+                <div class="link-name">智能电视选购网</div>
+            </a>
+            <a class="link-item" data-search="恩山无线论坛" href="#" target="_blank">
+                <div class="link-name">恩山无线论坛</div>
+            </a>
+            <a class="link-item" data-search="LKs Site" href="#" target="_blank">
+                <div class="link-name">LKs Site</div>
+            </a>
+            <a class="link-item" data-search="南京大学测速站" href="#" target="_blank">
+                <div class="link-name">南京大学测速站</div>
+            </a>
+            <a class="link-item" data-search="海阔天空" href="#" target="_blank">
+                <div class="link-name">海阔天空</div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="category-section" data-category="tools">
+        <h2 class="category-title">实用工具</h2>
+        <div class="nav-grid">
+            <a class="link-item" data-search="VirSCAN" href="#" target="_blank">
+                <div class="link-name">VirSCAN</div>
+            </a>
+            <a class="link-item" data-search="Privacy" href="#" target="_blank">
+                <div class="link-name">Privacy</div>
+            </a>
+            <a class="link-item" data-search="GeoSpy" href="#" target="_blank">
+                <div class="link-name">GeoSpy</div>
+            </a>
+            <a class="link-item" data-search="pixabay" href="#" target="_blank">
+                <div class="link-name">pixabay</div>
+            </a>
+            <a class="link-item" data-search="wallhaven" href="#" target="_blank">
+                <div class="link-name">wallhaven</div>
+            </a>
+            <a class="link-item" data-search="AXIS-Studio" href="#" target="_blank">
+                <div class="link-name">AXIS-Studio</div>
+            </a>
+            <a class="link-item" data-search="OSS King" href="#" target="_blank">
+                <div class="link-name">OSS King</div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="category-section" data-category="ai">
+        <h2 class="category-title">AI工具</h2>
+        <div class="nav-grid">
+            <a class="link-item" data-search="CIVITAI" href="#" target="_blank">
+                <div class="link-name">CIVITAI</div>
+            </a>
+            <a class="link-item" data-search="SD提示词万用表" href="#" target="_blank">
+                <div class="link-name">SD提示词万用表</div>
+            </a>
+            <a class="link-item" data-search="錾制法典" href="#" target="_blank">
+                <div class="link-name">錾制法典</div>
+            </a>
+            <a class="link-item" data-search="ChatGPT" href="#" target="_blank">
+                <div class="link-name">ChatGPT</div>
+            </a>
+            <a class="link-item" data-search="Poe" href="#" target="_blank">
+                <div class="link-name">Poe</div>
+            </a>
+            <a class="link-item" data-search="ChatGPT 引导语" href="#" target="_blank">
+                <div class="link-name">ChatGPT 引导语</div>
+            </a>
+            <a class="link-item" data-search="木瓜GPT" href="#" target="_blank">
+                <div class="link-name">木瓜GPT</div>
+            </a>
+            <a class="link-item" data-search="Free2gpt" href="#" target="_blank">
+                <div class="link-name">Free2gpt</div>
+            </a>
+            <a class="link-item" data-search="Free ChatGPT Site List" href="#" target="_blank">
+                <div class="link-name">Free ChatGPT Site List</div>
+            </a>
+            <a class="link-item" data-search="COZE" href="#" target="_blank">
+                <div class="link-name">COZE</div>
+            </a>
+            <a class="link-item" data-search="Grok" href="#" target="_blank">
+                <div class="link-name">Grok</div>
+            </a>
+            <a class="link-item" data-search="DeepSeek" href="#" target="_blank">
+                <div class="link-name">DeepSeek</div>
+            </a>
+            <a class="link-item" data-search="Manus" href="#" target="_blank">
+                <div class="link-name">Manus</div>
+            </a>
+            <a class="link-item" data-search="Gemini" href="#" target="_blank">
+                <div class="link-name">Gemini</div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="category-section" data-category="nsfw">
+        <h2 class="category-title">NSFW</h2>
+        <div class="nav-grid">
+            <a class="link-item" data-search="紳士漫畫" href="#" target="_blank">
+                <div class="link-name">紳士漫畫</div>
+            </a>
+            <a class="link-item" data-search="哥特动漫王国" href="#" target="_blank">
+                <div class="link-name">哥特动漫王国</div>
+            </a>
+            <a class="link-item" data-search="红领巾瓜报" href="#" target="_blank">
+                <div class="link-name">红领巾瓜报</div>
+            </a>
+            <a class="link-item" data-search="Coomer" href="#" target="_blank">
+                <div class="link-name">Coomer</div>
+            </a>
+            <a class="link-item" data-search="MissAV" href="#" target="_blank">
+                <div class="link-name">MissAV</div>
+            </a>
+            <a class="link-item" data-search="海角社区" href="#" target="_blank">
+                <div class="link-name">海角社区</div>
+            </a>
+            <a class="link-item" data-search="司机社" href="#" target="_blank">
+                <div class="link-name">司机社</div>
+            </a>
+            <a class="link-item" data-search="司机社备用" href="#" target="_blank">
+                <div class="link-name">司机社备用</div>
+            </a>
+            <a class="link-item" data-search="老王论坛" href="#" target="_blank">
+                <div class="link-name">老王论坛</div>
+            </a>
+            <a class="link-item" data-search="ThisAV" href="#" target="_blank">
+                <div class="link-name">ThisAV</div>
+            </a>
+            <a class="link-item" data-search="JavDB" href="#" target="_blank">
+                <div class="link-name">JavDB</div>
+            </a>
+            <a class="link-item" data-search="JavBus" href="#" target="_blank">
+                <div class="link-name">JavBus</div>
+            </a>
+            <a class="link-item" data-search="Sleazy Fork" href="#" target="_blank">
+                <div class="link-name">Sleazy Fork</div>
+            </a>
+            <a class="link-item" data-search="Sukebei" href="#" target="_blank">
+                <div class="link-name">Sukebei</div>
+            </a>
+            <a class="link-item" data-search="ASMR Online" href="#" target="_blank">
+                <div class="link-name">ASMR Online</div>
+            </a>
+            <a class="link-item" data-search="ASMR基佬中心" href="#" target="_blank">
+                <div class="link-name">ASMR基佬中心</div>
+            </a>
+            <a class="link-item" data-search="M3U8在线播放器" href="#" target="_blank">
+                <div class="link-name">M3U8在线播放器</div>
+            </a>
+            <a class="link-item" data-search="STRIPCHAT" href="#" target="_blank">
+                <div class="link-name">STRIPCHAT</div>
+            </a>
+            <a class="link-item" data-search="稻荷GAL" href="#" target="_blank">
+                <div class="link-name">稻荷GAL</div>
+            </a>
+            <a class="link-item" data-search="网址导航" href="#" target="_blank">
+                <div class="link-name">网址导航</div>
+            </a>
+            <a class="link-item" data-search="123AV" href="#" target="_blank">
+                <div class="link-name">123AV</div>
+            </a>
+            <a class="link-item" data-search="黄色仓库" href="#" target="_blank">
+                <div class="link-name">黄色仓库</div>
+            </a>
+            <a class="link-item" data-search="禁漫天堂" href="#" target="_blank">
+                <div class="link-name">禁漫天堂</div>
+            </a>
+            <a class="link-item" data-search="海角社区" href="#" target="_blank">
+                <div class="link-name">海角社区</div>
+            </a>
+            <a class="link-item" data-search="老王论坛" href="#" target="_blank">
+                <div class="link-name">老王论坛</div>
+            </a>
+            <a class="link-item" data-search="南+" href="#" target="_blank">
+                <div class="link-name">南+</div>
+            </a>
+            <a class="link-item" data-search="草榴社區" href="#" target="_blank">
+                <div class="link-name">草榴社區</div>
+            </a>
+            <a class="link-item" data-search="梓澪の妙妙屋" href="#" target="_blank">
+                <div class="link-name">梓澪の妙妙屋</div>
+            </a>
+        </div>
+    </section>
+</main>
 
-                if (pinyinProLoaded) {
-                    // 获取完整拼音 (无声调，连续)
-                    fullPinyin = pinyinPro.pinyin(name, {
-                        toneType: 'none',
-                        separator: ' ',
-                    }).toLowerCase().replace(/\s+/g, '');
+<footer>
+    <p>本页由AI生成</p>
+</footer>
 
-                    // 获取拼音首字母 (无声调，连续)
-                    firstLetters = pinyinPro.pinyin(name, {
-                        pattern: 'first',
-                        toneType: 'none',
-                    }).toLowerCase().replace(/\s+/g, '');
-                }
-                
-                siteLinks[name] = {
-                    url: url,
-                    pinyin: fullPinyin,
-                    initials: firstLetters
-                };
+<script>
+    // 网站链接映射 - 重复链接已恢复
+    const rawSiteLinks = {
+        "百度网盘": "https://pan.baidu.com/",
+        "微博": "https://weibo.com/",
+        "Facebook": "https://www.facebook.com/",
+        "X": "https://x.com/",
+        "豆瓣": "https://www.douban.com/",
+        "微信公众平台": "https://mp.weixin.qq.com/",
+        "吾爱破解": "https://www.52pojie.cn/",
+        "V2EX": "https://v2ex.com/",
+        "懂车帝": "https://www.dongchedi.com/",
+        "itzmx": "http://bbs.itzmx.com/",
+        "NGA": "https://bbs.nga.cn/",
+        "奇客资讯网": "https://www.solidot.org/",
+        "Mrxn's Blog": "https://mrxn.net/",
+        "GitHub": "https://github.com/",
+        "酱紫表": "https://blog.qust.me/",
+        "智能电视选购网": "https://tvlabs.cn/",
+        "易车": "https://www.yiche.com/",
+        "恩山无线论坛": "https://www.right.com.cn/forum/index.php",
+        "汽车之家": "https://www.autohome.com.cn/",
+        "LINUX DO": "https://linux.do/",
+        "武林外传olWIKI": "https://wiki.biligame.com/wulinonline/%E9%A6%96%E9%A1%B5",
+        "淘宝": "https://taobao.com/",
+        "小米": "https://mi.com/",
+        "京东": "https://jd.com/",
+        "亚马逊": "https://z.cn/",
+        "12306": "https://12306.cn/",
+        "小米有品": "https://www.xiaomiyoupin.com/",
+        "小米社区": "https://www.xiaomi.cn/",
+        "APKMirror": "http://www.apkmirror.com/",
+        "APKPure": "https://apkpure.com/",
+        "游民星空": "http://www.gamersky.com/",
+        "3DMGAME": "http://www.3dmgame.com/",
+        "游侠网": "https://www.ali213.net/",
+        "悪魔的小站": "http://www.mubolin.cn:99/",
+        "Switch520": "https://laoquzhang.com",
+        "Git游戏": "https://gityx.com/",
+        "梓澪の妙妙屋": "https://zi0.cc/",
+        "FLiNG Trainer": "https://flingtrainer.com/",
+        "IGAME游戏基地": "https://sway.cloud.microsoft/Ov6azG0G1MJlFUeU",
+        "QQ音乐": "https://y.qq.com/",
+        "网易云音乐": "https://music.163.com/",
+        "耳机大家坛": "http://www.erji.net/",
+        "享乐音乐论坛": "https://www.xlebbs.com/",
+        "机核": "https://www.gcores.com/",
+        "津津乐道": "https://dao.fm/",
+        "Audio Library": "https://www.audiolibrary.com.co/",
+        "Suno": "https://app.suno.ai/",
+        "Udio": "https://www.udio.com/",
+        "pixabay": "https://pixabay.com/",
+        "wallhaven": "https://wallhaven.cc/",
+        "AXIS-Studio": "https://photo.axis-studio.org/",
+        "OSS King": "https://www.ossking.com/",
+        "YouTube": "https://www.youtube.com/",
+        "腾讯视频": "https://v.qq.com/",
+        "爱奇艺": "https://www.iqiyi.com/",
+        "优酷": "https://www.youku.com/",
+        "哔哩哔哩": "https://www.bilibili.com/",
+        "斗鱼": "https://www.douyu.com/",
+        "虎牙": "https://www.huya.com/",
+        "时光网": "http://www.mtime.com/",
+        "NO视频": "https://findno.tv/",
+        "直播吧": "http://www.zhibo8.cc/",
+        "CNTV-5": "http://tv.cntv.cn/live/cctv5/?pt=HD",
+        "人人电影网": "https://www.rrdynb.com/index.html",
+        "蜜柑计划": "https://mikanani.me/",
+        "影视仓库": "http://www.wmdz.com/index.html",
+        "VIDHUB视频库": "https://vidhub.link/",
+        "Twitch": "https://www.twitch.tv/",
+        "SOOP": "https://www.sooplive.co.kr/",
+        "FLEXTV": "https://www.flextv.co.kr/",
+        "StreamRecorder": "https://streamrecorder.io/",
+        "CHZZK": "https://chzzk.naver.com/",
+        "PandaTV": "https://www.pandalive.co.kr/",
+        "短剧库": "https://kdocs.cn/l/cntsb8OUEpHV",
+        "可可影视": "https://www.keke13.com/",
+        "低端影视": "https://ddys.info/",
+        "音范丝": "https://www.yinfans.net/",
+        "乐赏": "http://gbtgame.me/",
+        "天使动漫": "https://www.tsdm39.com/",
+        "懒得勤快": "https://ldqk.gitbook.io/",
+        "果核剥壳": "https://www.ghxi.com/",
+        "影视森林": "http://549.tv/",
+        "超能搜": "https://www.chaonengsou.com/",
+        "精品下载": "http://www.j9p.com/",
+        "ACG盒子": "https://www.acgbox.link/",
+        "云盘资源网": "https://www.yunpanziyuan.top/",
+        "RuTracker.org": "https://rutracker.net/forum/index.php",
+        "易搜": "http://yiso.eu.org/",
+        "Office Tool Plus": "https://otp.landian.vip/zh-cn/",
+        "BT之家1LOU站": "https://www.1lou.cc/",
+        "阿里云盘资源共享站": "https://pan666.net/",
+        "高清剧集网": "https://www.BTHDTV.com",
+        "ahhhhfs": "https://www.ahhhhfs.com/",
+        "智享阁": "https://www.esnpc.com/",
+        "動漫花園資源網": "https://share.dmhy.org/",
+        "爱恋动漫BT下载": "https://kisssub.org/",
+        "资料吧": "https://ziliaoba.github.io/",
+        "磁力熊": "https://www.cilixiong.org/",
+        "VirSCAN": "http://www.virscan.org/",
+        "证件照排版": "http://www.sandcomp.com/blog/sandphoto/",
+        "DeepL": "https://www.deepl.com/translator",
+        "和谐之源": "https://hunter.gitlab.io/tools/harmonious/",
+        "doyoudo": "http://www.doyoudo.com/",
+        "oeasy教程": "http://oeasy.org/",
+        "LKs Site": "http://lkssite.vip/",
+        "Privacy": "https://privacy.aiuys.com/",
+        "南京大学测速站": "https://test.nju.edu.cn/",
+        "GeoSpy": "https://geospy.ai/",
+        "海阔天空": "https://www.ahzll.top/",
+        "Buyer's Guide": "https://buyersguide.macrumors.com/",
+        "紳士漫畫": "https://www.wnacg.com/",
+        "哥特动漫王国": "https://www.gtloli.gay/",
+        "红领巾瓜报": "https://hlj.fun/",
+        "Coomer": "https://coomer.su/",
+        "MissAV": "https://missav.ai/",
+        "海角社区": "https://haijiao.com/",
+        "司机社": "https://bitbucket.org/xsijishe/yjdz/src/main/",
+        "司机社备用": "https://47447.net/",
+        "老王论坛": "https://laowang.vip",
+        "ThisAV": "https://thisav.me/",
+        "JavDB": "https://javdb.com/",
+        "JavBus": "https://www.javbus.com/",
+        "Sleazy Fork": "https://sleazyfork.org/zh-CN",
+        "Sukebei": "https://sukebei.nyaa.si/",
+        "ASMR Online": "https://www.asmr.one/works",
+        "ASMR基佬中心": "https://asmrgay.org/",
+        "M3U8在线播放器": "https://5721004.xyz/",
+        "STRIPCHAT": "https://zh.stripchat.com/",
+        "稻荷GAL": "https://inarigal.com/",
+        "网址导航": "https://southpl.us/",
+        "123AV": "https://123av.com/",
+        "黄色仓库": "https://www.hsck.la/",
+        "禁漫天堂": "https://jmcomicqa.cc/",
+        // 恢复被移除的重复链接
+        "海角社区": "https://haijiao.com/",
+        "老王论坛": "https://laowang.vip",
+        "南+": "https://south-plus.net/",
+        "草榴社區": "https://t66y.com/",
+        "梓澪の妙妙屋": "https://zi0.cc/",
+        // AI工具链接
+        "CIVITAI": "https://civitai.com/",
+        "SD提示词万用表": "https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/htmlview#",
+        "錾制法典": "https://docs.google.com/document/d/1NAVTmZXq7xRXKnFMyiAeJ2IyYN5QsgbSEaL7knv_xbs/edit",
+        "ChatGPT": "https://chat.openai.com/",
+        "Poe": "https://poe.com/",
+        "ChatGPT 引导语": "https://prompts.fresns.cn/",
+        "木瓜GPT": "https://www.papayagpt.com/",
+        "Free2gpt": "https://chato.free2gpt.xyz/",
+        "Free ChatGPT Site List": "https://github.com/xx025/carrot",
+        "COZE": "https://www.coze.com/",
+        "Grok": "https://grok.com/",
+        "DeepSeek": "https://chat.deepseek.com/",
+        "Manus": "https://manus.im/",
+        "Gemini": "https://gemini.google.com/"
+    };
+    
+    // 用于存储增强后的链接数据（包含拼音、首字母、网址）
+    const siteLinks = {};
+    
+    /**
+     * 初始化数据，为每个链接添加拼音和首字母属性，并设置 a 标签的 href。
+     */
+    function initializeSiteData() {
+        // 1. 初始化站点数据（拼音、首字母）
+        const pinyinProLoaded = typeof pinyinPro !== 'undefined' && typeof pinyinPro.pinyin !== 'undefined';
+        if (!pinyinProLoaded) {
+            console.warn("pinyin-pro 库未加载，拼音搜索功能将禁用。");
+        }
+
+        for (const name in rawSiteLinks) {
+            const url = rawSiteLinks[name];
+            
+            let fullPinyin = '';
+            let firstLetters = '';
+
+            if (pinyinProLoaded) {
+                // 获取完整拼音 (无声调，连续)
+                fullPinyin = pinyinPro.pinyin(name, {
+                    toneType: 'none',
+                    separator: ' ',
+                }).toLowerCase().replace(/\s+/g, '');
+
+                // 获取拼音首字母 (无声调，连续)
+                firstLetters = pinyinPro.pinyin(name, {
+                    pattern: 'first',
+                    toneType: 'none',
+                }).toLowerCase().replace(/\s+/g, '');
             }
             
-            // 2. 设置 a 标签的 href
-            document.querySelectorAll('a.link-item').forEach(item => {
-                const siteName = item.querySelector('.link-name').textContent;
-                const linkData = siteLinks[siteName] || { url: rawSiteLinks[siteName] };
-                if (linkData.url) {
-                    item.href = linkData.url;
-                }
-            });
-
-            console.log("站点数据初始化完成，支持拼音搜索。");
+            siteLinks[name] = {
+                url: url,
+                pinyin: fullPinyin,
+                initials: firstLetters
+            };
         }
         
-        // 在 DOM 加载后立即初始化数据
-        document.addEventListener('DOMContentLoaded', initializeSiteData);
-
-        // 搜索框清除按钮逻辑
-        const searchInput = document.getElementById('search-input');
-        const clearBtn = document.getElementById('clear-search');
-        function toggleClearBtn() {
-            if (searchInput.value) {
-                clearBtn.style.display = 'flex';
-            } else {
-                clearBtn.style.display = 'none';
+        // 2. 设置 a 标签的 href
+        document.querySelectorAll('a.link-item').forEach(item => {
+            const siteName = item.querySelector('.link-name').textContent;
+            const linkData = siteLinks[siteName] || { url: rawSiteLinks[siteName] };
+            if (linkData.url) {
+                item.href = linkData.url;
             }
-        }
-        searchInput.addEventListener('input', toggleClearBtn);
-        clearBtn.addEventListener('click', function() {
-            searchInput.value = '';
-            toggleClearBtn();
-            filterCards();
-            searchInput.focus();
         });
-        // 初始化按钮状态
+
+        console.log("站点数据初始化完成，支持拼音搜索。");
+    }
+    
+    // 在 DOM 加载后立即初始化数据
+    document.addEventListener('DOMContentLoaded', initializeSiteData);
+
+    // 搜索框清除按钮逻辑
+    const searchInput = document.getElementById('search-input');
+    const clearBtn = document.getElementById('clear-search');
+    function toggleClearBtn() {
+        if (searchInput.value) {
+            clearBtn.style.display = 'flex';
+        } else {
+            clearBtn.style.display = 'none';
+        }
+    }
+    searchInput.addEventListener('input', toggleClearBtn);
+    clearBtn.addEventListener('click', function() {
+        searchInput.value = '';
         toggleClearBtn();
-        
-        // 搜索功能
-        document.getElementById('search-input').addEventListener('input', function(e) {
-            filterCards();
-        });
-        
-        
-        function filterCards() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
-            const sections = document.querySelectorAll('.category-section');
-            const navContainer = document.getElementById('nav-container');
-            let hasVisibleResults = false;
-            let totalVisibleLinks = 0;
-            sections.forEach(section => {
-                const items = section.querySelectorAll('a.link-item');
-                let sectionHasVisibleItems = false;
-                let visibleItemsInSection = 0;
-                items.forEach(item => {
-                    const linkNameElement = item.querySelector('.link-name');
-                    const itemName = linkNameElement ? linkNameElement.textContent : '';
-                    const itemSearchText = item.getAttribute('data-search').toLowerCase();
-                    const linkData = siteLinks[itemName] || { url: rawSiteLinks[itemName], pinyin: '', initials: '' };
-                    const itemUrl = linkData.url ? linkData.url.toLowerCase() : '';
-                    const itemPinyin = linkData.pinyin;
-                    const itemInitials = linkData.initials;
-                    const matchesName = itemSearchText.includes(searchTerm);
-                    const matchesPinyin = itemPinyin.includes(searchTerm) || itemInitials.includes(searchTerm);
-                    const matchesUrl = itemUrl.replace(/^(https?:\/\/)?(www\.)?/, '').includes(searchTerm);
-                    const matchesSearch = matchesName || matchesPinyin || matchesUrl;
-                    if (matchesSearch) {
-                        item.style.display = 'flex';
-                        sectionHasVisibleItems = true;
-                        visibleItemsInSection++;
-                        hasVisibleResults = true;
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-                if (visibleItemsInSection > 0) {
-                    section.style.display = 'block';
-                    totalVisibleLinks += visibleItemsInSection;
-                } else if (searchTerm === '') {
-                    section.style.display = 'block';
-                    totalVisibleLinks += items.length;
+        filterCards();
+        searchInput.focus();
+    });
+    // 初始化按钮状态
+    toggleClearBtn();
+    
+    // 搜索功能
+    document.getElementById('search-input').addEventListener('input', function(e) {
+        filterCards();
+    });
+    
+    
+    function filterCards() {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+        const sections = document.querySelectorAll('.category-section');
+        const navContainer = document.getElementById('nav-container');
+        let hasVisibleResults = false;
+        let totalVisibleLinks = 0;
+        sections.forEach(section => {
+            const items = section.querySelectorAll('a.link-item');
+            let sectionHasVisibleItems = false;
+            let visibleItemsInSection = 0;
+            items.forEach(item => {
+                const linkNameElement = item.querySelector('.link-name');
+                const itemName = linkNameElement ? linkNameElement.textContent : '';
+                const itemSearchText = item.getAttribute('data-search').toLowerCase();
+                const linkData = siteLinks[itemName] || { url: rawSiteLinks[itemName], pinyin: '', initials: '' };
+                const itemUrl = linkData.url ? linkData.url.toLowerCase() : '';
+                const itemPinyin = linkData.pinyin;
+                const itemInitials = linkData.initials;
+                const matchesName = itemSearchText.includes(searchTerm);
+                const matchesPinyin = itemPinyin.includes(searchTerm) || itemInitials.includes(searchTerm);
+                const matchesUrl = itemUrl.replace(/^(https?:\/\/)?(www\.)?/, '').includes(searchTerm);
+                const matchesSearch = matchesName || matchesPinyin || matchesUrl;
+                if (matchesSearch) {
+                    item.style.display = 'flex';
+                    sectionHasVisibleItems = true;
+                    visibleItemsInSection++;
+                    hasVisibleResults = true;
                 } else {
-                    section.style.display = 'none';
+                    item.style.display = 'none';
                 }
             });
-            if (searchTerm !== '') {
-                navContainer.setAttribute('aria-label', `搜索结果：${totalVisibleLinks} 个链接`);
+            if (visibleItemsInSection > 0) {
+                section.style.display = 'block';
+                totalVisibleLinks += visibleItemsInSection;
+            } else if (searchTerm === '') {
+                section.style.display = 'block';
+                totalVisibleLinks += items.length;
             } else {
-                navContainer.removeAttribute('aria-label');
+                section.style.display = 'none';
             }
-            let noResultsElement = document.querySelector('.no-results');
-            if (!hasVisibleResults && searchTerm !== '') {
-                if (!noResultsElement) {
-                    noResultsElement = document.createElement('div');
-                    noResultsElement.className = 'no-results';
-                    navContainer.appendChild(noResultsElement);
-                }
-                noResultsElement.textContent = `没有找到与"${searchTerm}"相关的结果`;
-                noResultsElement.setAttribute('aria-live', 'assertive');
-            } else if (noResultsElement) {
-                noResultsElement.remove();
-            }
+        });
+        if (searchTerm !== '') {
+            navContainer.setAttribute('aria-label', `搜索结果：${totalVisibleLinks} 个链接`);
+        } else {
+            navContainer.removeAttribute('aria-label');
         }
-    </script>
-</body>
-</html>
+        let noResultsElement = document.querySelector('.no-results');
+        if (!hasVisibleResults && searchTerm !== '') {
+            if (!noResultsElement) {
+                noResultsElement = document.createElement('div');
+                noResultsElement.className = 'no-results';
+                navContainer.appendChild(noResultsElement);
+            }
+            noResultsElement.textContent = `没有找到与"${searchTerm}"相关的结果`;
+            noResultsElement.setAttribute('aria-live', 'assertive');
+        } else if (noResultsElement) {
+            noResultsElement.remove();
+        }
+    }
+</script>
