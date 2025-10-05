@@ -18,28 +18,13 @@ title: 导航
             box-sizing: border-box;
         }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-        }
-        
         /* 提升 header 的语义 */
         .page-header {
             text-align: center;
             margin-bottom: 30px;
             padding: 10px 0;
         }
-        
-        h1 {
-            font-weight: 400;
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-        }
-        
-        .subtitle {
-            font-size: 0.9rem;
-        }
-        
+
         .controls {
             display: flex;
             justify-content: center;
@@ -92,33 +77,11 @@ title: 导航
             transition: 0.2s;
         }
         
-        .category-filter {
-            padding: 10px 12px;
-            border: 1px solid; /* 保持边框结构，移除颜色 */
-            border-radius: 0;
-            font-size: 1rem;
-            cursor: pointer;
-            height: 38px;
-            min-width: 120px;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            box-shadow: none;
-            outline: none;
-            transition: 0.15s;
-            /* 保持自定义下拉箭头的定位和尺寸属性 */
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 18px 18px;
-        }
-        
         .category-section {
             margin-bottom: 40px;
         }
         
         .category-title {
-            font-size: 1.2rem;
-            font-weight: 500;
             margin-bottom: 15px;
         }
         
@@ -141,8 +104,6 @@ title: 导航
         }
 
         .link-name {
-            font-size: 0.85rem;
-            font-weight: 400;
             word-break: break-word;
             padding: 15px 10px;
         }
@@ -158,31 +119,6 @@ title: 导航
             padding: 30px;
             font-size: 1rem;
             grid-column: 1 / -1;
-        }
-
-        @media (max-width: 768px) {
-            .nav-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .nav-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            
-            .controls {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            #search-input {
-                width: 100%;
-            }
         }
     </style>
 </head>
