@@ -1,0 +1,104 @@
+---
+layout: page
+title: YY教称号勾勾册
+permalink: /pages/checklist_yy.html
+---
+
+<style>
+/* 粘贴双不死勾勾册里的所有 CSS 样式 */
+.checklist-container { max-width: 100%; margin-top: 20px; }
+.control-panel { margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.btn { padding: 8px 16px; background-color: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background-color 0.2s; white-space: nowrap; }
+.btn:hover { background-color: #555; }
+.btn-danger { background-color: #d9534f; }
+.btn-danger:hover { background-color: #c9302c; }
+.global-progress-box { margin-bottom: 25px; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #eaeaea; }
+.total-progress-bar { width: 100%; height: 10px; background-color: #e0e0e0; border-radius: 5px; overflow: hidden; margin-top: 10px; }
+.total-progress-fill { height: 100%; background-color: #4caf50; width: 0%; transition: width 0.3s ease; }
+.table-responsive { overflow-x: auto; max-height: 85vh; overflow-y: auto; border: 1px solid #eaeaea; border-radius: 8px; background: #fff; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.matrix-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 600px; }
+.matrix-table th, .matrix-table td { padding: 10px; border-bottom: 1px solid #f0f0f0; border-right: 1px solid #f9f9f9; vertical-align: middle; }
+.task-done-cell { background-color: #d1e7dd !important; transition: background-color 0.3s; }
+.matrix-table th { background-color: #fafafa; font-weight: 600; text-align: center; min-width: 160px; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); }
+.matrix-table th:first-child, .matrix-table td:first-child { position: sticky; left: 0; background-color: #fff; z-index: 2; border-right: 2px solid #eaeaea; min-width: 180px; max-width: 250px; text-align: left; }
+.matrix-table th:first-child { z-index: 20; background-color: #fafafa; }
+.category-row td { background-color: #eeeeee; font-weight: bold; color: #333; padding: 8px 15px; text-align: left; }
+.task-remark { font-size: 12px; color: #999; margin-top: 4px; font-weight: normal; }
+.counter-wrapper { display: flex; align-items: center; justify-content: center; gap: 5px; }
+.count-btn { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #ddd; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #555; padding: 0; user-select: none; }
+.count-btn:active { background-color: #e0e0e0; }
+.count-display { min-width: 30px; text-align: center; font-weight: bold; font-size: 14px; }
+.status-done { color: #0f5132; }
+.acc-header { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.acc-name-input { text-align: center; font-weight: bold; font-size: 15px; border: 1px solid transparent; background: transparent; width: 100%; padding: 2px; }
+.acc-name-input:focus { border-bottom: 1px solid #999; background: #fff; }
+.acc-progress-bar { width: 100%; height: 4px; background: #eee; border-radius: 2px; overflow: hidden; }
+.acc-progress-fill { height: 100%; background: #4caf50; width: 0%; transition: width 0.3s; }
+@media screen and (max-width: 600px) { .control-panel { flex-direction: column; align-items: stretch; } .matrix-table { font-size: 13px; } .count-btn { width: 20px; height: 20px; } }
+</style>
+
+<div class="checklist-container">
+    <div style="margin-bottom: 15px;">
+        <a href="/pages/checklist.html" style="font-size:14px; color:#666;">&lt; 返回勾勾册大厅</a>
+    </div>
+
+    <div class="control-panel">
+        <div>
+            <h2 style="font-size: 20px; font-weight: bold;">YY教称号勾勾册</h2>
+            <div style="font-size: 12px; color: #666; margin-top: 4px;">YY教相关称号获取进度</div>
+        </div>
+        <button class="btn" onclick="addAccount()">+ 新增账号</button>
+    </div>
+
+    <div class="global-progress-box">
+        <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:bold;">
+            <span>所有账号总进度</span>
+            <span id="global-progress-text">0%</span>
+        </div>
+        <div class="total-progress-bar">
+            <div id="global-progress-fill" class="total-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="matrix-table" id="checklist-table"></table>
+    </div>
+</div>
+
+<script>
+// ================= 配置区域 =================
+// 必须修改：唯一存储Key
+const STORAGE_KEY = 'checklist_data_yy';
+
+// 任务配置：在这里修改你的YY教任务
+const TASK_TEMPLATE = [
+    {
+        category: "入门任务",
+        tasks: [
+            { id: "yy_entry_1", name: "加入YY教", max: 1, remark: "获取入门资格" },
+            { id: "yy_entry_2", name: "参拜教主", max: 10, remark: "每日参拜一次" }
+        ]
+    },
+    {
+        category: "进阶称号",
+        tasks: [
+            { id: "yy_adv_1", name: "护法试炼", max: 5, remark: "通关护法副本" },
+            { id: "yy_adv_2", name: "捐献物资", max: 100, remark: "捐献贡献度" }
+        ]
+    }
+];
+// ============================================
+
+// 下面的代码与 checklist_shuangbusi.html 完全一致，直接复制即可，不需要改动
+let accounts = [];
+document.addEventListener('DOMContentLoaded', () => { loadData(); if (accounts.length === 0) { addAccount("主账号"); } else { render(); } });
+function loadData() { const data = localStorage.getItem(STORAGE_KEY); if (data) { try { accounts = JSON.parse(data); } catch (e) { accounts = []; } } }
+function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts)); render(); }
+function addAccount(name = "新账号") { const newAccount = { id: Date.now().toString(), name: name, progress: {} }; accounts.push(newAccount); saveData(); }
+function removeAccount(id) { if(confirm("确定删除该账号及其所有进度吗？")) { accounts = accounts.filter(acc => acc.id !== id); saveData(); } }
+function updateName(id, newName) { const acc = accounts.find(a => a.id === id); if (acc) { acc.name = newName; localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts)); } }
+function updateCount(accId, taskId, delta, max) { const acc = accounts.find(a => a.id === accId); if (!acc) return; if (!acc.progress[taskId]) acc.progress[taskId] = 0; let newVal = acc.progress[taskId] + delta; if (newVal < 0) newVal = 0; if (newVal > max) newVal = max; acc.progress[taskId] = newVal; const countEl = document.getElementById(`cnt-${accId}-${taskId}`); const cellEl = document.getElementById(`cell-${accId}-${taskId}`); if(countEl) { countEl.innerText = newVal; if(newVal >= max) countEl.classList.add('status-done'); else countEl.classList.remove('status-done'); } if (cellEl) { if (newVal >= max) cellEl.classList.add('task-done-cell'); else cellEl.classList.remove('task-done-cell'); } localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts)); updateProgressUI(); }
+function calculateProgress(acc) { let max = 0, current = 0; TASK_TEMPLATE.forEach(cat => { cat.tasks.forEach(task => { max += task.max; current += (acc.progress[task.id] || 0); }); }); const pct = max === 0 ? 0 : Math.round((current / max) * 100); return { current, max, pct }; }
+function updateProgressUI() { let globalTotal = 0, globalMax = 0; accounts.forEach(acc => { const stats = calculateProgress(acc); globalTotal += stats.current; globalMax += stats.max; const headPct = document.getElementById(`head-pct-${acc.id}`); const headBar = document.getElementById(`head-bar-${acc.id}`); if(headPct) headPct.innerText = `${stats.pct}%`; if(headBar) headBar.style.width = `${stats.pct}%`; }); const gPct = globalMax === 0 ? 0 : Math.round((globalTotal / globalMax) * 100); const globalText = document.getElementById('global-progress-text'); const globalFill = document.getElementById('global-progress-fill'); if(globalText) globalText.innerText = `${gPct}%`; if(globalFill) globalFill.style.width = `${gPct}%`; }
+function render() { const table = document.getElementById('checklist-table'); let theadHtml = `<thead><tr><th>任务内容</th>${accounts.map(acc => { const stats = calculateProgress(acc); return `<th><div class="acc-header"><input class="acc-name-input" value="${acc.name}" onchange="updateName('${acc.id}', this.value)" placeholder="账号名"><div style="width:100%; display:flex; justify-content:space-between; font-size:12px; color:#666;"><span id="head-pct-${acc.id}">${stats.pct}%</span><span style="cursor:pointer; color:#d9534f;" onclick="removeAccount('${acc.id}')">删除</span></div><div class="acc-progress-bar"><div id="head-bar-${acc.id}" class="acc-progress-fill" style="width:${stats.pct}%"></div></div></div></th>`; }).join('')}</tr></thead>`; let tbodyHtml = '<tbody>'; TASK_TEMPLATE.forEach(cat => { tbodyHtml += `<tr class="category-row"><td colspan="${accounts.length + 1}">${cat.category}</td></tr>`; cat.tasks.forEach(task => { tbodyHtml += `<tr><td><div style="font-weight:bold;">${task.name}</div>${task.remark ? `<div class="task-remark">${task.remark}</div>` : ''}</td>${accounts.map(acc => { const val = acc.progress[task.id] || 0; const isDone = val >= task.max; return `<td id="cell-${acc.id}-${task.id}" class="${isDone ? 'task-done-cell' : ''}"><div class="counter-wrapper"><button class="count-btn" onclick="updateCount('${acc.id}', '${task.id}', -1, ${task.max})">-</button><div><div id="cnt-${acc.id}-${task.id}" class="count-display ${isDone ? 'status-done' : ''}">${val}</div></div><button class="count-btn" onclick="updateCount('${acc.id}', '${task.id}', 1, ${task.max})">+</button></div></td>`; }).join('')}</tr>`; }); }); tbodyHtml += '</tbody>'; table.innerHTML = theadHtml + tbodyHtml; updateProgressUI(); }
+</script>

@@ -1,0 +1,93 @@
+---
+layout: page
+title: 勾勾册大厅
+permalink: /pages/checklist.html
+---
+
+<style>
+/* 导航页专用样式 */
+.checklist-nav-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.nav-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.nav-card {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none !important; /* 去掉下划线 */
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-color: #333;
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #4caf50;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="checklist-nav-container">
+    <h1 class="nav-title">请选择要管理的任务手册</h1>
+    
+    <div class="card-grid">
+        <a href="/pages/checklist_shuangbusi.html" class="nav-card">
+            <div class="card-icon">⚔️</div>
+            <div class="card-title">双不死勾勾册</div>
+            <div class="card-desc">管理北岳、西风、东木等周常与日常任务，追踪击杀计数。</div>
+        </a>
+
+        <a href="/pages/checklist_yy.html" class="nav-card">
+            <div class="card-icon">🏆</div>
+            <div class="card-title">YY教称号勾勾册</div>
+            <div class="card-desc">记录YY教相关的特殊称号获取进度与条件。</div>
+        </a>
+
+        <a href="/pages/checklist_bubai.html" class="nav-card">
+            <div class="card-icon">🔥</div>
+            <div class="card-title">不败任务勾勾册</div>
+            <div class="card-desc">追踪不败系列任务的完成情况。</div>
+        </a>
+    </div>
+</div>
