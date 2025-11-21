@@ -5,7 +5,13 @@ permalink: /pages/checklist_shuangbusi.html
 ---
 
 <style>
-/* 引用之前的样式，为了独立性，这里完整保留核心样式 */
+/* === 核心修改：强制突破全局宽度限制 === */
+body {
+    max-width: 98% !important; /* 让页面宽度占屏幕的 98% */
+    padding: 0 10px !important; /* 减少左右留白 */
+}
+
+/* 之前的样式保持不变 */
 .checklist-container { max-width: 100%; margin-top: 20px; }
 .control-panel { margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
 .btn { padding: 8px 16px; background-color: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background-color 0.2s; white-space: nowrap; }
@@ -67,10 +73,8 @@ permalink: /pages/checklist_shuangbusi.html
 
 <script>
 // ================= 配置区域 =================
-// 数据存储的唯一标识，不同页面这里必须不一样
 const STORAGE_KEY = 'checklist_data_shuangbusi';
 
-// 任务列表配置 (双不死专用)
 const TASK_TEMPLATE = [
     {
         category: "统计项",
@@ -185,7 +189,6 @@ function updateCount(accId, taskId, delta, max) {
     if (newVal > max) newVal = max;
     acc.progress[taskId] = newVal;
     
-    // 局部更新UI
     const countEl = document.getElementById(`cnt-${accId}-${taskId}`);
     const cellEl = document.getElementById(`cell-${accId}-${taskId}`);
     

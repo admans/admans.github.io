@@ -5,7 +5,13 @@ permalink: /pages/checklist_yy.html
 ---
 
 <style>
-/* 粘贴双不死勾勾册里的所有 CSS 样式 */
+/* === 核心修改：强制突破全局宽度限制 === */
+body {
+    max-width: 98% !important;
+    padding: 0 10px !important;
+}
+
+/* 样式与 shuangbusi.html 相同 */
 .checklist-container { max-width: 100%; margin-top: 20px; }
 .control-panel { margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
 .btn { padding: 8px 16px; background-color: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background-color 0.2s; white-space: nowrap; }
@@ -67,10 +73,8 @@ permalink: /pages/checklist_yy.html
 
 <script>
 // ================= 配置区域 =================
-// 必须修改：唯一存储Key
 const STORAGE_KEY = 'checklist_data_yy';
 
-// 任务配置：在这里修改你的YY教任务
 const TASK_TEMPLATE = [
     {
         category: "入门任务",
@@ -89,7 +93,6 @@ const TASK_TEMPLATE = [
 ];
 // ============================================
 
-// 下面的代码与 checklist_shuangbusi.html 完全一致，直接复制即可，不需要改动
 let accounts = [];
 document.addEventListener('DOMContentLoaded', () => { loadData(); if (accounts.length === 0) { addAccount("主账号"); } else { render(); } });
 function loadData() { const data = localStorage.getItem(STORAGE_KEY); if (data) { try { accounts = JSON.parse(data); } catch (e) { accounts = []; } } }

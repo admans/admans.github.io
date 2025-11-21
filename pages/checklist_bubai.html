@@ -5,7 +5,13 @@ permalink: /pages/checklist_bubai.html
 ---
 
 <style>
-/* 请再次复制 CSS 样式 */
+/* === 核心修改：强制突破全局宽度限制 === */
+body {
+    max-width: 98% !important;
+    padding: 0 10px !important;
+}
+
+/* 样式与 shuangbusi.html 相同 */
 .checklist-container { max-width: 100%; margin-top: 20px; }
 .control-panel { margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
 .btn { padding: 8px 16px; background-color: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background-color 0.2s; white-space: nowrap; }
@@ -67,10 +73,8 @@ permalink: /pages/checklist_bubai.html
 
 <script>
 // ================= 配置区域 =================
-// 必须修改：唯一存储Key
 const STORAGE_KEY = 'checklist_data_bubai';
 
-// 任务配置
 const TASK_TEMPLATE = [
     {
         category: "不败挑战",
@@ -82,7 +86,6 @@ const TASK_TEMPLATE = [
 ];
 // ============================================
 
-// JS 逻辑与之前一致
 let accounts = [];
 document.addEventListener('DOMContentLoaded', () => { loadData(); if (accounts.length === 0) { addAccount("主账号"); } else { render(); } });
 function loadData() { const data = localStorage.getItem(STORAGE_KEY); if (data) { try { accounts = JSON.parse(data); } catch (e) { accounts = []; } } }
