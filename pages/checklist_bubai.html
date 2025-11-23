@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 不败任务勾勾册
+title: 不败战神勾勾册
 permalink: /pages/checklist_bubai.html
 ---
 
@@ -11,36 +11,60 @@ body {
     padding: 0 10px !important;
 }
 
-/* 样式与 shuangbusi.html 相同 */
-.checklist-container { max-width: 100%; margin-top: 20px; }
+/* 基础样式 */
+.checklist-container { max-width: 100%; margin-top: 20px; font-family: "Microsoft YaHei", sans-serif; }
 .control-panel { margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
 .btn { padding: 8px 16px; background-color: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background-color 0.2s; white-space: nowrap; }
 .btn:hover { background-color: #555; }
 .btn-danger { background-color: #d9534f; }
 .btn-danger:hover { background-color: #c9302c; }
+
+/* 进度条样式 */
 .global-progress-box { margin-bottom: 25px; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #eaeaea; }
 .total-progress-bar { width: 100%; height: 10px; background-color: #e0e0e0; border-radius: 5px; overflow: hidden; margin-top: 10px; }
 .total-progress-fill { height: 100%; background-color: #4caf50; width: 0%; transition: width 0.3s ease; }
+
+/* 表格样式 */
 .table-responsive { overflow-x: auto; max-height: 85vh; overflow-y: auto; border: 1px solid #eaeaea; border-radius: 8px; background: #fff; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 .matrix-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 600px; }
 .matrix-table th, .matrix-table td { padding: 10px; border-bottom: 1px solid #f0f0f0; border-right: 1px solid #f9f9f9; vertical-align: middle; }
+
+/* 完成状态与锁定状态 */
 .task-done-cell { background-color: #d1e7dd !important; transition: background-color 0.3s; }
+.cell-locked { background-color: #f9f9f9 !important; color: #ccc; cursor: not-allowed; position: relative; }
+.cell-locked .counter-wrapper { opacity: 0.3; pointer-events: none; }
+.lock-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 5; }
+.lock-icon { font-size: 18px; color: #999; cursor: help; }
+
+/* 表头固定 */
 .matrix-table th { background-color: #fafafa; font-weight: 600; text-align: center; min-width: 160px; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); }
-.matrix-table th:first-child, .matrix-table td:first-child { position: sticky; left: 0; background-color: #fff; z-index: 2; border-right: 2px solid #eaeaea; min-width: 180px; max-width: 250px; text-align: left; }
+.matrix-table th:first-child, .matrix-table td:first-child { position: sticky; left: 0; background-color: #fff; z-index: 2; border-right: 2px solid #eaeaea; min-width: 240px; max-width: 320px; text-align: left; }
 .matrix-table th:first-child { z-index: 20; background-color: #fafafa; }
-.category-row td { background-color: #eeeeee; font-weight: bold; color: #333; padding: 8px 15px; text-align: left; }
-.task-remark { font-size: 12px; color: #999; margin-top: 4px; font-weight: normal; }
+
+/* 分类标题 */
+.category-row td { background-color: #eeeeee; font-weight: bold; color: #333; padding: 8px 15px; text-align: left; border-top: 2px solid #ddd; }
+.task-remark { font-size: 12px; color: #999; margin-top: 4px; font-weight: normal; line-height: 1.4; }
+
+/* 计数器控件 */
 .counter-wrapper { display: flex; align-items: center; justify-content: center; gap: 5px; }
 .count-btn { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #ddd; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #555; padding: 0; user-select: none; }
 .count-btn:active { background-color: #e0e0e0; }
+.count-btn:disabled { background-color: #eee; color: #ccc; cursor: not-allowed; }
 .count-display { min-width: 30px; text-align: center; font-weight: bold; font-size: 14px; }
 .status-done { color: #0f5132; }
+
+/* 账号表头 */
 .acc-header { display: flex; flex-direction: column; gap: 6px; align-items: center; }
 .acc-name-input { text-align: center; font-weight: bold; font-size: 15px; border: 1px solid transparent; background: transparent; width: 100%; padding: 2px; }
 .acc-name-input:focus { border-bottom: 1px solid #999; background: #fff; }
 .acc-progress-bar { width: 100%; height: 4px; background: #eee; border-radius: 2px; overflow: hidden; }
 .acc-progress-fill { height: 100%; background: #4caf50; width: 0%; transition: width 0.3s; }
-@media screen and (max-width: 600px) { .control-panel { flex-direction: column; align-items: stretch; } .matrix-table { font-size: 13px; } .count-btn { width: 20px; height: 20px; } }
+
+@media screen and (max-width: 600px) { 
+    .control-panel { flex-direction: column; align-items: stretch; } 
+    .matrix-table { font-size: 13px; } 
+    .count-btn { width: 20px; height: 20px; } 
+}
 </style>
 
 <div class="checklist-container">
@@ -50,8 +74,7 @@ body {
 
     <div class="control-panel">
         <div>
-            <h2 style="font-size: 20px; font-weight: bold;">不败任务勾勾册</h2>
-            <div style="font-size: 12px; color: #666; margin-top: 4px;">不败系列任务追踪</div>
+            <h2 style="font-size: 20px; font-weight: bold;">不败战神勾勾册</h2>
         </div>
         <button class="btn" onclick="addAccount()">+ 新增账号</button>
     </div>
@@ -73,18 +96,198 @@ body {
 
 <script>
 // ================= 配置区域 =================
+
 const STORAGE_KEY = 'checklist_data_bubai';
+
+// === 颜色配置区域 ===
+const COLOR_TITLE_GREEN  = "#6CFB4B";   // 绿色称号颜色
+const COLOR_TITLE_PURPLE = "#B22AE3";   // 紫色称号颜色
+const COLOR_TITLE_GOLD   = "black";     // 不败战神称号颜色
+
+// 辅助函数
+const titleSpan = (text, color) => `<span style="color: ${color}; font-weight: bold; text-shadow: 0px 0px 1px rgba(0,0,0,0.1);">&lt;${text}&gt;</span>`;
+
+// ================= 任务定义与依赖关系 =================
+// req: ['id1', 'id2'] 表示必须完成 id1 和 id2 (达到最大值) 才能解锁当前任务
 
 const TASK_TEMPLATE = [
     {
-        category: "不败挑战",
+        category: "第一阶段：白色任务 (一共40个，每个做10次)",
         tasks: [
-            { id: "bubai_1", name: "完成不败试炼I", max: 1, remark: "" },
-            { id: "bubai_2", name: "完成不败试炼II", max: 1, remark: "" }
+            { id: "w_1", name: "麻衣复苏", max: 10, remark: "沙盗士兵*75" },
+            { id: "w_2", name: "密查麻衣教", max: 10, remark: "铜矿*5, 粗皮*10, 细线*10, 普通皮*10" },
+            { id: "w_3", name: "计诱麻衣", max: 10, remark: "沙盗刺客*75" },
+            { id: "w_4", name: "麻衣神石", max: 10, remark: "抗沉默石*10, 抗缓慢石*10, 抗睡眠石*10, YY神石*5" },
+            { id: "w_5", name: "蠢蠢欲动的梨花教", max: 10, remark: "沙盗女士兵*75" },
+            { id: "w_6", name: "梨花教徒", max: 10, remark: "玄蛇之皮*50, 鲛人之泪*50, 麻布*10, 命中石*5" },
+            { id: "w_7", name: "勾结梨花", max: 10, remark: "沙盗巫师*75" },
+            { id: "w_8", name: "潜入梨花教", max: 10, remark: "抗眩晕石*10, 抗缠绕石*10, 抗虚弱石*10, 冰晶石*10" },
+            { id: "w_9", name: "沉寂的丐帮", max: 10, remark: "沙盗统领*75" },
+            { id: "w_10", name: "丐帮的需要", max: 10, remark: "水之晶*5, 金之晶*5, 土之晶*5, 木之晶*5" },
+            { id: "w_11", name: "丐帮绝杀", max: 10, remark: "修罗骑兵*50" },
+            { id: "w_12", name: "重整丐帮", max: 10, remark: "铁矿*10, 白金矿*10, 龙皮*10, 绢布*10" },
+            { id: "w_13", name: "保龙的躁动", max: 10, remark: "沙盗女士兵*30, 沙盗刺客*50" },
+            { id: "w_14", name: "保龙的计谋", max: 10, remark: "金丝*10, 龙皮*10, 水晶*10, 必胜阁月饼*5" },
+            { id: "w_15", name: "保龙密入黑暗皇城", max: 10, remark: "修罗步兵*50" },
+            { id: "w_16", name: "试探保龙", max: 10, remark: "抗眩晕石*10, 抗缠绕石*10, 抗睡眠石*10, 命中石*5" },
+            { id: "w_17", name: "武林盟的行动", max: 10, remark: "沙盗巫师*75" },
+            { id: "w_18", name: "武林盟的困扰", max: 10, remark: "粗皮*10, 麻布*10, 细线*10, 铁矿*10" },
+            { id: "w_19", name: "暗助武林盟", max: 10, remark: "沙魔*75" },
+            { id: "w_20", name: "武林盟的朋友", max: 10, remark: "抗眩晕石*10, 抗缓慢石*10, 抗沉默石*10, 请神符(3小时)*1" },
+            { id: "w_21", name: "神秘的YY教主", max: 10, remark: "沙盗骑兵*75" },
+            { id: "w_22", name: "YY教的虔诚信徒", max: 10, remark: "楚流香*50, YY教主宝训*10, 抗沉默石*10, 水晶*10" },
+            { id: "w_23", name: "YY教徒的行动", max: 10, remark: "修罗弓手*50" },
+            { id: "w_24", name: "无处不YY", max: 10, remark: "龙皮*10, 杉*10, 金丝*10, 抗睡眠石*10" },
+            { id: "w_25", name: "五毒教被疑", max: 10, remark: "沙盗统领*75" },
+            { id: "w_26", name: "五毒散", max: 10, remark: "冰晶石*10, 黄玉*10, 水晶*10, 抗眩晕石*10" },
+            { id: "w_27", name: "怪异的五毒教", max: 10, remark: "沙漠巨石怪*75" },
+            { id: "w_28", name: "五毒教财宝", max: 10, remark: "水晶*10, 抗缠绕石*10, 抗虚弱石*10, 抗睡眠石*10" },
+            { id: "w_29", name: "魔教隐遁", max: 10, remark: "沙盗巫师*75" },
+            { id: "w_30", name: "魔教长老", max: 10, remark: "白金矿*10, 杉*10, 金丝*10, 龙皮*10" },
+            { id: "w_31", name: "魔教战修罗", max: 10, remark: "修罗步兵*50" },
+            { id: "w_32", name: "魔教魔功", max: 10, remark: "抗眩晕石*10, 抗缓慢石*10, 抗睡眠石*10, YY神石*5" },
+            { id: "w_33", name: "幽灵偷袭", max: 10, remark: "沙盗统领*75" },
+            { id: "w_34", name: "幽灵祭坛", max: 10, remark: "绢布*10, 铁矿*10, 龙皮*10, 粗皮*10" },
+            { id: "w_35", name: "反击幽灵", max: 10, remark: "沙魔*75" },
+            { id: "w_36", name: "封印幽灵", max: 10, remark: "抗眩晕石*10, 抗睡眠石*10, 抗缓慢石*10, 闪躲石*10" },
+            { id: "w_37", name: "京龙迁徙", max: 10, remark: "沙盗骑兵*75" },
+            { id: "w_38", name: "京龙之事", max: 10, remark: "水晶*20, 铁砂*20, 树根*20, 黄玉*10" },
+            { id: "w_39", name: "另类京龙帮", max: 10, remark: "沙盗统领*75" },
+            { id: "w_40", name: "京龙帮庆典", max: 10, remark: "麦得劳*2, 油爆枇杷*2, 必胜阁*2, YY神石*5" }
+        ]
+    },
+    {
+        category: "第二阶段：绿色称号激活 (各做1次)",
+        tasks: [
+            { id: "ga_1", req: ["w_1"], name: "麻衣之服饰", max: 1, remark: "前置: 麻衣复苏*10" },
+            { id: "ga_2", req: ["w_2"], name: "麻衣之争端", max: 1, remark: "前置: 密查麻衣教*10" },
+            { id: "ga_3", req: ["w_3"], name: "麻衣之灵石", max: 1, remark: "前置: 计诱麻衣*10" },
+            { id: "ga_4", req: ["w_4"], name: "麻衣之辉煌", max: 1, remark: "前置: 麻衣神石*10" },
+            { id: "ga_5", req: ["w_5"], name: "梨花·教徽", max: 1, remark: "前置: 蠢蠢欲动的梨花教*10" },
+            { id: "ga_6", req: ["w_6"], name: "梨花·飘飘", max: 1, remark: "前置: 梨花教徒*10" },
+            { id: "ga_7", req: ["w_7"], name: "梨花·晶莹", max: 1, remark: "前置: 勾结梨花*10" },
+            { id: "ga_8", req: ["w_8"], name: "梨花·争斗", max: 1, remark: "前置: 潜入梨花教*10" },
+            { id: "ga_9", req: ["w_9"], name: "丐帮储备", max: 1, remark: "前置: 沉寂的丐帮*10" },
+            { id: "ga_10", req: ["w_10"], name: "丐帮杀敌", max: 1, remark: "前置: 丐帮的需要*10" },
+            { id: "ga_11", req: ["w_11"], name: "晶石救丐帮", max: 1, remark: "前置: 丐帮绝杀*10" },
+            { id: "ga_12", req: ["w_12"], name: "丐帮攻修罗", max: 1, remark: "前置: 重整丐帮*10" },
+            { id: "ga_13", req: ["w_13"], name: "保龙第一美女", max: 1, remark: "前置: 保龙的躁动*10" },
+            { id: "ga_14", req: ["w_14"], name: "保龙追踪", max: 1, remark: "前置: 保龙的计谋*10" },
+            { id: "ga_15", req: ["w_15"], name: "龙族传说", max: 1, remark: "前置: 保龙密入黑暗皇城*10" },
+            { id: "ga_16", req: ["w_16"], name: "保龙神力", max: 1, remark: "前置: 试探保龙*10" },
+            { id: "ga_17", req: ["w_17"], name: "武林盟节日", max: 1, remark: "前置: 武林盟的行动*10" },
+            { id: "ga_18", req: ["w_18"], name: "武林盟部署", max: 1, remark: "前置: 武林盟的困扰*10" },
+            { id: "ga_19", req: ["w_19"], name: "武林盟的五行术", max: 1, remark: "前置: 暗助武林盟*10" },
+            { id: "ga_20", req: ["w_20"], name: "武林盟神弓", max: 1, remark: "前置: 武林盟的朋友*10" },
+            { id: "ga_21", req: ["w_21"], name: "恭贺YY教主", max: 1, remark: "前置: 神秘的YY教主*10" },
+            { id: "ga_22", req: ["w_22"], name: "YY教主遇刺", max: 1, remark: "前置: YY教的虔诚信徒*10" },
+            { id: "ga_23", req: ["w_23"], name: "炼制YY神石", max: 1, remark: "前置: YY教徒的行动*10" },
+            { id: "ga_24", req: ["w_24"], name: "YY教神威", max: 1, remark: "前置: 无处不YY*10" },
+            { id: "ga_25", req: ["w_25"], name: "五毒教的毒物", max: 1, remark: "前置: 五毒教被疑*10" },
+            { id: "ga_26", req: ["w_26"], name: "五毒药刺客", max: 1, remark: "前置: 五毒散*10" },
+            { id: "ga_27", req: ["w_27"], name: "五毒生烟", max: 1, remark: "前置: 怪异的五毒教*10" },
+            { id: "ga_28", req: ["w_28"], name: "五毒碎巨石", max: 1, remark: "前置: 五毒教财宝*10" },
+            { id: "ga_29", req: ["w_29"], name: "魔教采购", max: 1, remark: "前置: 魔教隐遁*10" },
+            { id: "ga_30", req: ["w_30"], name: "魔教斩沙盗", max: 1, remark: "前置: 魔教长老*10" },
+            { id: "ga_31", req: ["w_31"], name: "魔教秘杀修罗", max: 1, remark: "前置: 魔教战修罗*10" },
+            { id: "ga_32", req: ["w_32"], name: "魔教的准备", max: 1, remark: "前置: 魔教魔功*10" },
+            { id: "ga_33", req: ["w_33"], name: "加固幽灵船", max: 1, remark: "前置: 幽灵偷袭*10" },
+            { id: "ga_34", req: ["w_34"], name: "幽灵附魔", max: 1, remark: "前置: 幽灵祭坛*10" },
+            { id: "ga_35", req: ["w_35"], name: "幽灵船的玄机", max: 1, remark: "前置: 反击幽灵*10" },
+            { id: "ga_36", req: ["w_36"], name: "幽灵逆袭", max: 1, remark: "前置: 封印幽灵*10" },
+            { id: "ga_37", req: ["w_37"], name: "京龙帮的谋划", max: 1, remark: "前置: 京龙迁徙*10" },
+            { id: "ga_38", req: ["w_38"], name: "京龙挑衅沙盗", max: 1, remark: "前置: 京龙之事*10" },
+            { id: "ga_39", req: ["w_39"], name: "收买京龙帮", max: 1, remark: "前置: 另类京龙帮*10" },
+            { id: "ga_40", req: ["w_40"], name: "京龙屠沙", max: 1, remark: "前置: 京龙帮庆典*10" }
+        ]
+    },
+    {
+        category: "第三阶段：绿色称号任务 (各做1次)",
+        tasks: [
+            { id: "gt_1", req: ["ga_1","ga_2","ga_3","ga_4"], name: `鼎盛 ${titleSpan('决战九霄', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_2", req: ["ga_5","ga_6","ga_7","ga_8"], name: `烦忧 ${titleSpan('罄声悠悠', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_3", req: ["ga_9","ga_10","ga_11","ga_12"], name: `仇杀 ${titleSpan('惊天动地', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_4", req: ["ga_13","ga_14","ga_15","ga_16"], name: `秘闻 ${titleSpan('直上云天', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_5", req: ["ga_17","ga_18","ga_19","ga_20"], name: `龙腾 ${titleSpan('霸王之气', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_6", req: ["ga_21","ga_22","ga_23","ga_24"], name: `密谋 ${titleSpan('孤岛琴音', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_7", req: ["ga_25","ga_26","ga_27","ga_28"], name: `杀机 ${titleSpan('盘旋九天', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_8", req: ["ga_29","ga_30","ga_31","ga_32"], name: `虫毒 ${titleSpan('无敌的寂寞', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_9", req: ["ga_33","ga_34","ga_35","ga_36"], name: `魔魂附体 ${titleSpan('玉面达摩', COLOR_TITLE_GREEN)}`, max: 1, remark: "" },
+            { id: "gt_10", req: ["ga_37","ga_38","ga_39","ga_40"], name: `夙愿 ${titleSpan('如沐春风', COLOR_TITLE_GREEN)}`, max: 1, remark: "" }
+        ]
+    },
+    {
+        category: "第四阶段：绿色任务 (各做5次)",
+        tasks: [
+            { id: "g_1", req: ["gt_1"], name: "梦中的麻衣圣女", max: 5, remark: `需要: ${titleSpan('决战九霄', COLOR_TITLE_GREEN)}` },
+            { id: "g_2", req: ["gt_2"], name: "梨花悔悟", max: 5, remark: `需要: ${titleSpan('罄声悠悠', COLOR_TITLE_GREEN)}` },
+            { id: "g_3", req: ["gt_3"], name: "京龙帮疑案", max: 5, remark: `需要: ${titleSpan('惊天动地', COLOR_TITLE_GREEN)}` },
+            { id: "g_4", req: ["gt_4"], name: "丐帮的经济危机", max: 5, remark: `需要: ${titleSpan('直上云天', COLOR_TITLE_GREEN)}` },
+            { id: "g_5", req: ["gt_4"], name: "保龙一族的秘密", max: 5, remark: `需要: ${titleSpan('直上云天', COLOR_TITLE_GREEN)}` },
+            { id: "g_6", req: ["gt_5"], name: "武林盟圣物", max: 5, remark: `需要: ${titleSpan('霸王之气', COLOR_TITLE_GREEN)}` },
+            { id: "g_7", req: ["gt_6"], name: "YY战法", max: 5, remark: `需要: ${titleSpan('孤岛琴音', COLOR_TITLE_GREEN)}` },
+            { id: "g_8", req: ["gt_8"], name: "五毒散配方", max: 5, remark: `需要: ${titleSpan('无敌的寂寞', COLOR_TITLE_GREEN)}` },
+            { id: "g_9", req: ["gt_9"], name: "魔教突袭幽灵船", max: 5, remark: `需要: ${titleSpan('玉面达摩', COLOR_TITLE_GREEN)}` },
+            { id: "g_10", req: ["gt_10"], name: "幽灵也疯狂", max: 5, remark: `需要: ${titleSpan('如沐春风', COLOR_TITLE_GREEN)}` }
+        ]
+    },
+    {
+        category: "第五阶段：紫色称号激活 (各做1次)",
+        tasks: [
+            { id: "pa_1", req: ["g_1"], name: "麻衣教怪节", max: 1, remark: "前置: 梦中的麻衣圣女*5" },
+            { id: "pa_2", req: ["g_2"], name: "梨花再现", max: 1, remark: "前置: 梨花悔悟*5" },
+            { id: "pa_3", req: ["g_3"], name: "京龙的收藏", max: 1, remark: "前置: 京龙帮疑案*5" },
+            { id: "pa_4", req: ["g_4"], name: "丐帮之威", max: 1, remark: "前置: 丐帮的经济危机*5" },
+            { id: "pa_5", req: ["g_5"], name: "保龙族龙魂", max: 1, remark: "前置: 保龙一族的秘密*5" },
+            { id: "pa_6", req: ["g_6"], name: "武林盟之杀气", max: 1, remark: "前置: 武林盟圣物*5" },
+            { id: "pa_7", req: ["g_7"], name: "YY教之神石", max: 1, remark: "前置: YY战法*5" },
+            { id: "pa_8", req: ["g_8"], name: "五毒显威", max: 1, remark: "前置: 五毒散配方*5" },
+            { id: "pa_9", req: ["g_9"], name: "多变魔教", max: 1, remark: "前置: 魔教突袭幽灵船*5" },
+            { id: "pa_10", req: ["g_10"], name: "灭杀幽灵", max: 1, remark: "前置: 幽灵也疯狂*5" }
+        ]
+    },
+    {
+        category: "第六阶段：紫色称号任务 (各做1次)",
+        tasks: [
+            { id: "pt_1", req: ["pa_6","pa_8"], name: `淡然 ${titleSpan('擎天玉柱', COLOR_TITLE_PURPLE)}`, max: 1, remark: "前置: 武林盟之杀气+五毒显威" },
+            { id: "pt_2", req: ["pa_1","pa_4"], name: `狂杀 ${titleSpan('战之雄魂', COLOR_TITLE_PURPLE)}`, max: 1, remark: "前置: 麻衣教怪节+丐帮之威" },
+            { id: "pt_3", req: ["pa_2","pa_7"], name: `晶魂 ${titleSpan('剑胆琴心', COLOR_TITLE_PURPLE)}`, max: 1, remark: "前置: 梨花再现+YY教之神石" },
+            { id: "pt_4", req: ["pa_3","pa_5"], name: `飞龙初现 ${titleSpan('闹海金龙', COLOR_TITLE_PURPLE)}`, max: 1, remark: "前置: 京龙的收藏+保龙族龙魂" },
+            { id: "pt_5", req: ["pa_9","pa_10"], name: `伺机而动 ${titleSpan('绝命神州', COLOR_TITLE_PURPLE)}`, max: 1, remark: "前置: 多变魔教+灭杀幽灵" }
+        ]
+    },
+    {
+        category: "第七阶段：紫色任务 (各做5次)",
+        tasks: [
+            { id: "p_1", req: ["pt_4"], name: "保龙热血", max: 5, remark: `需要: ${titleSpan('闹海金龙', COLOR_TITLE_PURPLE)}` },
+            { id: "p_2", req: ["pt_1"], name: "武林盟的决定", max: 5, remark: `需要: ${titleSpan('擎天玉柱', COLOR_TITLE_PURPLE)}` },
+            { id: "p_3", req: ["pt_2"], name: "麻衣之怒", max: 5, remark: `需要: ${titleSpan('战之雄魂', COLOR_TITLE_PURPLE)}` },
+            { id: "p_4", req: ["pt_5"], name: "魔教再入幽灵船", max: 5, remark: `需要: ${titleSpan('绝命神州', COLOR_TITLE_PURPLE)}` },
+            { id: "p_5", req: ["pt_3"], name: "YY教主降临", max: 5, remark: `需要: ${titleSpan('剑胆琴心', COLOR_TITLE_PURPLE)}` }
+        ]
+    },
+    {
+        category: "第八阶段：不败称号激活 (各做1次)",
+        tasks: [
+            { id: "ua_1", req: ["p_3"], name: "麻衣惹麻烦", max: 1, remark: "前置: 麻衣之怒*5" },
+            { id: "ua_2", req: ["p_2"], name: "武林盟夺船", max: 1, remark: "前置: 武林盟的决定*5" },
+            { id: "ua_3", req: ["p_5"], name: "YY幽灵船", max: 1, remark: "前置: YY教主降临*5" },
+            { id: "ua_4", req: ["p_1"], name: "保龙战幽灵", max: 1, remark: "前置: 保龙热血*5" },
+            { id: "ua_5", req: ["p_4"], name: "魔教VS幽灵", max: 1, remark: "前置: 魔教再入幽灵船*5" }
+        ]
+    },
+    {
+        category: "第九阶段：不败战神 (各做1次)",
+        tasks: [
+            { id: "u_1", req: ["ua_1","ua_2","ua_3","ua_4","ua_5"], name: `荣誉 ${titleSpan('不败战神', COLOR_TITLE_GOLD)}`, max: 1, remark: "集齐5个激活任务" }
         ]
     }
 ];
+
 // ============================================
+// 快速查找表，用于反查任务详情
+const ID_MAP = {};
+TASK_TEMPLATE.forEach(cat => cat.tasks.forEach(t => ID_MAP[t.id] = t));
 
 let accounts = [];
 document.addEventListener('DOMContentLoaded', () => { loadData(); if (accounts.length === 0) { addAccount("主账号"); } else { render(); } });
@@ -93,8 +296,110 @@ function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts)
 function addAccount(name = "新账号") { const newAccount = { id: Date.now().toString(), name: name, progress: {} }; accounts.push(newAccount); saveData(); }
 function removeAccount(id) { if(confirm("确定删除该账号及其所有进度吗？")) { accounts = accounts.filter(acc => acc.id !== id); saveData(); } }
 function updateName(id, newName) { const acc = accounts.find(a => a.id === id); if (acc) { acc.name = newName; localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts)); } }
-function updateCount(accId, taskId, delta, max) { const acc = accounts.find(a => a.id === accId); if (!acc) return; if (!acc.progress[taskId]) acc.progress[taskId] = 0; let newVal = acc.progress[taskId] + delta; if (newVal < 0) newVal = 0; if (newVal > max) newVal = max; acc.progress[taskId] = newVal; const countEl = document.getElementById(`cnt-${accId}-${taskId}`); const cellEl = document.getElementById(`cell-${accId}-${taskId}`); if(countEl) { countEl.innerText = newVal; if(newVal >= max) countEl.classList.add('status-done'); else countEl.classList.remove('status-done'); } if (cellEl) { if (newVal >= max) cellEl.classList.add('task-done-cell'); else cellEl.classList.remove('task-done-cell'); } localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts)); updateProgressUI(); }
-function calculateProgress(acc) { let max = 0, current = 0; TASK_TEMPLATE.forEach(cat => { cat.tasks.forEach(task => { max += task.max; current += (acc.progress[task.id] || 0); }); }); const pct = max === 0 ? 0 : Math.round((current / max) * 100); return { current, max, pct }; }
-function updateProgressUI() { let globalTotal = 0, globalMax = 0; accounts.forEach(acc => { const stats = calculateProgress(acc); globalTotal += stats.current; globalMax += stats.max; const headPct = document.getElementById(`head-pct-${acc.id}`); const headBar = document.getElementById(`head-bar-${acc.id}`); if(headPct) headPct.innerText = `${stats.pct}%`; if(headBar) headBar.style.width = `${stats.pct}%`; }); const gPct = globalMax === 0 ? 0 : Math.round((globalTotal / globalMax) * 100); const globalText = document.getElementById('global-progress-text'); const globalFill = document.getElementById('global-progress-fill'); if(globalText) globalText.innerText = `${gPct}%`; if(globalFill) globalFill.style.width = `${gPct}%`; }
-function render() { const table = document.getElementById('checklist-table'); let theadHtml = `<thead><tr><th>任务内容</th>${accounts.map(acc => { const stats = calculateProgress(acc); return `<th><div class="acc-header"><input class="acc-name-input" value="${acc.name}" onchange="updateName('${acc.id}', this.value)" placeholder="账号名"><div style="width:100%; display:flex; justify-content:space-between; font-size:12px; color:#666;"><span id="head-pct-${acc.id}">${stats.pct}%</span><span style="cursor:pointer; color:#d9534f;" onclick="removeAccount('${acc.id}')">删除</span></div><div class="acc-progress-bar"><div id="head-bar-${acc.id}" class="acc-progress-fill" style="width:${stats.pct}%"></div></div></div></th>`; }).join('')}</tr></thead>`; let tbodyHtml = '<tbody>'; TASK_TEMPLATE.forEach(cat => { tbodyHtml += `<tr class="category-row"><td colspan="${accounts.length + 1}">${cat.category}</td></tr>`; cat.tasks.forEach(task => { tbodyHtml += `<tr><td><div style="font-weight:bold;">${task.name}</div>${task.remark ? `<div class="task-remark">${task.remark}</div>` : ''}</td>${accounts.map(acc => { const val = acc.progress[task.id] || 0; const isDone = val >= task.max; return `<td id="cell-${acc.id}-${task.id}" class="${isDone ? 'task-done-cell' : ''}"><div class="counter-wrapper"><button class="count-btn" onclick="updateCount('${acc.id}', '${task.id}', -1, ${task.max})">-</button><div><div id="cnt-${acc.id}-${task.id}" class="count-display ${isDone ? 'status-done' : ''}">${val}</div></div><button class="count-btn" onclick="updateCount('${acc.id}', '${task.id}', 1, ${task.max})">+</button></div></td>`; }).join('')}</tr>`; }); }); tbodyHtml += '</tbody>'; table.innerHTML = theadHtml + tbodyHtml; updateProgressUI(); }
+
+// 检查任务依赖是否满足
+function checkRequirements(acc, taskId) {
+    const task = ID_MAP[taskId];
+    if (!task || !task.req || task.req.length === 0) return { locked: false };
+
+    for (let reqId of task.req) {
+        const reqTask = ID_MAP[reqId];
+        const prog = acc.progress[reqId] || 0;
+        if (prog < reqTask.max) {
+            // 去掉HTML标签获取纯文本名字用于提示
+            const tmpDiv = document.createElement("div");
+            tmpDiv.innerHTML = reqTask.name;
+            return { locked: true, missing: tmpDiv.innerText.trim() };
+        }
+    }
+    return { locked: false };
+}
+
+function updateCount(accId, taskId, delta, max) { 
+    const acc = accounts.find(a => a.id === accId);
+    if (!acc) return;
+    
+    // 检查锁定
+    const status = checkRequirements(acc, taskId);
+    if (status.locked) {
+        alert(`🔒 任务锁定\n请先完成前置任务：${status.missing}`);
+        return;
+    }
+
+    if (!acc.progress[taskId]) acc.progress[taskId] = 0; 
+    let newVal = acc.progress[taskId] + delta; 
+    if (newVal < 0) newVal = 0; 
+    if (newVal > max) newVal = max; 
+    acc.progress[taskId] = newVal; 
+    
+    saveData();
+}
+
+function calculateProgress(acc) { 
+    let max = 0, current = 0; 
+    TASK_TEMPLATE.forEach(cat => { 
+        cat.tasks.forEach(task => { 
+            max += task.max; 
+            current += (acc.progress[task.id] || 0); 
+        }); 
+    }); 
+    const pct = max === 0 ? 0 : Math.round((current / max) * 100); 
+    return { current, max, pct }; 
+}
+
+function updateProgressUI() { 
+    let globalTotal = 0, globalMax = 0; 
+    accounts.forEach(acc => { 
+        const stats = calculateProgress(acc); 
+        globalTotal += stats.current; 
+        globalMax += stats.max; 
+        const headPct = document.getElementById(`head-pct-${acc.id}`); 
+        const headBar = document.getElementById(`head-bar-${acc.id}`); 
+        if(headPct) headPct.innerText = `${stats.pct}%`; 
+        if(headBar) headBar.style.width = `${stats.pct}%`; 
+    }); 
+    const gPct = globalMax === 0 ? 0 : Math.round((globalTotal / globalMax) * 100); 
+    const globalText = document.getElementById('global-progress-text'); 
+    const globalFill = document.getElementById('global-progress-fill'); 
+    if(globalText) globalText.innerText = `${gPct}%`; 
+    if(globalFill) globalFill.style.width = `${gPct}%`; 
+}
+
+function render() { 
+    const table = document.getElementById('checklist-table'); 
+    let theadHtml = `<thead><tr><th>任务内容</th>${accounts.map(acc => { 
+        const stats = calculateProgress(acc); 
+        return `<th><div class="acc-header"><input class="acc-name-input" value="${acc.name}" onchange="updateName('${acc.id}', this.value)" placeholder="账号名"><div style="width:100%; display:flex; justify-content:space-between; font-size:12px; color:#666;"><span id="head-pct-${acc.id}">${stats.pct}%</span><span style="cursor:pointer; color:#d9534f;" onclick="removeAccount('${acc.id}')">删除</span></div><div class="acc-progress-bar"><div id="head-bar-${acc.id}" class="acc-progress-fill" style="width:${stats.pct}%"></div></div></div></th>`; 
+    }).join('')}</tr></thead>`; 
+    
+    let tbodyHtml = '<tbody>'; 
+    
+    TASK_TEMPLATE.forEach((cat) => { 
+        tbodyHtml += `<tr class="category-row"><td colspan="${accounts.length + 1}">${cat.category}</td></tr>`; 
+        
+        cat.tasks.forEach(task => { 
+            tbodyHtml += `<tr><td><div style="font-weight:bold;">${task.name}</div>${task.remark ? `<div class="task-remark">${task.remark}</div>` : ''}</td>${accounts.map(acc => { 
+                const val = acc.progress[task.id] || 0; 
+                const isDone = val >= task.max; 
+                
+                // 核心逻辑：检查前置任务
+                const status = checkRequirements(acc, task.id);
+
+                if (status.locked) {
+                    // 锁定状态显示
+                    return `<td class="cell-locked" title="需要前置：${status.missing}">
+                        <div class="lock-overlay"><span class="lock-icon" onclick="alert('🔒 任务锁定\\n请先完成前置任务：${status.missing}')">🔒</span></div>
+                        <div class="counter-wrapper"><button class="count-btn" disabled>-</button><div><div class="count-display">0</div></div><button class="count-btn" disabled>+</button></div>
+                    </td>`;
+                }
+
+                return `<td id="cell-${acc.id}-${task.id}" class="${isDone ? 'task-done-cell' : ''}"><div class="counter-wrapper"><button class="count-btn" onclick="updateCount('${acc.id}', '${task.id}', -1, ${task.max})">-</button><div><div id="cnt-${acc.id}-${task.id}" class="count-display ${isDone ? 'status-done' : ''}">${val}</div></div><button class="count-btn" onclick="updateCount('${acc.id}', '${task.id}', 1, ${task.max})">+</button></div></td>`; 
+            }).join('')}</tr>`; 
+        }); 
+    }); 
+    
+    tbodyHtml += '</tbody>'; 
+    table.innerHTML = theadHtml + tbodyHtml; 
+    updateProgressUI(); 
+}
 </script>
