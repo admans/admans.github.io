@@ -5,71 +5,96 @@ permalink: /pages/checklist.html
 ---
 
 <style>
-/* 导航页专用样式 */
+/* === 视觉统一化：基准风格 (参照 Medal 页面) === */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .checklist-nav-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
 .nav-title {
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 40px;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 50px;
     color: #333;
+    letter-spacing: 1px;
 }
 
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-card {
     background: #fff;
-    border: 1px solid #eaeaea;
+    border: none; /* 移除旧边框 */
     border-radius: 12px;
-    padding: 25px;
+    padding: 30px 25px;
     text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.08); /* 统一阴影 */
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    text-decoration: none !important; /* 去掉下划线 */
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
 }
 
 .nav-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    border-color: #333;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* 装饰性顶条 */
+.nav-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #eaeaea;
+    transition: background 0.3s;
+}
+
+.nav-card:hover::before {
+    background: #4caf50; /* 悬停变绿 */
 }
 
 .card-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
+    font-size: 48px;
+    margin-bottom: 20px;
     color: #4caf50;
 }
 
 .card-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 8px;
+    color: #2c3e50;
+    margin-bottom: 10px;
 }
 
 .card-desc {
     font-size: 14px;
-    color: #666;
-    line-height: 1.5;
+    color: #7f8c8d;
+    line-height: 1.6;
 }
 
 </style>
 
 <div class="checklist-nav-container">
     <h1 class="nav-title">请选择要管理的任务手册</h1>
+    
+    <div class="card-grid">
         <a href="/pages/checklist_yy.html" class="nav-card">
             <div class="card-icon">🔮</div>
             <div class="card-title">YY教称号勾勾册</div>

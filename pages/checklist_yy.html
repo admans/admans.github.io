@@ -5,55 +5,98 @@ permalink: /pages/checklist_yy.html
 ---
 
 <style>
-/* === 核心修改：强制突破全局宽度限制 === */
+/* === 视觉统一化：YY教版 === */
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
     max-width: 98% !important;
     padding: 0 10px !important;
 }
 
-/* 样式容器 */
 .checklist-container { max-width: 100%; margin-top: 20px; }
-.control-panel { margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.back-link { font-size: 14px; color: #666; text-decoration: none; display: inline-block; margin-bottom: 15px; }
+.back-link:hover { color: #333; }
 
-/* 按钮组样式优化 */
+/* 面板卡片 */
+.panel-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #eaeaea;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .btn-group { display: flex; gap: 10px; }
-.btn { padding: 8px 16px; background-color: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background-color 0.2s; white-space: nowrap; }
+.btn {
+    padding: 8px 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
 .btn:hover { background-color: #555; }
-/* 红色危险按钮样式 */
-.btn-danger { background-color: #d9534f; }
-.btn-danger:hover { background-color: #c9302c; }
+.btn-danger { color: #d9534f; background: none; border: 1px solid #eee; }
+.btn-danger:hover { background: #ffebee; border-color: #d9534f; color: #c9302c; }
 
-/* 进度条区域 */
-.global-progress-box { margin-bottom: 25px; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #eaeaea; }
-.total-progress-bar { width: 100%; height: 10px; background-color: #e0e0e0; border-radius: 5px; overflow: hidden; margin-top: 10px; }
+/* 进度条 */
+.total-progress-bar { width: 100%; height: 8px; background-color: #f0f0f0; border-radius: 4px; overflow: hidden; margin-top: 10px; }
 .total-progress-fill { height: 100%; background-color: #4caf50; width: 0%; transition: width 0.3s ease; }
 
 /* 表格区域 */
-.table-responsive { overflow-x: auto; max-height: 85vh; overflow-y: auto; border: 1px solid #eaeaea; border-radius: 8px; background: #fff; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.table-responsive {
+    overflow-x: auto;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    background: #fff;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+}
 .matrix-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 600px; }
 .matrix-table th, .matrix-table td { padding: 10px; border-bottom: 1px solid #f0f0f0; border-right: 1px solid #f9f9f9; vertical-align: middle; }
 
-/* 完成状态样式 */
-.task-done-cell { background-color: #d1e7dd !important; transition: background-color 0.3s; }
+/* 完成状态 */
+.task-done-cell { background-color: #e8f5e9 !important; transition: background-color 0.3s; }
 
 /* 冻结行列 */
-.matrix-table th { background-color: #fafafa; font-weight: 600; text-align: center; min-width: 160px; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); }
+.matrix-table th { background-color: #fafafa; font-weight: 600; text-align: center; min-width: 160px; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.05); }
 .matrix-table th:first-child, .matrix-table td:first-child { position: sticky; left: 0; background-color: #fff; z-index: 2; border-right: 2px solid #eaeaea; min-width: 200px; max-width: 280px; text-align: left; }
 .matrix-table th:first-child { z-index: 20; background-color: #fafafa; }
 
-/* 任务行样式 */
-.category-row td { background-color: #eeeeee; font-weight: bold; color: #333; padding: 8px 15px; text-align: left; }
+/* 任务行样式 (淡蓝分类) */
+.category-row td { 
+    background-color: #e3f2fd; 
+    font-weight: bold; 
+    color: #1565c0; 
+    padding: 10px 15px; 
+    text-align: left; 
+    border-top: 1px solid #bbdefb;
+}
+
 .task-name { font-weight: bold; font-size: 14px; color: #333; line-height: 1.6; }
 .task-remark { font-size: 12px; color: #888; margin-top: 4px; font-weight: normal; line-height: 1.6; }
 
 /* 账号头部 */
 .acc-header { display: flex; flex-direction: column; gap: 6px; align-items: center; }
-.acc-name-input { text-align: center; font-weight: bold; font-size: 15px; border: 1px solid transparent; background: transparent; width: 100%; padding: 2px; }
-.acc-name-input:focus { border-bottom: 1px solid #999; background: #fff; }
+.acc-name-input { text-align: center; font-weight: bold; font-size: 15px; border: none; border-bottom: 1px solid transparent; background: transparent; width: 100%; padding: 2px; transition: border 0.3s; }
+.acc-name-input:focus { border-bottom: 1px solid #4caf50; outline: none; }
 .acc-progress-bar { width: 100%; height: 4px; background: #eee; border-radius: 2px; overflow: hidden; }
 .acc-progress-fill { height: 100%; background: #4caf50; width: 0%; transition: width 0.3s; }
 
-/* 复选框样式 */
+/* 复选框 */
 .checkbox-wrapper { display: flex; align-items: center; justify-content: center; height: 100%; }
 .custom-checkbox { width: 20px; height: 20px; cursor: pointer; accent-color: #4caf50; }
 
@@ -61,13 +104,13 @@ body {
 </style>
 
 <div class="checklist-container">
-    <div style="margin-bottom: 15px;">
-        <a href="/pages/checklist.html" style="font-size:14px; color:#666;">&lt; 返回勾勾册大厅</a>
+    <div>
+        <a href="/pages/checklist.html" class="back-link">&lt; 返回勾勾册大厅</a>
     </div>
 
-    <div class="control-panel">
+    <div class="panel-card control-panel">
         <div>
-            <h2 style="font-size: 20px; font-weight: bold;">YY教称号勾勾册</h2>
+            <h2 style="margin:0; font-size: 20px; font-weight: bold; color: #333;">🔮 YY教称号勾勾册</h2>
             <div style="font-size: 12px; color: #666; margin-top: 4px;">YY教相关称号获取进度（勾选即完成）</div>
         </div>
         <div class="btn-group">
@@ -76,10 +119,10 @@ body {
         </div>
     </div>
 
-    <div class="global-progress-box">
-        <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:bold;">
+    <div class="panel-card">
+        <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:bold; color: #555;">
             <span>所有账号总进度</span>
-            <span id="global-progress-text">0%</span>
+            <span id="global-progress-text" style="color:#4caf50;">0%</span>
         </div>
         <div class="total-progress-bar">
             <div id="global-progress-fill" class="total-progress-fill"></div>
@@ -95,10 +138,8 @@ body {
 // ================= 配置区域 =================
 const STORAGE_KEY = 'checklist_data_yy_titles';
 
-// 数据来源：YY教称号.xlsx
-// 使用说明：在 nameColor 和 remarkColor 字段中输入颜色代码即可
-// 自动优化：如果输入了浅色(如 white, #efce9e 等)，系统会自动添加深色背景以保证可见性
 const TASK_TEMPLATE = [
+    // ... (任务数据保持不变) ...
     {
         category: "YY教称号大全",
         tasks: [
@@ -167,7 +208,8 @@ const TASK_TEMPLATE = [
         ]
     }
 ];
-// ============================================
+
+// ... (后续脚本逻辑保持原样) ...
 
 let accounts = [];
 
@@ -213,7 +255,6 @@ function removeAccount(id) {
     }
 }
 
-// === 新增：重置所有数据函数 ===
 function resetAll() {
     if(confirm("确定要清空所有账号和进度数据吗？此操作无法恢复！")) {
         localStorage.removeItem(STORAGE_KEY);
@@ -229,20 +270,16 @@ function updateName(id, newName) {
     }
 }
 
-// 切换任务状态（0 或 1）
 function toggleTask(accId, taskId) {
     const acc = accounts.find(a => a.id === accId);
     if (!acc) return;
     
-    // 初始化进度
     if (typeof acc.progress[taskId] === 'undefined') acc.progress[taskId] = 0;
     
-    // 切换状态
     const currentVal = acc.progress[taskId];
     const newVal = currentVal >= 1 ? 0 : 1;
     acc.progress[taskId] = newVal;
     
-    // 更新UI样式（优化性能，不重绘整个表格，只更新当前单元格）
     const cellEl = document.getElementById(`cell-${accId}-${taskId}`);
     const checkEl = document.getElementById(`check-${accId}-${taskId}`);
     
@@ -261,7 +298,7 @@ function calculateProgress(acc) {
     let max = 0, current = 0;
     TASK_TEMPLATE.forEach(cat => {
         cat.tasks.forEach(task => {
-            max += 1; // 每个任务最大值为1
+            max += 1; 
             current += (acc.progress[task.id] && acc.progress[task.id] >= 1) ? 1 : 0;
         });
     });
@@ -294,7 +331,6 @@ function updateProgressUI() {
 function render() {
     const table = document.getElementById('checklist-table');
     
-    // 构建表头
     let theadHtml = `<thead><tr><th>称号 / 任务</th>${accounts.map(acc => {
         const stats = calculateProgress(acc);
         return `
@@ -312,41 +348,31 @@ function render() {
             </th>`;
     }).join('')}</tr></thead>`;
     
-    // 构建表体
     let tbodyHtml = '<tbody>';
     
-    // 渲染辅助函数：如果颜色是浅色，则增加深色背景
     const getStyle = (color) => {
         if (!color) return '';
-        // 可以在这里添加所有在白底上看不清的颜色
         const lightColors = ['white', '#efce9e', '#6cfb4b']; 
         if (lightColors.includes(color.toLowerCase())) {
-            // 返回带深灰色背景的样式 (display:inline-block 确保背景只包裹文字)
             return `style="color:${color}; background-color: #444; padding: 1px 4px; border-radius: 3px; display:inline-block;"`;
         }
         return `style="color:${color}"`;
     };
 
     TASK_TEMPLATE.forEach(cat => {
-        // 分类行
         tbodyHtml += `<tr class="category-row"><td colspan="${accounts.length + 1}">${cat.category}</td></tr>`;
         
-        // 任务行
         cat.tasks.forEach(task => {
-            // 获取处理后的样式（含颜色和可能背景）
             const nameStyle = getStyle(task.nameColor);
             const remarkStyle = getStyle(task.remarkColor);
             
-            // 特殊处理 remark: 将“相关任务：”分离出来不加颜色
             let remarkHtml = '';
             if (task.remark) {
                 const prefix = "相关任务：";
                 if (task.remark.startsWith(prefix)) {
                     const content = task.remark.substring(prefix.length);
-                    // 前缀使用默认样式，内容使用自定义样式
                     remarkHtml = `<div class="task-remark">${prefix}<span ${remarkStyle}>${content}</span></div>`;
                 } else {
-                    // 如果不是以“相关任务：”开头，则整体应用样式
                     remarkHtml = `<div class="task-remark"><span ${remarkStyle}>${task.remark}</span></div>`;
                 }
             }
